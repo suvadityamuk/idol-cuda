@@ -156,6 +156,39 @@ A fast step is 77-79 ms against 125 ms for the compiled default. Everything trie
 (CUDA graphs, FP8 attention, FlashAttention-2), is in [docs/ab-log.md](docs/ab-log.md); the profile that motivated it
 is in [docs/profile.md](docs/profile.md).
 
+## Optimizations: where the time went
+
+Sampling is 93% of a request with the official compiled pipeline (6.1 s of 6.6 s), and the GPU is busy 99% of that
+time, so the time had to come out of the work itself, not out of launch overhead. Per sampling step (both guidance
+passes), robot, 262,144 Gaussians, H200, each build measured interleaved in one process:
+
+| step | what changed | ms per step | saved per step | error added |
+|---|---|---:|---:|---|
+| official, eager | | 185.8 | | |
+| official, compiled (the baseline) | | 125.0 | | |
+| 1 + 2 | **Stop recomputing.** The context stream runs once per request instead of 100 times; time embedding, noise refiner and camera refiner run once per step instead of twice. **Fused kernels** replace the chains Inductor emits: residual + LayerNorm + modulation in one pass, RePo angles + RoPE + q/k RMSNorm in one pass, bias + GELU in the GEMM epilogue instead of a second pass over a 24,588 x 4,096 matrix | 113.5 | 11.5 (1.09x) | per call closer to the eager official output than the compiled default is |
+| 3 | **One context token in the unconditional pass.** Its 4,101 context tokens are identical (zero image features), so attention sees one token with weight 4,101. The unconditional pass attends over 8,193 keys instead of 12,294, in 26 layers | 89.7 | 23.8 (1.27x) | per-call error unchanged to 2 digits; final latent rel. 1.57e-2 against 1.18e-2 (robot) |
+| 4 | **FlashAttention-3** (Hopper) instead of cuDNN attention, which was 65% of sampling | 77.4 | 12.3 (1.17x) | per-call error equal or smaller; final latent rel. 6.95e-3 (robot), 5.63e-3 (avocado) |
+
+Over 50 steps that is 125.0 → 77.4 ms, 1.62x, or about 2.4 s off a 6.6 s request: 0.6 s from reuse and fusion,
+1.2 s from the one-token unconditional pass, 0.6 s from FlashAttention-3. On the avocado FlashAttention-3 gives
+79.1 against 88.8 ms (1.12x).
+
+Outside the sampler:
+
+- **Octree sampling**: 0.035 s instead of 0.11-0.21 s. The official loop syncs with `.item()` per count (GPU busy
+  12% of its wall time); the replacement draws one random number per level and has no loop.
+- **Gaussian activations and `.ply` columns** are written by one kernel and the file in one write: about 0.1 s
+  against 0.1-0.2 s.
+
+Tried and dropped, with the measurement:
+
+| idea | result |
+|---|---|
+| FlashAttention-2 (PyTorch's and flash-attn 2.8.3) | 106.6 and 106.9 ms per step against 89.7 with cuDNN: slower |
+| CUDA graph over a whole step | 4.655 against 4.471 s for 50 steps: 4% slower (the GPU was already 99% busy) |
+| FP8 attention | 71.7 against 75.7 ms per step, but the final latent moved by rel. 0.287: rejected on quality |
+
 ## Benchmark
 
 <picture>
