@@ -1,0 +1,5 @@
+idol_native: build=parity device=NVIDIA H200 (sm_90) torch=2.10.0 cudnn=91501
+loaded in 29.83 s
+dump written: /work/parity_out/robot_262k.safetensors (960 tensors)
+request 0: 13.709 s  peak_alloc 4.67 GB  peak_reserved 5.97 GB
+robot_262k: /work/parity_out/robot_262k.ply

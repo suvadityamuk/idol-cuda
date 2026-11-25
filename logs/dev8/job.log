@@ -1,0 +1,128 @@
+== Wed Nov 25 06:40:29 UTC 2026 host j-suvadityamuk-6b06824ed0582cfbbefdd36d-zdifm4zx-b08aa-b9tqq nproc 192 run /scratch/runs/20261125-064029-dev8
+idol-sdk 8db700349a5570aac390e4780fa32e3eed6b587a
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+spin 0.16 requires click!=8.3.0,<8.4,>=8, but you have click 8.5.1 which is incompatible.
+  DEPRECATION: Setting PIP_CONSTRAINT will not affect build constraints in the future, pip 26.2 will enforce this behaviour change. A possible replacement is to specify build constraints using --build-constraint or PIP_BUILD_CONSTRAINT. To disable this warning without any build constraints set --use-feature=build-constraint or PIP_USE_FEATURE="build-constraint".
+torch 2.10.0+cu130 cuda 13.0 cudnn 91501
+torchvision 0.25.0+cu130 transformers 5.24.1 diffusers 0.43.0
+pillow 13.0.0 numpy 2.5.5 tensordict 0.14.3 flash_attn 2.8.3
+NVIDIA H200, 595.112.07
+flash-attn3 kernel cached
+FA3_SO=/root/.cache/huggingface/hub/kernels--kernels-community--flash-attn3/snapshots/7cb368cf8278b583132eb72cbf312d54586df2e2/build/torch-stable-abi29-cu130-x86_64-linux/_flash_attn3_cuda_0f52d9d.abi3.so
+step  0 fast             v_cond rel 7.329e-04 (max 7.03e-03)  v_uncond rel 5.964e-04  guided rel 1.333e-03  bit-equal c/u False/False
+step  0 fast_fa3         v_cond rel 6.642e-04 (max 5.59e-03)  v_uncond rel 5.845e-04  guided rel 1.220e-03  bit-equal c/u False/False
+step  0 ref_compiled     v_cond rel 8.930e-04 (max 8.86e-03)  v_uncond rel 8.602e-04  guided rel 1.663e-03  bit-equal c/u False/False
+step  0 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step  1 fast             v_cond rel 7.579e-04 (max 1.44e-02)  v_uncond rel 5.410e-04  guided rel 1.462e-03  bit-equal c/u False/False
+step  1 fast_fa3         v_cond rel 7.360e-04 (max 1.61e-02)  v_uncond rel 5.434e-04  guided rel 1.419e-03  bit-equal c/u False/False
+step  1 ref_compiled     v_cond rel 1.043e-03 (max 1.50e-02)  v_uncond rel 8.169e-04  guided rel 1.900e-03  bit-equal c/u False/False
+step  1 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 10 fast             v_cond rel 9.792e-04 (max 3.21e-02)  v_uncond rel 7.985e-04  guided rel 3.583e-03  bit-equal c/u False/False
+step 10 fast_fa3         v_cond rel 9.760e-04 (max 2.11e-02)  v_uncond rel 8.192e-04  guided rel 3.570e-03  bit-equal c/u False/False
+step 10 ref_compiled     v_cond rel 1.376e-03 (max 5.72e-02)  v_uncond rel 1.235e-03  guided rel 4.758e-03  bit-equal c/u False/False
+step 10 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 25 fast             v_cond rel 1.236e-03 (max 6.16e-02)  v_uncond rel 1.083e-03  guided rel 5.062e-03  bit-equal c/u False/False
+step 25 fast_fa3         v_cond rel 1.196e-03 (max 4.28e-02)  v_uncond rel 1.106e-03  guided rel 4.890e-03  bit-equal c/u False/False
+step 25 ref_compiled     v_cond rel 1.750e-03 (max 1.76e-01)  v_uncond rel 1.522e-03  guided rel 6.660e-03  bit-equal c/u False/False
+step 25 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 49 fast             v_cond rel 2.270e-03 (max 1.95e-02)  v_uncond rel 2.153e-03  guided rel 8.357e-03  bit-equal c/u False/False
+step 49 fast_fa3         v_cond rel 2.291e-03 (max 3.62e-02)  v_uncond rel 2.153e-03  guided rel 8.453e-03  bit-equal c/u False/False
+step 49 ref_compiled     v_cond rel 3.181e-03 (max 3.38e-02)  v_uncond rel 3.017e-03  guided rel 1.001e-02  bit-equal c/u False/False
+step 49 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+time/step fast             median    90.53 ms  min    86.20  max    94.35
+time/step fast_fa3         median    77.39 ms  min    76.05  max    78.50
+time/step ref_compiled     median   125.01 ms  min   120.66  max   127.61
+time/step ref_eager        median   185.59 ms  min   183.55  max   187.89
+e2e fast graph=False: latent rel 1.566e-02 max 2.67e+00  sampling 4.458 s  (second None)
+e2e fast graph=True: latent rel 1.566e-02 max 2.67e+00  sampling 4.655 s  (second 4.651990521000698)
+e2e fast_fa3 graph=False: latent rel 6.952e-03 max 6.96e-01  sampling 4.006 s  (second None)
+e2e fast_fa3 graph=True: latent rel 6.952e-03 max 6.96e-01  sampling 4.144 s  (second 4.126988642005017)
+step  0 fast             v_cond rel 6.452e-04 (max 4.56e-03)  v_uncond rel 5.964e-04  guided rel 1.702e-03  bit-equal c/u False/False
+step  0 fast_fa3         v_cond rel 6.275e-04 (max 4.36e-03)  v_uncond rel 5.845e-04  guided rel 1.643e-03  bit-equal c/u False/False
+step  0 ref_compiled     v_cond rel 8.502e-04 (max 5.41e-03)  v_uncond rel 8.602e-04  guided rel 2.152e-03  bit-equal c/u False/False
+step  0 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step  1 fast             v_cond rel 6.425e-04 (max 4.70e-03)  v_uncond rel 5.431e-04  guided rel 1.496e-03  bit-equal c/u False/False
+step  1 fast_fa3         v_cond rel 6.472e-04 (max 4.67e-03)  v_uncond rel 5.444e-04  guided rel 1.503e-03  bit-equal c/u False/False
+step  1 ref_compiled     v_cond rel 8.594e-04 (max 6.48e-03)  v_uncond rel 8.751e-04  guided rel 1.843e-03  bit-equal c/u False/False
+step  1 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 10 fast             v_cond rel 9.047e-04 (max 2.19e-02)  v_uncond rel 8.223e-04  guided rel 3.429e-03  bit-equal c/u False/False
+step 10 fast_fa3         v_cond rel 8.978e-04 (max 2.25e-02)  v_uncond rel 8.193e-04  guided rel 3.386e-03  bit-equal c/u False/False
+step 10 ref_compiled     v_cond rel 1.259e-03 (max 3.37e-02)  v_uncond rel 1.229e-03  guided rel 4.458e-03  bit-equal c/u False/False
+step 10 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 25 fast             v_cond rel 1.071e-03 (max 3.67e-02)  v_uncond rel 9.888e-04  guided rel 4.445e-03  bit-equal c/u False/False
+step 25 fast_fa3         v_cond rel 1.058e-03 (max 3.46e-02)  v_uncond rel 9.833e-04  guided rel 4.392e-03  bit-equal c/u False/False
+step 25 ref_compiled     v_cond rel 1.433e-03 (max 4.68e-02)  v_uncond rel 1.390e-03  guided rel 5.340e-03  bit-equal c/u False/False
+step 25 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 49 fast             v_cond rel 2.142e-03 (max 3.98e-02)  v_uncond rel 2.023e-03  guided rel 8.102e-03  bit-equal c/u False/False
+step 49 fast_fa3         v_cond rel 2.125e-03 (max 2.16e-02)  v_uncond rel 2.025e-03  guided rel 8.072e-03  bit-equal c/u False/False
+step 49 ref_compiled     v_cond rel 2.933e-03 (max 3.30e-02)  v_uncond rel 2.775e-03  guided rel 9.611e-03  bit-equal c/u False/False
+step 49 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+time/step fast             median    88.84 ms  min    83.73  max    95.64
+time/step fast_fa3         median    79.10 ms  min    76.60  max    79.95
+time/step ref_compiled     median   125.28 ms  min   122.78  max   130.31
+time/step ref_eager        median   186.29 ms  min   184.08  max   189.17
+e2e fast graph=False: latent rel 4.282e-03 max 3.53e-01  sampling 4.480 s  (second None)
+e2e fast graph=True: latent rel 4.282e-03 max 3.53e-01  sampling 4.651 s  (second 4.636216616010643)
+e2e fast_fa3 graph=False: latent rel 5.627e-03 max 3.73e-01  sampling 3.961 s  (second None)
+e2e fast_fa3 graph=True: latent rel 5.627e-03 max 3.73e-01  sampling 4.129 s  (second 4.1312397869915)
+error: dlopen /root/.cache/huggingface/hub/kernels--kernels-community--flash-attn3/snapshots/7cb368cf8278b583132eb72cbf312d54586df2e2/build/torch-stable-abi29-cu130-x86_64-linux/_flash_attn3_cuda_0f52d9d.abi3.so: undefined symbol: PyModule_Create2
+Traceback (most recent call last):
+  File "/work/idol-cuda/tools/closeness.py", line 69, in <module>
+    r = compare(a.ref, a.cand, a.cand_camera)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/idol-cuda/tools/closeness.py", line 44, in compare
+    R, Cd = load_file(ref), load_file(cand)
+                            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/safetensors/torch.py", line 359, in load_file
+    with safe_open(filename, framework="pt", device=device, backend=backend) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: No such file or directory: /work/n8/robot_262k_nfast.safetensors
+{"request_s": 5.999881848998484, "stages": {"preprocess": 0.6786941320024198, "encoders": 0.5353011900006095, "sampling": 4.004520863003563, "octree": 0.6710269339964725, "gs_decoder": 0.1094809100031
+{"request_s": 4.247464073996525, "stages": {"preprocess": 0.13655196399486158, "encoders": 0.0774777710030321, "sampling": 3.9547769600030733, "octree": 0.036152369997580536, "gs_decoder": 0.042168535
+{"latent_rel_l2": 0.006951999691645824, "latent_max_abs": 0.6957880258560181, "latent_mean_abs": 0.002411580758324039, "camera_abs_err": [0.00031680316166959877, 0.0004239685809429832, 0.0024990676475167284, 0.045418008685032873], "chamfer_xyz": 0.0016883767614768175, "n_gaussians": [262144, 262144]}
+error: dlopen /root/.cache/huggingface/hub/kernels--kernels-community--flash-attn3/snapshots/7cb368cf8278b583132eb72cbf312d54586df2e2/build/torch-stable-abi29-cu130-x86_64-linux/_flash_attn3_cuda_0f52d9d.abi3.so: undefined symbol: PyModule_Create2
+Traceback (most recent call last):
+  File "/work/idol-cuda/tools/closeness.py", line 69, in <module>
+    r = compare(a.ref, a.cand, a.cand_camera)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/idol-cuda/tools/closeness.py", line 44, in compare
+    R, Cd = load_file(ref), load_file(cand)
+                            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/safetensors/torch.py", line 359, in load_file
+    with safe_open(filename, framework="pt", device=device, backend=backend) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: No such file or directory: /work/n8/avocado_262k_nfast.safetensors
+{"request_s": 5.446527567997691, "stages": {"preprocess": 0.6543702779890737, "encoders": 0.24658257199916989, "sampling": 4.006899187006638, "octree": 0.42914674899657257, "gs_decoder": 0.10888641800
+{"request_s": 4.262343016991508, "stages": {"preprocess": 0.1525341859960463, "encoders": 0.07735379300720524, "sampling": 3.9525759509997442, "octree": 0.03653250199567992, "gs_decoder": 0.0429193180
+{"latent_rel_l2": 0.0056269778960742495, "latent_max_abs": 0.37281882762908936, "latent_mean_abs": 0.0030372553481404774, "camera_abs_err": [0.0009878218969687769, 0.0002130602911930568, 0.017608812175254673, 0.17852410920077233], "chamfer_xyz": 0.0018861909255783182, "n_gaussians": [262144, 262144]}
+error: dlopen /root/.cache/huggingface/hub/kernels--kernels-community--flash-attn3/snapshots/7cb368cf8278b583132eb72cbf312d54586df2e2/build/torch-stable-abi29-cu130-x86_64-linux/_flash_attn3_cuda_0f52d9d.abi3.so: undefined symbol: PyModule_Create2
+Traceback (most recent call last):
+  File "/work/idol-cuda/tools/closeness.py", line 69, in <module>
+    r = compare(a.ref, a.cand, a.cand_camera)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/idol-cuda/tools/closeness.py", line 44, in compare
+    R, Cd = load_file(ref), load_file(cand)
+                            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/safetensors/torch.py", line 359, in load_file
+    with safe_open(filename, framework="pt", device=device, backend=backend) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: No such file or directory: /work/n8/robot_1m_nfast.safetensors
+{"request_s": 5.6468405190098565, "stages": {"preprocess": 0.6282711890089558, "encoders": 0.21255798600031994, "sampling": 4.005166681992705, "octree": 0.4658174810028868, "gs_decoder": 0.33396173300
+{"request_s": 4.501317979011219, "stages": {"preprocess": 0.14630180000676773, "encoders": 0.07801114200265147, "sampling": 3.960741754999617, "octree": 0.04509597898868378, "gs_decoder": 0.2705733000
+{"latent_rel_l2": 0.006951999691645824, "latent_max_abs": 0.6957880258560181, "latent_mean_abs": 0.002411580758324039, "camera_abs_err": [0.00031680316166959877, 0.0004239685809429832, 0.0024990676475167284, 0.045418008685032873], "chamfer_xyz": 0.001009536021561076, "n_gaussians": [1048576, 1048576]}
+error: dlopen /root/.cache/huggingface/hub/kernels--kernels-community--flash-attn3/snapshots/7cb368cf8278b583132eb72cbf312d54586df2e2/build/torch-stable-abi29-cu130-x86_64-linux/_flash_attn3_cuda_0f52d9d.abi3.so: undefined symbol: PyModule_Create2
+Traceback (most recent call last):
+  File "/work/idol-cuda/tools/closeness.py", line 69, in <module>
+    r = compare(a.ref, a.cand, a.cand_camera)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/idol-cuda/tools/closeness.py", line 44, in compare
+    R, Cd = load_file(ref), load_file(cand)
+                            ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/safetensors/torch.py", line 359, in load_file
+    with safe_open(filename, framework="pt", device=device, backend=backend) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: No such file or directory: /work/n8/avocado_1m_nfast.safetensors
+{"request_s": 5.742940138996346, "stages": {"preprocess": 0.734767895002733, "encoders": 0.24329204799141735, "sampling": 4.0012735729978886, "octree": 0.43582251301268116, "gs_decoder": 0.32642731699
+{"request_s": 4.51435844298976, "stages": {"preprocess": 0.16358232399215922, "encoders": 0.07794817299873102, "sampling": 3.954317855008412, "octree": 0.04767881899897475, "gs_decoder": 0.27016163599
+{"latent_rel_l2": 0.0056269778960742495, "latent_max_abs": 0.37281882762908936, "latent_mean_abs": 0.0030372553481404774, "camera_abs_err": [0.0009878218969687769, 0.0002130602911930568, 0.017608812175254673, 0.17852410920077233], "chamfer_xyz": 0.0011843238358367593, "n_gaussians": [1048576, 1048576]}
+DEV8_DONE

@@ -1,0 +1,157 @@
+DIFF           rng.039.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.7295992374420166, "first_b": 0.27784425020217896, "max_abs": 0.45175498723983765, "mean_abs": 0.45175498723983765, "ref_rms": 0.7295992374420166, "max_rel": 0.6191823730842919, "max_ulp": 11306346}
+DIFF           rng.040.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.3264181315898895, "first_b": 0.22762364149093628, "max_abs": 0.09879449009895325, "mean_abs": 0.09879449009895325, "ref_rms": 0.3264181315898895, "max_rel": 0.3026623846468133, "max_ulp": 4065819}
+DIFF           rng.041.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.314847469329834, "first_b": 0.036040958017110825, "max_abs": 0.27880651131272316, "mean_abs": 0.27880651131272316, "ref_rms": 0.314847469329834, "max_rel": 0.8855288305355431, "max_ulp": 26055681}
+MISMATCH-META  rng.042.rand {"a": "(1, 1) torch.float32", "b": "(10, 1) torch.float32"}
+MISMATCH-META  rng.043.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.044.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.045.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+DIFF           rng.046.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.5246256589889526, "first_b": 0.30114418268203735, "max_abs": 0.22348147630691528, "mean_abs": 0.22348147630691528, "ref_rms": 0.5246256589889526, "max_rel": 0.42598274117511525, "max_ulp": 7085644}
+MISMATCH-META  rng.047.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.048.rand {"a": "(2, 1) torch.float32", "b": "(4, 1) torch.float32"}
+DIFF           rng.049.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.21966829895973206, "first_b": 0.5724236369132996, "max_abs": 0.3527553379535675, "mean_abs": 0.3527553379535675, "ref_rms": 0.21966829895973206, "max_rel": 1.6058545526327035, "max_ulp": 11639201}
+MISMATCH-META  rng.050.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+DIFF           rng.051.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.7427831888198853, "first_b": 0.7893652319908142, "max_abs": 0.046582043170928955, "mean_abs": 0.046582043170928955, "ref_rms": 0.7427831888198853, "max_rel": 0.06271283985968679, "max_ulp": 781517}
+MISMATCH-META  rng.052.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.053.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+DIFF           rng.054.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.681258499622345, "first_b": 0.7289541959762573, "max_abs": 0.047695696353912354, "mean_abs": 0.047695696353912354, "ref_rms": 0.681258499622345, "max_rel": 0.07001115785029093, "max_ulp": 800201}
+MISMATCH-META  rng.055.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.056.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+DIFF           rng.057.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.37670138478279114, "first_b": 0.45883429050445557, "max_abs": 0.08213290572166443, "mean_abs": 0.08213290572166443, "ref_rms": 0.37670138478279114, "max_rel": 0.21803186566203595, "max_ulp": 2755923}
+DIFF           rng.058.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.9150376319885254, "first_b": 0.7546103596687317, "max_abs": 0.1604272723197937, "mean_abs": 0.1604272723197937, "ref_rms": 0.9150376319885254, "max_rel": 0.17532314159709386, "max_ulp": 2691523}
+MISMATCH-META  rng.059.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+DIFF           rng.060.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.22171448171138763, "first_b": 0.5060634016990662, "max_abs": 0.28434891998767853, "mean_abs": 0.28434891998767853, "ref_rms": 0.22171448171138763, "max_rel": 1.282500438369308, "max_ulp": 10388544}
+DIFF           rng.061.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.7363970279693604, "first_b": 0.7182599306106567, "max_abs": 0.018137097358703613, "mean_abs": 0.018137097358703613, "ref_rms": 0.7363970279693604, "max_rel": 0.0246295091775659, "max_ulp": 304290}
+DIFF           rng.062.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.13503941893577576, "first_b": 0.7740102410316467, "max_abs": 0.638970822095871, "mean_abs": 0.638970822095871, "ref_rms": 0.13503941893577576, "max_rel": 4.731735571224304, "max_ulp": 20700611}
+DIFF           rng.063.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.6967140436172485, "first_b": 0.4574269652366638, "max_abs": 0.23928707838058472, "mean_abs": 0.23928707838058472, "ref_rms": 0.6967140436172485, "max_rel": 0.34345091874169403, "max_ulp": 4728828}
+DIFF           rng.064.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.44214776158332825, "first_b": 0.8324970006942749, "max_abs": 0.39034923911094666, "mean_abs": 0.39034923911094666, "ref_rms": 0.44214776158332825, "max_rel": 0.8828479368822508, "max_ulp": 7519573}
+DIFF           rng.065.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.14347191154956818, "first_b": 0.9912998080253601, "max_abs": 0.8478278964757919, "mean_abs": 0.8478278964757919, "ref_rms": 0.14347191154956818, "max_rel": 5.909365027055316, "max_ulp": 23780230}
+MISMATCH-META  rng.066.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.067.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+DIFF           rng.068.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.6287875771522522, "first_b": 0.5240060091018677, "max_abs": 0.10478156805038452, "mean_abs": 0.10478156805038452, "ref_rms": 0.6287875771522522, "max_rel": 0.1666406459951627, "max_ulp": 1757943}
+MISMATCH-META  rng.069.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+DIFF           rng.070.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.5776057839393616, "first_b": 0.4618205428123474, "max_abs": 0.11578524112701416, "mean_abs": 0.11578524112701416, "ref_rms": 0.5776057839393616, "max_rel": 0.20045720515009519, "max_ulp": 2583099}
+DIFF           rng.071.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.525108814239502, "first_b": 0.8012658357620239, "max_abs": 0.276157021522522, "mean_abs": 0.276157021522522, "ref_rms": 0.525108814239502, "max_rel": 0.525904372644118, "max_ulp": 4633146}
+DIFF           rng.072.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.6671897768974304, "first_b": 0.536539614200592, "max_abs": 0.13065016269683838, "mean_abs": 0.13065016269683838, "ref_rms": 0.6671897768974304, "max_rel": 0.1958215896298479, "max_ulp": 2191946}
+DIFF           rng.073.rand {"n_diff": 2, "numel": 2, "first": 0, "first_a": 0.1688213050365448, "first_b": 0.21077406406402588, "max_abs": 0.13828301429748535, "mean_abs": 0.09011788666248322, "ref_rms": 0.34893773516859244, "max_rel": 0.29821879491149633, "max_ulp": 4640008}
+DIFF           rng.074.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.6792119741439819, "first_b": 0.27099665999412537, "max_abs": 0.40821531414985657, "mean_abs": 0.40821531414985657, "ref_rms": 0.6792119741439819, "max_rel": 0.6010131294642364, "max_ulp": 10690755}
+MISMATCH-META  rng.075.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.076.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.077.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.078.rand {"a": "(10, 1) torch.float32", "b": "(1, 1) torch.float32"}
+DIFF           rng.079.rand {"n_diff": 3, "numel": 3, "first": 0, "first_a": 0.6439722180366516, "first_b": 0.34128180146217346, "max_abs": 0.30269041657447815, "mean_abs": 0.17750866214434305, "ref_rms": 0.6953133328600661, "max_rel": 0.4700364520341009, "max_ulp": 7741152}
+MISMATCH-META  rng.080.rand {"a": "(2, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.081.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+DIFF           rng.082.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.30114418268203735, "first_b": 0.24093171954154968, "max_abs": 0.06021246314048767, "mean_abs": 0.06021246314048767, "ref_rms": 0.30114418268203735, "max_rel": 0.1999456293800067, "max_ulp": 2324676}
+MISMATCH-META  rng.083.rand {"a": "(2, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.084.rand {"a": "(4, 1) torch.float32", "b": "(3, 1) torch.float32"}
+DIFF           rng.085.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.5724236369132996, "first_b": 0.14634168148040771, "max_abs": 0.42608195543289185, "mean_abs": 0.42608195543289185, "ref_rms": 0.5724236369132996, "max_rel": 0.7443472420713946, "max_ulp": 16560067}
+MISMATCH-META  rng.086.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+DIFF           rng.087.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.7893652319908142, "first_b": 0.970572292804718, "max_abs": 0.1812070608139038, "mean_abs": 0.1812070608139038, "ref_rms": 0.7893652319908142, "max_rel": 0.22956047906606114, "max_ulp": 3040150}
+MISMATCH-META  rng.088.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.089.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+DIFF           rng.090.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.7289541959762573, "first_b": 0.49914804100990295, "max_abs": 0.22980615496635437, "mean_abs": 0.22980615496635437, "ref_rms": 0.7289541959762573, "max_rel": 0.31525458833333797, "max_ulp": 3869801}
+MISMATCH-META  rng.091.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.092.rand {"a": "(3, 1) torch.float32", "b": "(2, 1) torch.float32"}
+DIFF           rng.093.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.45883429050445557, "first_b": 0.30783307552337646, "max_abs": 0.1510012149810791, "mean_abs": 0.1510012149810791, "ref_rms": 0.45883429050445557, "max_rel": 0.32909749359635704, "max_ulp": 5066760}
+MISMATCH-META  rng.094.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+DIFF           rng.095.rand {"n_diff": 2, "numel": 2, "first": 0, "first_a": 0.10170523077249527, "first_b": 0.08540616184473038, "max_abs": 0.27886146679520607, "mean_abs": 0.14758026786148548, "ref_rms": 0.23460194175983534, "max_rel": 0.8830205961803876, "max_ulp": 25845754}
+MISMATCH-META  rng.096.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+DIFF           rng.097.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.7182599306106567, "first_b": 0.15040047466754913, "max_abs": 0.5678594559431076, "mean_abs": 0.5678594559431076, "ref_rms": 0.7182599306106567, "max_rel": 0.7906043922850042, "max_ulp": 18734413}
+MISMATCH-META  rng.098.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+DIFF           rng.099.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.4574269652366638, "first_b": 0.5987295508384705, "max_abs": 0.14130258560180664, "mean_abs": 0.14130258560180664, "ref_rms": 0.4574269652366638, "max_rel": 0.3089074242238855, "max_ulp": 3084921}
+DIFF           rng.100.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.8324970006942749, "first_b": 0.5107133388519287, "max_abs": 0.3217836618423462, "mean_abs": 0.3217836618423462, "ref_rms": 0.8324970006942749, "max_rel": 0.3865283137044209, "max_ulp": 5398634}
+DIFF           rng.101.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.9912998080253601, "first_b": 0.1049208715558052, "max_abs": 0.8863789364695549, "mean_abs": 0.8863789364695549, "ref_rms": 0.9912998080253601, "max_rel": 0.8941582852065668, "max_ulp": 27714834}
+DIFF           rng.102.rand {"n_diff": 2, "numel": 2, "first": 0, "first_a": 0.7303583025932312, "first_b": 0.1437978893518448, "max_abs": 0.5865604132413864, "mean_abs": 0.39223434776067734, "ref_rms": 0.6775326505767202, "max_rel": 0.8031132269719234, "max_ulp": 19380482}
+MISMATCH-META  rng.103.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+DIFF           rng.104.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.5240060091018677, "first_b": 0.3284328281879425, "max_abs": 0.19557318091392517, "mean_abs": 0.19557318091392517, "ref_rms": 0.5240060091018677, "max_rel": 0.37322698121178494, "max_ulp": 6159593}
+MISMATCH-META  rng.105.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+DIFF           rng.106.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.4618205428123474, "first_b": 0.6889564394950867, "max_abs": 0.22713589668273926, "mean_abs": 0.22713589668273926, "ref_rms": 0.4618205428123474, "max_rel": 0.4918271831295125, "max_ulp": 4451253}
+DIFF           rng.107.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.8012658357620239, "first_b": 0.5643102526664734, "max_abs": 0.23695558309555054, "mean_abs": 0.23695558309555054, "ref_rms": 0.8012658357620239, "max_rel": 0.295726552312317, "max_ulp": 3975455}
+DIFF           rng.108.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.536539614200592, "first_b": 0.20818769931793213, "max_abs": 0.3283519148826599, "mean_abs": 0.3283519148826599, "ref_rms": 0.536539614200592, "max_rel": 0.6119807488434609, "max_ulp": 11807617}
+DIFF           rng.109.rand {"n_diff": 2, "numel": 2, "first": 0, "first_a": 0.21077406406402588, "first_b": 0.5573428869247437, "max_abs": 0.6486671268939972, "mean_abs": 0.4976179748773575, "ref_rms": 0.27415292174884914, "max_rel": 1.9933627100855247, "max_ulp": 13811904}
+DIFF           rng.110.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.27099665999412537, "first_b": 0.05757090076804161, "max_abs": 0.21342575922608376, "mean_abs": 0.21342575922608376, "ref_rms": 0.27099665999412537, "max_rel": 0.7875586334927905, "max_ulp": 18804892}
+MISMATCH-META  rng.111.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.112.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.113.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+DIFF           rng.114.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.7572578191757202, "first_b": 0.6750041842460632, "max_abs": 0.08225363492965698, "mean_abs": 0.08225363492965698, "ref_rms": 0.7572578191757202, "max_rel": 0.1086203837673021, "max_ulp": 1379987}
+MISMATCH-META  rng.115.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.116.rand {"a": "(3, 1) torch.float32", "b": "(2, 1) torch.float32"}
+DIFF           rng.117.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.5954868793487549, "first_b": 0.6053286194801331, "max_abs": 0.009841740131378174, "mean_abs": 0.009841740131378174, "ref_rms": 0.5954868793487549, "max_rel": 0.016527215750146238, "max_ulp": 165117}
+DIFF           rng.118.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.24093171954154968, "first_b": 0.18610502779483795, "max_abs": 0.05482669174671173, "mean_abs": 0.05482669174671173, "ref_rms": 0.24093171954154968, "max_rel": 0.2275611191877815, "max_ulp": 3679357}
+MISMATCH-META  rng.119.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.120.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+DIFF           rng.121.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.14634168148040771, "first_b": 0.8535585403442383, "max_abs": 0.7072168588638306, "mean_abs": 0.7072168588638306, "ref_rms": 0.14634168148040771, "max_rel": 4.832641334372758, "max_ulp": 21276728}
+DIFF           rng.122.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.7076088190078735, "first_b": 0.9554049968719482, "max_abs": 0.2477961778640747, "mean_abs": 0.2477961778640747, "ref_rms": 0.7076088190078735, "max_rel": 0.3501880858572475, "max_ulp": 4157330}
+MISMATCH-META  rng.123.rand {"a": "(1, 1) torch.float32", "b": "(57, 1) torch.float32"}
+MISMATCH-META  rng.124.rand {"a": "(1, 1) torch.float32", "b": "(27, 1) torch.float32"}
+MISMATCH-META  rng.125.rand {"a": "(1, 1) torch.float32", "b": "(20, 1) torch.float32"}
+MISMATCH-META  rng.126.rand {"a": "(1, 1) torch.float32", "b": "(19, 1) torch.float32"}
+MISMATCH-META  rng.127.rand {"a": "(1, 1) torch.float32", "b": "(15, 1) torch.float32"}
+MISMATCH-META  rng.128.rand {"a": "(2, 1) torch.float32", "b": "(16, 1) torch.float32"}
+MISMATCH-META  rng.129.rand {"a": "(1, 1) torch.float32", "b": "(17, 1) torch.float32"}
+MISMATCH-META  rng.130.rand {"a": "(3, 1) torch.float32", "b": "(17, 1) torch.float32"}
+MISMATCH-META  rng.131.rand {"a": "(2, 1) torch.float32", "b": "(13, 1) torch.float32"}
+MISMATCH-META  rng.132.rand {"a": "(2, 1) torch.float32", "b": "(13, 1) torch.float32"}
+MISMATCH-META  rng.133.rand {"a": "(1, 1) torch.float32", "b": "(23, 1) torch.float32"}
+MISMATCH-META  rng.134.rand {"a": "(3, 1) torch.float32", "b": "(19, 1) torch.float32"}
+MISMATCH-META  rng.135.rand {"a": "(1, 1) torch.float32", "b": "(20, 1) torch.float32"}
+MISMATCH-META  rng.136.rand {"a": "(1, 1) torch.float32", "b": "(10, 1) torch.float32"}
+MISMATCH-META  rng.137.rand {"a": "(1, 1) torch.float32", "b": "(14, 1) torch.float32"}
+MISMATCH-META  rng.138.rand {"a": "(2, 1) torch.float32", "b": "(13, 1) torch.float32"}
+MISMATCH-META  rng.139.rand {"a": "(1, 1) torch.float32", "b": "(24, 1) torch.float32"}
+MISMATCH-META  rng.140.rand {"a": "(1, 1) torch.float32", "b": "(16, 1) torch.float32"}
+MISMATCH-META  rng.141.rand {"a": "(1, 1) torch.float32", "b": "(11, 1) torch.float32"}
+MISMATCH-META  rng.142.rand {"a": "(1, 1) torch.float32", "b": "(15, 1) torch.float32"}
+MISMATCH-META  rng.143.rand {"a": "(1, 1) torch.float32", "b": "(21, 1) torch.float32"}
+MISMATCH-META  rng.144.rand {"a": "(1, 1) torch.float32", "b": "(17, 1) torch.float32"}
+MISMATCH-META  rng.145.rand {"a": "(2, 1) torch.float32", "b": "(16, 1) torch.float32"}
+MISMATCH-META  rng.146.rand {"a": "(1, 1) torch.float32", "b": "(12, 1) torch.float32"}
+MISMATCH-META  rng.147.rand {"a": "(1, 1) torch.float32", "b": "(15, 1) torch.float32"}
+MISMATCH-META  rng.148.rand {"a": "(1, 1) torch.float32", "b": "(19, 1) torch.float32"}
+MISMATCH-META  rng.149.rand {"a": "(1, 1) torch.float32", "b": "(15, 1) torch.float32"}
+MISMATCH-META  rng.150.rand {"a": "(1, 1) torch.float32", "b": "(9, 1) torch.float32"}
+MISMATCH-META  rng.151.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.152.rand {"a": "(2, 1) torch.float32", "b": "(10, 1) torch.float32"}
+MISMATCH-META  rng.153.rand {"a": "(1, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.154.rand {"a": "(1, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.155.rand {"a": "(1, 1) torch.float32", "b": "(6, 1) torch.float32"}
+DIFF           rng.156.rand {"n_diff": 1, "numel": 1, "first": 0, "first_a": 0.37960848212242126, "first_b": 0.19614696502685547, "max_abs": 0.1834615170955658, "mean_abs": 0.1834615170955658, "ref_rms": 0.37960848212242126, "max_rel": 0.48329140610825616, "max_ulp": 7962955}
+MISMATCH-META  rng.157.rand {"a": "(1, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.158.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.159.rand {"a": "(57, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.160.rand {"a": "(27, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.161.rand {"a": "(20, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.162.rand {"a": "(19, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.163.rand {"a": "(15, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.164.rand {"a": "(16, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.165.rand {"a": "(17, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.166.rand {"a": "(17, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.167.rand {"a": "(13, 1) torch.float32", "b": "(461, 1) torch.float32"}
+MISMATCH-META  rng.168.rand {"a": "(13, 1) torch.float32", "b": "(344, 1) torch.float32"}
+MISMATCH-META  rng.169.rand {"a": "(23, 1) torch.float32", "b": "(310, 1) torch.float32"}
+MISMATCH-META  rng.170.rand {"a": "(19, 1) torch.float32", "b": "(304, 1) torch.float32"}
+MISMATCH-META  rng.171.rand {"a": "(20, 1) torch.float32", "b": "(251, 1) torch.float32"}
+MISMATCH-META  rng.172.rand {"a": "(10, 1) torch.float32", "b": "(206, 1) torch.float32"}
+MISMATCH-META  rng.173.rand {"a": "(14, 1) torch.float32", "b": "(120, 1) torch.float32"}
+MISMATCH-META  rng.174.rand {"a": "(13, 1) torch.float32", "b": "(68, 1) torch.float32"}
+MISMATCH-META  rng.175.rand {"a": "(24, 1) torch.float32", "b": "(36, 1) torch.float32"}
+DIFF           rng.176.rand {"n_diff": 16, "numel": 16, "first": 0, "first_a": 0.783450186252594, "first_b": 0.5489518642425537, "max_abs": 0.8700951784849167, "mean_abs": 0.43643424613401294, "ref_rms": 0.5212009675922707, "max_rel": 18.18873596738487, "max_ulp": 36113623}
+MISMATCH-META  rng.177.rand {"a": "(11, 1) torch.float32", "b": "(17, 1) torch.float32"}
+MISMATCH-META  rng.178.rand {"a": "(15, 1) torch.float32", "b": "(14, 1) torch.float32"}
+MISMATCH-META  rng.179.rand {"a": "(21, 1) torch.float32", "b": "(7, 1) torch.float32"}
+MISMATCH-META  rng.180.rand {"a": "(17, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.181.rand {"a": "(16, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.182.rand {"a": "(12, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.183.rand {"a": "(15, 1) torch.float32", "b": "(4174, 1) torch.float32"}
+MISMATCH-META  rng.184.rand {"a": "(19, 1) torch.float32", "b": "(1329, 1) torch.float32"}
+MISMATCH-META  rng.185.rand {"a": "(15, 1) torch.float32", "b": "(297, 1) torch.float32"}
+MISMATCH-META  rng.186.rand {"a": "(9, 1) torch.float32", "b": "(70, 1) torch.float32"}
+MISMATCH-META  rng.187.rand {"a": "(3, 1) torch.float32", "b": "(26, 1) torch.float32"}
+MISMATCH-META  rng.188.rand {"a": "(10, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.189.rand {"a": "(6, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.190.rand {"a": "(4, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.191.rand {"a": "(6, 1) torch.float32", "b": "(7427, 1) torch.float32"}
+MISMATCH-META  rng.192.rand {"a": "(1, 1) torch.float32", "b": "(337, 1) torch.float32"}
+MISMATCH-META  rng.193.rand {"a": "(4, 1) torch.float32", "b": "(29, 1) torch.float32"}
+MISMATCH-META  rng.194.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+# 223 compared, 67 identical, 156 differ; only in A: 73, only in B: 37

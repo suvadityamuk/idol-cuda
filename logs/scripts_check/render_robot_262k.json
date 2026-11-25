@@ -1,0 +1,22 @@
+{
+ "/scratch/bench_out/ref_eager/robot_262k_ref_eager_r1.ply": {
+  "psnr": 120.0,
+  "ssim": 1.0
+ },
+ "/scratch/bench_out/ref_compiled/robot_262k_ref_compiled_r0.ply": {
+  "psnr": 42.75564193725586,
+  "ssim": 0.9962866902351379
+ },
+ "/scratch/bench_out/py_fast/robot_262k_py_fast_r0.ply": {
+  "psnr": 42.579071044921875,
+  "ssim": 0.996113657951355
+ },
+ "/scratch/bench_out/native_fast/robot_262k_native_fast_r0.ply": {
+  "psnr": 42.919944763183594,
+  "ssim": 0.9961789846420288
+ },
+ "/scratch/ref/robot_262k_eager_flash_a.ply": {
+  "psnr": 42.97914123535156,
+  "ssim": 0.996203601360321
+ }
+}

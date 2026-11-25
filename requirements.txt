@@ -1,0 +1,20 @@
+# Tested stack (H200, Linux x86_64, Python 3.12): torch 2.10.0+cu130, CUDA 13.0, cuDNN 9.15.1.
+# pip install -r requirements.txt
+# The kernel package also has variants for torch 2.10-2.15 with CUDA 12.6-13.4 (built, not all tested);
+# replace the torch line to use another one.
+--extra-index-url https://download.pytorch.org/whl/cu130
+torch==2.10.0+cu130
+torchvision==0.25.0+cu130
+idol @ https://github.com/speridlabs/idol-sdk/archive/8db700349a5570aac390e4780fa32e3eed6b587a.tar.gz
+transformers==5.24.1
+diffusers==0.43.0
+accelerate==1.16.0
+huggingface_hub==2.4.0
+safetensors==0.8.0
+pillow==13.0.0
+numpy==2.5.5
+plyfile==1.1.5
+tqdm==4.70.1
+tensordict==0.14.3
+einops==0.8.1
+kernels==0.19.0

@@ -1,0 +1,41 @@
+== Wed Nov 25 08:32:28 UTC 2026 host j-suvadityamuk-6b0693dc1460ffe1d5ea2062-hw1h3i0r-b1097-fc264 nproc 192 run /scratch/runs/20261125-083228-final
+idol-sdk 8db700349a5570aac390e4780fa32e3eed6b587a
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+spin 0.16 requires click!=8.3.0,<8.4,>=8, but you have click 8.5.1 which is incompatible.
+  DEPRECATION: Setting PIP_CONSTRAINT will not affect build constraints in the future, pip 26.2 will enforce this behaviour change. A possible replacement is to specify build constraints using --build-constraint or PIP_BUILD_CONSTRAINT. To disable this warning without any build constraints set --use-feature=build-constraint or PIP_USE_FEATURE="build-constraint".
+torch 2.10.0+cu130 cuda 13.0 cudnn 91501
+torchvision 0.25.0+cu130 transformers 5.24.1 diffusers 0.43.0
+pillow 13.0.0 numpy 2.5.5 tensordict 0.14.3 flash_attn 2.8.3
+NVIDIA H200, 595.112.07
+flash-attn3 kernel cached
+W: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+debconf: delaying package configuration, since apt-utils is not installed
+source commit bd5c29c
+robot_262k: checkpoints identical ( 760 compared); ply identical; camera.json identical
+robot_1m: checkpoints identical ( 970 compared); ply identical; camera.json identical
+avocado_262k: checkpoints identical ( 781 compared); ply identical; camera.json identical
+avocado_1m: checkpoints identical ( 1000 compared); ply identical; camera.json identical
+PARITY PASS
+parity_test exit 0
+{"kind": "env", "gpu": "NVIDIA H200, 595.112.07", "torch": "2.10.0+cu130", "cuda": "13.0", "cudnn": 91501, "commit": "bd5c29c"}
+{"kind": "load", "row": "ref_compiled", "load_s": 67.61118050600635}
+kernels: dev build (torch.utils.cpp_extension)
+{"kind": "load", "row": "py_fast", "load_s": 36.63158658897737}
+kernels: kernel-builder build at /work/kb
+{"kind": "load", "row": "py_fast_kb", "load_s": 15.600245231995359}
+{"kind": "warmup", "row": "ref_compiled", "config": "robot_262k", "request_s": 22.45454129599966, "save_s": 0.15767233801307157, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "pl
+{"kind": "warmup", "row": "py_fast", "config": "robot_262k", "request_s": 6.756143880018499, "save_s": 0.10136739996960387, "peak_alloc_gb": 5.0495381355285645, "peak_reserved_gb": 6.787109375, "ply_s
+{"kind": "warmup", "row": "py_fast_kb", "config": "robot_262k", "request_s": 6.468693860981148, "save_s": 0.09802473901072517, "peak_alloc_gb": 5.0495381355285645, "peak_reserved_gb": 6.787109375, "pl
+{"kind": "timed", "row": "ref_compiled", "config": "robot_262k", "rep": 0, "order": 0, "request_s": 8.208305884967558, "save_s": 0.14775312400888652, "peak_alloc_gb": 5.020639419555664, "peak_reserved
+{"kind": "timed", "row": "py_fast", "config": "robot_262k", "rep": 0, "order": 1, "request_s": 5.402256325993221, "save_s": 0.08387450699228793, "peak_alloc_gb": 5.075418949127197, "peak_reserved_gb":
+{"kind": "timed", "row": "py_fast_kb", "config": "robot_262k", "rep": 0, "order": 2, "request_s": 5.408016192028299, "save_s": 0.09170851396629587, "peak_alloc_gb": 5.075418949127197, "peak_reserved_g
+{"kind": "timed", "row": "ref_compiled", "config": "robot_262k", "rep": 1, "order": 0, "request_s": 8.227815610007383, "save_s": 0.14432347798720002, "peak_alloc_gb": 5.020639419555664, "peak_reserved
+{"kind": "timed", "row": "py_fast_kb", "config": "robot_262k", "rep": 1, "order": 1, "request_s": 5.440912854974158, "save_s": 0.08052993699675426, "peak_alloc_gb": 5.075409412384033, "peak_reserved_g
+{"kind": "timed", "row": "py_fast", "config": "robot_262k", "rep": 1, "order": 2, "request_s": 5.4625993860536255, "save_s": 0.08199063100619242, "peak_alloc_gb": 5.075409412384033, "peak_reserved_gb"
+{"kind": "timed", "row": "py_fast_kb", "config": "robot_262k", "rep": 2, "order": 0, "request_s": 5.387862148985732, "save_s": 0.07856268098112196, "peak_alloc_gb": 5.075418949127197, "peak_reserved_g
+{"kind": "timed", "row": "ref_compiled", "config": "robot_262k", "rep": 2, "order": 1, "request_s": 8.290575902035926, "save_s": 0.1369449770427309, "peak_alloc_gb": 5.021615982055664, "peak_reserved_
+{"kind": "timed", "row": "py_fast", "config": "robot_262k", "rep": 2, "order": 2, "request_s": 5.442634892999195, "save_s": 0.09148841898422688, "peak_alloc_gb": 5.075418949127197, "peak_reserved_gb":
+r0: dev-build and kernel-builder PLY byte-identical
+r1: dev-build and kernel-builder PLY byte-identical
+r2: dev-build and kernel-builder PLY byte-identical
+FINAL_DONE

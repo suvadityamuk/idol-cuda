@@ -1,0 +1,40 @@
+kernel/torch-ext/idol_cuda/__init__.py:61: in merge_extra_key
+    ops.merge_extra_key(out, o, lse, q, k_extra, v_extra, float(scale), float(log_mult))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <OpOverloadPacket(op='idol_cuda_dev.merge_extra_key')>
+args = (tensor([[[[ 6.7787e-03,  8.9844e-01,  3.5644e-05,  ...,  7.3340e-01,
+            2.1881e-02,  8.2275e-01],
+          ...     [ 0.4553,  0.1292, -0.5112,  ...,  1.3213,  0.8540, -0.1323]]],
+       device='cuda:0', dtype=torch.float16), ...)
+kwargs = {}
+
+    def __call__(self, /, *args: _P.args, **kwargs: _P.kwargs) -> _T:
+        # overloading __call__ to ensure torch.ops.foo.bar()
+        # is still callable from JIT
+        # We save the function ptr as the `op` attribute on
+        # OpOverloadPacket to access it here.
+    
+        # Directly calling OverloadPacket goes into C++, which will check
+        # the schema and cause an error for torchbind op when inputs consist of FakeScriptObject so we
+        # intercept it here and call TorchBindOpverload instead.
+        if self._has_torchbind_op_overload and _must_dispatch_in_python(args, kwargs):
+            # pyrefly: ignore [bad-argument-type]
+            return _call_overload_packet_from_python(self, *args, **kwargs)
+>       return self._op(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: out must have [B, L, H, 64] layout with a row stride (token) and packed heads
+
+/usr/local/lib/python3.12/dist-packages/torch/_ops.py:1209: RuntimeError
+=============================== warnings summary ===============================
+kernel/tests/test_idol_cuda.py::test_add_ln_mod[plain-1]
+    from ._ops import ops
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED kernel/tests/test_idol_cuda.py::test_add_ln_mod[mod-12294] - Assertion...
+FAILED kernel/tests/test_idol_cuda.py::test_add_ln_mod[gate_mod-12294] - Asse...
+FAILED kernel/tests/test_idol_cuda.py::test_rope_rms_qk[8194] - AssertionErro...
+FAILED kernel/tests/test_idol_cuda.py::test_rope_rms_qk[12294] - AssertionErr...
+FAILED kernel/tests/test_idol_cuda.py::test_merge_extra_key[1-1] - RuntimeErr...
+5 failed, 39 passed, 1 warning in 24.28s

@@ -1,0 +1,19 @@
+
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 615/615 [00:00<00:00, 3219.77it/s]
+{"torch": "2.10.0+cu130", "cuda": "13.0", "cudnn": 91501, "gpu": "NVIDIA H200", "cc": [9, 0], "cudnn.benchmark": false, "cudnn.deterministic": false, "cudnn.allow_tf32": true, "matmul.allow_tf32": false, "fp16_reduced_precision_reduction": true, "bf16_reduced_precision_reduction": true, "attn": "sdpa", "optimize": true, "cudnn_attention": true, "load_s": 14.175159944992629, "nproc": 192, "deterministic": false, "driver": "595.112.07"}
+V1125 03:55:49.288000 9301 torch/_dynamo/guards.py:4514] [0/1] [__recompiles] Recompiling function forward in /work/idol-sdk/idol/models/layers.py:196
+V1125 03:55:49.288000 9301 torch/_dynamo/guards.py:4514] [0/1] [__recompiles]     triggered by the following guard failure(s):
+V1125 03:55:49.288000 9301 torch/_dynamo/guards.py:4514] [0/1] [__recompiles]     - 0/0: tensor 'hidden_states' size mismatch at index 1. expected 8192, actual 4101
+V1125 03:55:49.405000 9301 torch/_dynamo/guards.py:4514] [1/1] [__recompiles] Recompiling function forward in /work/idol-sdk/idol/models/layers.py:274
+V1125 03:55:49.405000 9301 torch/_dynamo/guards.py:4514] [1/1] [__recompiles]     triggered by the following guard failure(s):
+V1125 03:55:49.405000 9301 torch/_dynamo/guards.py:4514] [1/1] [__recompiles]     - 1/0: tensor 'x' size mismatch at index 1. expected 8192, actual 4101
+V1125 03:55:49.829000 9301 torch/_dynamo/guards.py:4514] [0/2] [__recompiles] Recompiling function forward in /work/idol-sdk/idol/models/layers.py:196
+V1125 03:55:49.829000 9301 torch/_dynamo/guards.py:4514] [0/2] [__recompiles]     triggered by the following guard failure(s):
+V1125 03:55:49.829000 9301 torch/_dynamo/guards.py:4514] [0/2] [__recompiles]     - 0/1: tensor 'hidden_states' size mismatch at index 1. expected 4101, actual 12294
+V1125 03:55:49.829000 9301 torch/_dynamo/guards.py:4514] [0/2] [__recompiles]     - 0/0: tensor 'hidden_states' size mismatch at index 1. expected 8192, actual 12294
+V1125 03:55:49.947000 9301 torch/_dynamo/guards.py:4514] [1/2] [__recompiles] Recompiling function forward in /work/idol-sdk/idol/models/layers.py:274
+V1125 03:55:49.947000 9301 torch/_dynamo/guards.py:4514] [1/2] [__recompiles]     triggered by the following guard failure(s):
+V1125 03:55:49.947000 9301 torch/_dynamo/guards.py:4514] [1/2] [__recompiles]     - 1/1: tensor 'x' size mismatch at index 1. expected 4101, actual 12294
+V1125 03:55:49.947000 9301 torch/_dynamo/guards.py:4514] [1/2] [__recompiles]     - 1/0: tensor 'x' size mismatch at index 1. expected 8192, actual 12294
+{"request_s": 10.499846523001906, "stages": {"preprocess": 0.6342950859980192, "encoders": 0.2508826259872876, "sampling": 8.950749940995593, "octree": 0.5100710039987462, "gs_decoder": 0.10532473400235176}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.08785991001059301, "ply_sha256": "f71a082d5134ce4a72d3fbf88eb05cbd1449e807f99e6d91c7bf91b587ea2021"}
+saved 260 tensors (196 rng draws) to /scratch/ref/robot_262k_compiled_b.safetensors

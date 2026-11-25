@@ -1,0 +1,22 @@
+{
+ "/scratch/bench_out/ref_eager/avocado_1m_ref_eager_r1.ply": {
+  "psnr": 120.0,
+  "ssim": 1.0
+ },
+ "/scratch/bench_out/ref_compiled/avocado_1m_ref_compiled_r0.ply": {
+  "psnr": 43.861732482910156,
+  "ssim": 0.986223578453064
+ },
+ "/scratch/bench_out/py_fast/avocado_1m_py_fast_r0.ply": {
+  "psnr": 43.86367416381836,
+  "ssim": 0.9863507747650146
+ },
+ "/scratch/bench_out/native_fast/avocado_1m_native_fast_r0.ply": {
+  "psnr": 44.01130294799805,
+  "ssim": 0.9866311550140381
+ },
+ "/scratch/ref/avocado_1m_eager_flash_a.ply": {
+  "psnr": 44.02018737792969,
+  "ssim": 0.9866670370101929
+ }
+}

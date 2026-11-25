@@ -1,0 +1,5 @@
+fast step: 85.96 ms GPU per step
+fa3 unavailable: ValueError Version 1 of 'kernels-community/flash-attn3' is not available in the local cache and Hugging Face Hub is in offline mode. Download the kernel while online first, or pass an explicit `revision=<commit>
+attention L=12294 S=12294: cudnn 1.479 ms (419 TFLOP/s)  flash_aten 2.070 ms (299 TFLOP/s)
+fa3 unavailable: ValueError Version 1 of 'kernels-community/flash-attn3' is not available in the local cache and Hugging Face Hub is in offline mode. Download the kernel while online first, or pass an explicit `revision=<commit>
+attention L=8194 S=8193: cudnn 0.677 ms (406 TFLOP/s)  flash_aten 0.901 ms (305 TFLOP/s)

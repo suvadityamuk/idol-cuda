@@ -1,0 +1,25 @@
+     10 .max error 1.00 ulp, fraction differing 0.0000
+      5 .max error 1.00 ulp, fraction differing 0.0001
+      2 E   AssertionError: max error 2.00 ulp
+      2 /work/idol-cuda/kernel/tests/test_idol_cuda.py:31: AssertionError: max error 2.00 ulp
+      2 .max error 0.50 ulp, fraction differing 0.0000
+      2 .max error 0.00 ulp, fraction differing 0.0000
+      2 .Fmax error 0.00 ulp, fraction differing 0.0000
+      2 ..max error 0.00 ulp, fraction differing 0.0000
+      1 max error 2.00 ulp, fraction differing 0.0004
+      1 max error 1.00 ulp, fraction differing 0.0010
+      1 max error 0.50 ulp, fraction differing 0.0000
+      1 max error 0.00 ulp, fraction differing 0.0000
+      1 FAILED kernel/tests/test_idol_cuda.py::test_rope_rms_qk[8194] - AssertionErro...
+      1 FAILED kernel/tests/test_idol_cuda.py::test_rope_rms_qk[12294] - AssertionErr...
+      1 FAILED kernel/tests/test_idol_cuda.py::test_add_ln_mod[mod-12294] - Assertion...
+      1 FAILED kernel/tests/test_idol_cuda.py::test_add_ln_mod[gate_mod-12294] - Asse...
+      1 E   AssertionError: max error 31.00 ulp
+      1 E   AssertionError: max error 23.00 ulp
+      1 4 failed, 40 passed, 1 warning in 24.95s
+      1 /work/idol-cuda/kernel/tests/test_idol_cuda.py:31: AssertionError: max error 31.00 ulp
+      1 /work/idol-cuda/kernel/tests/test_idol_cuda.py:31: AssertionError: max error 23.00 ulp
+      1 .max error 2.00 ulp, fraction differing 0.0002
+      1 .max error 0.50 ulp, fraction differing 0.0001
+      1 .FFmax error 1.00 ulp, fraction differing 0.0002
+      1 ...........max error 0.00 ulp, fraction differing 0.0000

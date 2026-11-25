@@ -1,0 +1,29 @@
+== Wed Nov 25 07:46:27 UTC 2026 host j-suvadityamuk-6b0692481460ffe1d5ea1d8f-cv8ik1w3-ca742-djgv8 nproc 192 run /scratch/runs/20261125-074626-native_check
+idol-sdk 8db700349a5570aac390e4780fa32e3eed6b587a
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+spin 0.16 requires click!=8.3.0,<8.4,>=8, but you have click 8.5.1 which is incompatible.
+  DEPRECATION: Setting PIP_CONSTRAINT will not affect build constraints in the future, pip 26.2 will enforce this behaviour change. A possible replacement is to specify build constraints using --build-constraint or PIP_BUILD_CONSTRAINT. To disable this warning without any build constraints set --use-feature=build-constraint or PIP_USE_FEATURE="build-constraint".
+torch 2.10.0+cu130 cuda 13.0 cudnn 91501
+torchvision 0.25.0+cu130 transformers 5.24.1 diffusers 0.43.0
+pillow 13.0.0 numpy 2.5.5 tensordict 0.14.3 flash_attn 2.8.3
+NVIDIA H200, 595.112.07
+flash-attn3 kernel cached
+W: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+debconf: delaying package configuration, since apt-utils is not installed
+=== run_native.sh (fast), fresh shell, clean build, TorchScript from /scratch/ts
+loaded in 30.73 s
+dump written: /work/s6/native_fast.safetensors (48 tensors)
+request 0: 7.673 s  peak_alloc 4.70 GB  peak_reserved 6.00 GB
+native_fast: /work/s6/native_fast.ply
+
+real	1m9.818s
+user	2m30.637s
+sys	0m22.491s
+{"latent_rel_l2": 0.015657482718411147, "latent_max_abs": 2.6716638803482056, "latent_mean_abs": 0.0036407368941202556, "camera_abs_err": [0.0010656474747983147, 0.0018783905821380294, 0.00024878113744142283, 0.010840488768295131], "chamfer_xyz": 0.0016781132461084342, "n_gaussians": [262144, 262144]}
+=== --fa3 fallback
+warning: cannot load FlashAttention-3 (/root/.cache/huggingface/hub/kernels--kernels-community--flash-attn3/snapshots/7cb368cf8278b583132eb72cbf312d54586df2e2/build/torch-stable-abi29-cu130-x86_64-linux/_flash_attn3_cuda_0f52d9d.abi3.so: undefined symbol: PyModule_Create2); using cuDNN attention
+fast build attention: cuDNN
+request 0: 6.261 s  peak_alloc 4.70 GB  peak_reserved 6.00 GB
+native_fast_fa3try: /work/s6/native_fast_fa3try.ply
+fallback output identical to the cuDNN run
+NATIVE_CHECK_DONE

@@ -1,0 +1,2 @@
+idol_native: build=fast device=NVIDIA H200 (sm_90) torch=2.10.0 cudnn=91501
+error: dlopen /root/.cache/huggingface/hub/kernels--kernels-community--flash-attn3/snapshots/7cb368cf8278b583132eb72cbf312d54586df2e2/build/torch-stable-abi29-cu130-x86_64-linux/_flash_attn3_cuda_0f52d9d.abi3.so: undefined symbol: PyModule_Create2

@@ -1,0 +1,5 @@
+robot_262k: checkpoints identical ( 760 compared); ply identical; camera.json identical
+robot_1m: checkpoints identical ( 970 compared); ply identical; camera.json identical
+avocado_262k: checkpoints identical ( 781 compared); ply identical; camera.json identical
+avocado_1m: checkpoints identical ( 1000 compared); ply identical; camera.json identical
+PARITY PASS

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+/build/
+/native/build/
+/out/
+*.ply
+*.safetensors
+.env
+kernel/build/
+outputs/
+.venv/

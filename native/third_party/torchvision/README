@@ -1,0 +1,3 @@
+Vendored unmodified from https://github.com/pytorch/vision at tag v0.25.0 (BSD-3-Clause, see LICENSE):
+torchvision/csrc/macros.h, torchvision/csrc/ops/deform_conv2d.{h,cpp}, torchvision/csrc/ops/cuda/{deform_conv2d_kernel.cu,cuda_helpers.h}
+The wheel's torchvision/_C.so links libtorch_python.so, so it cannot be loaded in a Python-free process.

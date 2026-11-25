@@ -1,0 +1,1 @@
+# 1000 compared, 1000 identical, 0 differ; only in A: 38, only in B: 200

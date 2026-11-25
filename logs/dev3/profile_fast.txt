@@ -1,0 +1,38 @@
+
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 615/615 [00:00<00:00, 4245.98it/s]
+  _warn_once(
+fast step: 85.15 ms GPU per step
+  55.560 ms/step  65.3% x  50  cudnn_generated_fort_native_sdpa_sm90_flash_fprop_wgmma_f16_knob_7_64x128x64_4x1x1_cga1x1x1_kernel0_0
+   7.325 ms/step   8.6% x  54  nvjet_sm90_hsh_256x128_64x4_1x2_h_bz_coopA_bias_TNT
+   6.469 ms/step   7.6% x  24  nvjet_sm90_hsh_256x152_64x4_1x2_h_bz_coopA_gelubias_TNT
+   4.451 ms/step   5.2% x  24  nvjet_sm90_hsh_192x208_64x4_2x1_v_bz_coopB_bias_TNT
+   4.063 ms/step   4.8% x  54  idol_cuda::(anonymous namespace)::add_ln_mod_kernel(idol_cuda::(anonymous namespace)::AddLnArgs)
+   3.042 ms/step   3.6% x  26  idol_cuda::(anonymous namespace)::rope_rms_qk_kernel(__half const*, long, float const*, long, float const*, float const*
+   1.134 ms/step   1.3% x  24  sm90_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize64x256x32_warpgroupsize1x1x1_execute_segment_k_off_kernel__5x_cublas
+   1.012 ms/step   1.2% x  24  idol_cuda::(anonymous namespace)::merge_key_kernel(__half const*, long, float const*, __half const*, long, __half const*
+   0.484 ms/step   0.6% x  55  Memcpy DtoD (Device -> Device)
+   0.297 ms/step   0.3% x  29  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, f
+   0.242 ms/step   0.3% x  25  void cutlass::Kernel2<cutlass_80_tensorop_s1688gemm_128x64_16x6_tn_align4>(cutlass_80_tensorop_s1688gemm_128x64_16x6_tn_
+   0.233 ms/step   0.3% x  26  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::silu_k
+   0.224 ms/step   0.3% x   2  nvjet_sm90_hsh_256x128_64x4_1x2_h_bz_coopA_gelubias_TNT
+   0.189 ms/step   0.2% x 176  Memset (Device)
+   0.059 ms/step   0.1% x   2  void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, floa
+   0.058 ms/step   0.1% x   3  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::
+   0.055 ms/step   0.1% x   2  void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}:
+   0.045 ms/step   0.1% x  29  void at::native::vectorized_elementwise_kernel<8, at::native::float16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda
+   0.043 ms/step   0.1% x   3  void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized<at::native::(anonymous namespace)::OpaqueType<2u>
+   0.038 ms/step   0.0% x   2  sm90_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize128x128x32_warpgroupsize1x1x1_execute_segment_k_off_kernel__5x_cublas
+   0.036 ms/step   0.0% x  27  void at::native::vectorized_elementwise_kernel<8, at::native::CUDAFunctor_add<c10::Half>, std::array<char*, 3ul> >(int, 
+   0.024 ms/step   0.0% x   1  sm90_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize64x64x32_warpgroupsize1x1x1_execute_segment_k_on_kernel__5x_cublas
+   0.013 ms/step   0.0% x   1  sm80_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize32x32x64_stage3_warpsize2x2x1_tensor16x8x8_aligna4_alignc4_execute_kernel
+   0.012 ms/step   0.0% x   3  std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, float, float, float, float, false, true, true, fa
+   0.010 ms/step   0.0% x   2  void cutlass::Kernel2<cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align4>(cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_al
+   0.010 ms/step   0.0% x   1  void gemv2T_kernel_val<int, int, float, float, float, float, 128, 16, 4, 4, false, false, cublasGemvParamsEx<int, cublas
+   0.003 ms/step   0.0% x   3  void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, float, at::native::binary_inte
+   0.003 ms/step   0.0% x   1  std::enable_if<true, void>::type internal::gemvx::kernel<int, int, float, float, float, float, true, true, true, false, 
+   0.003 ms/step   0.0% x   2  void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&
+   0.002 ms/step   0.0% x   2  void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctorOnSelf_add<float>, std::array<char*, 2ul> >(int
+fa3 unavailable: ValueError A kernel version or revision must be specified. Use `version=<major>` for a stable kernel API version or `revision=<branch/tag/commit>` for an explicit Hub revision. See: https://huggingface.co/docs/k
+attention L=12294 S=12294: cudnn 1.482 ms (418 TFLOP/s)  flash_aten 2.009 ms (308 TFLOP/s)
+fa3 unavailable: ValueError A kernel version or revision must be specified. Use `version=<major>` for a stable kernel API version or `revision=<branch/tag/commit>` for an explicit Hub revision. See: https://huggingface.co/docs/k
+attention L=8194 S=8193: cudnn 0.671 ms (410 TFLOP/s)  flash_aten 0.902 ms (305 TFLOP/s)

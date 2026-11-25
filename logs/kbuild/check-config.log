@@ -1,0 +1,8 @@
+Error: Cannot parse TOML in ./build.toml
+
+Caused by:
+    unsupported build edition 6; upgrade kernel-builder
+
+
+Location:
+    kernels-common/src/config/parse.rs:37:10

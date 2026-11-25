@@ -1,0 +1,167 @@
+== Wed Nov 25 03:40:27 UTC 2026 host j-suvadityamuk-6b0658841460ffe1d5e9adc1-m3unv8x2-79f44-cnczm nproc 192 run /scratch/runs/20261125-034027-stage1
+idol-sdk 8db700349a5570aac390e4780fa32e3eed6b587a
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+spin 0.16 requires click!=8.3.0,<8.4,>=8, but you have click 8.5.1 which is incompatible.
+  DEPRECATION: Setting PIP_CONSTRAINT will not affect build constraints in the future, pip 26.2 will enforce this behaviour change. A possible replacement is to specify build constraints using --build-constraint or PIP_BUILD_CONSTRAINT. To disable this warning without any build constraints set --use-feature=build-constraint or PIP_USE_FEATURE="build-constraint".
+torch 2.10.0+cu130 cuda 13.0 cudnn 91501
+torchvision 0.25.0+cu130 transformers 5.24.1 diffusers 0.43.0
+pillow 13.0.0 numpy 2.5.5 tensordict 0.14.3 flash_attn 2.8.3
+NVIDIA H200, 595.112.07
+name, driver_version, memory.total [MiB]
+NVIDIA H200, 595.112.07, 143771 MiB
+/usr/local/lib/python3.12/dist-packages/diffusers/models/downsampling.py:143: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert hidden_states.shape[1] == self.channels
+saved vae_enc
+vae bn eps 0.0001 torch.bfloat16
+VERIFY PASS
+{"torch": "2.10.0+cu130", "cuda": "13.0", "cudnn": 91501, "gpu": "NVIDIA H200", "cc": [9, 0], "cudnn.benchmark": false, "cudnn.deterministic": false, "cudnn.allow_tf32": true, "matmul.allow_tf32": false, "fp16_reduced_precision_reduction": true, "bf16_reduced_precision_reduction": true, "attn": "sdpa", "optimize": false, "cudnn_attention": false, "load_s": 14.230887607001932, "nproc": 192, "deterministic": false, "driver": "595.112.07"}
+{"request_s": 12.170639032992767, "stages": {"preprocess": 0.7336939469969366, "encoders": 0.2916539480065694, "sampling": 10.242881183003192, "octree": 0.7053393690002849, "gs_decoder": 0.1526461979956366}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.09178118300042115, "ply_sha256": "903bba69df9380219130bf5dd4af8aa90b97236f89e3c2db62b43a2f1743de16"}
+saved 798 tensors (197 rng draws) to /scratch/ref/robot_262k_eager_sdpa_a.safetensors
+{"request_s": 11.28864770400105, "stages": {"preprocess": 0.6497942560090451, "encoders": 0.28455660899635404, "sampling": 9.678723092001746, "octree": 0.4773574360006023, "gs_decoder": 0.15297683600510936}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.09099991200491786, "ply_sha256": "903bba69df9380219130bf5dd4af8aa90b97236f89e3c2db62b43a2f1743de16"}
+saved 308 tensors (197 rng draws) to /scratch/ref/robot_262k_eager_sdpa_b.safetensors
+noise eager robot_262k: # 308 compared, 308 identical, 0 differ; only in A: 490, only in B: 0
+ply A==B robot_262k
+{"torch": "2.10.0+cu130", "cuda": "13.0", "cudnn": 91501, "gpu": "NVIDIA H200", "cc": [9, 0], "cudnn.benchmark": false, "cudnn.deterministic": false, "cudnn.allow_tf32": true, "matmul.allow_tf32": false, "fp16_reduced_precision_reduction": true, "bf16_reduced_precision_reduction": true, "attn": "sdpa", "optimize": false, "cudnn_attention": false, "load_s": 13.442400384999928, "nproc": 192, "deterministic": false, "driver": "595.112.07"}
+{"request_s": 11.414473969998653, "stages": {"preprocess": 0.700606639002217, "encoders": 0.2833786380069796, "sampling": 9.750925109998207, "octree": 0.4806991229997948, "gs_decoder": 0.1516453799995361}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.09354945398808923, "ply_sha256": "4d2ed49ec65b8a104ac227fb1d86d16757f2cf9b9c5ec400f5b3e101866656ae"}
+saved 819 tensors (218 rng draws) to /scratch/ref/avocado_262k_eager_sdpa_a.safetensors
+{"request_s": 11.357693566998933, "stages": {"preprocess": 0.7356806530005997, "encoders": 0.2849153579882113, "sampling": 9.65362218300288, "octree": 0.48683276399970055, "gs_decoder": 0.1524651669897139}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.08974401500017848, "ply_sha256": "4d2ed49ec65b8a104ac227fb1d86d16757f2cf9b9c5ec400f5b3e101866656ae"}
+saved 329 tensors (218 rng draws) to /scratch/ref/avocado_262k_eager_sdpa_b.safetensors
+noise eager avocado_262k: # 329 compared, 329 identical, 0 differ; only in A: 490, only in B: 0
+ply A==B avocado_262k
+{"torch": "2.10.0+cu130", "cuda": "13.0", "cudnn": 91501, "gpu": "NVIDIA H200", "cc": [9, 0], "cudnn.benchmark": false, "cudnn.deterministic": false, "cudnn.allow_tf32": true, "matmul.allow_tf32": false, "fp16_reduced_precision_reduction": true, "bf16_reduced_precision_reduction": true, "attn": "sdpa", "optimize": false, "cudnn_attention": false, "load_s": 13.145647714001825, "nproc": 192, "deterministic": false, "driver": "595.112.07"}
+{"request_s": 11.787280245989677, "stages": {"preprocess": 0.6680777220026357, "encoders": 0.2848254639975494, "sampling": 9.71896421200654, "octree": 0.52884860499762, "gs_decoder": 0.5145559229858918}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.4384680270013632, "ply_sha256": "84294446bff0c84b3d5b6854aeff9bd35d45464fe64185ecd1a42f02e794f0b9"}
+saved 1008 tensors (407 rng draws) to /scratch/ref/robot_1m_eager_sdpa_a.safetensors
+{"request_s": 11.766145180008607, "stages": {"preprocess": 0.7189513240009546, "encoders": 0.2864446519961348, "sampling": 9.65399947098922, "octree": 0.5263521489978302, "gs_decoder": 0.5097871979960473}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.4172446800075704, "ply_sha256": "84294446bff0c84b3d5b6854aeff9bd35d45464fe64185ecd1a42f02e794f0b9"}
+saved 518 tensors (407 rng draws) to /scratch/ref/robot_1m_eager_sdpa_b.safetensors
+noise eager robot_1m: # 518 compared, 518 identical, 0 differ; only in A: 490, only in B: 0
+ply A==B robot_1m
+{"torch": "2.10.0+cu130", "cuda": "13.0", "cudnn": 91501, "gpu": "NVIDIA H200", "cc": [9, 0], "cudnn.benchmark": false, "cudnn.deterministic": false, "cudnn.allow_tf32": true, "matmul.allow_tf32": false, "fp16_reduced_precision_reduction": true, "bf16_reduced_precision_reduction": true, "attn": "sdpa", "optimize": false, "cudnn_attention": false, "load_s": 13.905602095997892, "nproc": 192, "deterministic": false, "driver": "595.112.07"}
+{"request_s": 11.869046991996584, "stages": {"preprocess": 0.7413424310070695, "encoders": 0.2833721280039754, "sampling": 9.72690467700886, "octree": 0.5370303499948932, "gs_decoder": 0.5101556879963027}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.4168682169984095, "ply_sha256": "11b23ad360a7c64fcecad973dbf1cc7c8ccf7d1c1f74bb593fcbf274cfbcea7b"}
+saved 1038 tensors (437 rng draws) to /scratch/ref/avocado_1m_eager_sdpa_a.safetensors
+{"request_s": 11.75120927199896, "stages": {"preprocess": 0.6711351039994042, "encoders": 0.28258374000142794, "sampling": 9.668480471998919, "octree": 0.5374887289945036, "gs_decoder": 0.5123339370038593}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.4314744139992399, "ply_sha256": "11b23ad360a7c64fcecad973dbf1cc7c8ccf7d1c1f74bb593fcbf274cfbcea7b"}
+saved 548 tensors (437 rng draws) to /scratch/ref/avocado_1m_eager_sdpa_b.safetensors
+noise eager avocado_1m: # 548 compared, 548 identical, 0 differ; only in A: 490, only in B: 0
+ply A==B avocado_1m
+saved 308 tensors (197 rng draws) to /scratch/ref/robot_262k_eager_sdpa_det_a.safetensors
+saved 308 tensors (197 rng draws) to /scratch/ref/robot_262k_eager_sdpa_det_b.safetensors
+det a vs b: # 308 compared, 308 identical, 0 differ; only in A: 0, only in B: 0
+det vs default: # 308 compared, 308 identical, 0 differ; only in A: 490, only in B: 0
+{"request_s": 20.604714749002596, "stages": {"preprocess": 0.6480348780023633, "encoders": 0.28189840000413824, "sampling": 19.021619909006404, "octree": 0.4994802260043798, "gs_decoder": 0.10443319199839607}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.09117192200210411, "ply_sha256": "f71a082d5134ce4a72d3fbf88eb05cbd1449e807f99e6d91c7bf91b587ea2021"}
+saved 296 tensors (232 rng draws) to /scratch/ref/robot_262k_compiled_a.safetensors
+{"request_s": 10.499846523001906, "stages": {"preprocess": 0.6342950859980192, "encoders": 0.2508826259872876, "sampling": 8.950749940995593, "octree": 0.5100710039987462, "gs_decoder": 0.10532473400235176}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.08785991001059301, "ply_sha256": "f71a082d5134ce4a72d3fbf88eb05cbd1449e807f99e6d91c7bf91b587ea2021"}
+saved 260 tensors (196 rng draws) to /scratch/ref/robot_262k_compiled_b.safetensors
+compiled vs eager robot_262k: # 224 compared, 23 identical, 201 differ; only in A: 574, only in B: 72
+{"request_s": 10.574074072006624, "stages": {"preprocess": 0.696280404998106, "encoders": 0.29749612099840306, "sampling": 8.9224128890055, "octree": 0.5033550189982634, "gs_decoder": 0.10465324799588416}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.0925623109942535, "ply_sha256": "318ebb766de01fbd33359950d6586ae33042eea4e9d965f761b3f312ba84268c"}
+saved 278 tensors (214 rng draws) to /scratch/ref/avocado_262k_compiled_a.safetensors
+{"request_s": 10.577662670999416, "stages": {"preprocess": 0.6864583540009335, "encoders": 0.27558888199564535, "sampling": 8.961347781994846, "octree": 0.5015404200094054, "gs_decoder": 0.10489006599527784}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.087818572006654, "ply_sha256": "318ebb766de01fbd33359950d6586ae33042eea4e9d965f761b3f312ba84268c"}
+saved 278 tensors (214 rng draws) to /scratch/ref/avocado_262k_compiled_b.safetensors
+compiled vs eager avocado_262k: # 277 compared, 117 identical, 160 differ; only in A: 542, only in B: 1
+{"request_s": 10.823704376001842, "stages": {"preprocess": 0.6621270769974217, "encoders": 0.27981532701232936, "sampling": 8.930198504996952, "octree": 0.5575423950067488, "gs_decoder": 0.3173265759978676}, "peak_alloc_gb": 5.00655460357666, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.4315852379950229, "ply_sha256": "68c571f2e5ddc3768ba501afa7666cfe43da47508340cd23dba1f6496dd4e54d"}
+saved 465 tensors (401 rng draws) to /scratch/ref/robot_1m_compiled_a.safetensors
+compiled vs eager robot_1m: # 464 compared, 184 identical, 280 differ; only in A: 544, only in B: 1
+{"request_s": 10.940850347004016, "stages": {"preprocess": 0.7028705720003927, "encoders": 0.2865956549940165, "sampling": 8.985446060993127, "octree": 0.5678145580022829, "gs_decoder": 0.32076872600009665}, "peak_alloc_gb": 5.005990028381348, "peak_reserved_gb": 6.72265625, "save_ply_s": 0.4567134690005332, "ply_sha256": "e2e7411df60d8cc6ca0a2dcad0eee316abb28303f2f0fe94a42fb133d9680332"}
+saved 511 tensors (447 rng draws) to /scratch/ref/avocado_1m_compiled_a.safetensors
+compiled vs eager avocado_1m: # 500 compared, 180 identical, 320 differ; only in A: 538, only in B: 11
+compiled a vs b robot_262k: # 223 compared, 67 identical, 156 differ; only in A: 73, only in B: 37
+compiled a vs b avocado_262k: # 278 compared, 278 identical, 0 differ; only in A: 0, only in B: 0
+      1 V1125 03:55:13.171000 8356 torch/_dynamo/guards.py:4514] [0/1] [__recompiles]     - 0/0: tensor 'hidden_states' size mismatch at index 1. expected 8192, actual 4101
+      1 V1125 03:55:13.171000 8356 torch/_dynamo/guards.py:4514] [0/1] [__recompiles]     triggered by the following guard failure(s):
+      1 V1125 03:55:13.171000 8356 torch/_dynamo/guards.py:4514] [0/1] [__recompiles] Recompiling function forward in /work/idol-sdk/idol/models/layers.py:196
+      1 V1125 03:55:14.157000 8356 torch/_dynamo/guards.py:4514] [1/1] [__recompiles]     - 1/0: tensor 'x' size mismatch at index 1. expected 8192, actual 4101
+      1 V1125 03:55:14.157000 8356 torch/_dynamo/guards.py:4514] [1/1] [__recompiles]     triggered by the following guard failure(s):
+      1 V1125 03:55:14.157000 8356 torch/_dynamo/guards.py:4514] [1/1] [__recompiles] Recompiling function forward in /work/idol-sdk/idol/models/layers.py:274
+      1 V1125 03:55:16.084000 8356 torch/_dynamo/guards.py:4514] [0/2] [__recompiles]     - 0/0: tensor 'hidden_states' size mismatch at index 1. expected 8192, actual 12294
+      1 V1125 03:55:16.084000 8356 torch/_dynamo/guards.py:4514] [0/2] [__recompiles]     - 0/1: tensor 'hidden_states' size mismatch at index 1. expected 4101, actual 12294
+      1 V1125 03:55:16.084000 8356 torch/_dynamo/guards.py:4514] [0/2] [__recompiles]     triggered by the following guard failure(s):
+      1 V1125 03:55:16.084000 8356 torch/_dynamo/guards.py:4514] [0/2] [__recompiles] Recompiling function forward in /work/idol-sdk/idol/models/layers.py:196
+      1 V1125 03:55:17.684000 8356 torch/_dynamo/guards.py:4514] [1/2] [__recompiles]     - 1/0: tensor 'x' size mismatch at index 1. expected 8192, actual 12294
+      1 V1125 03:55:17.684000 8356 torch/_dynamo/guards.py:4514] [1/2] [__recompiles]     - 1/1: tensor 'x' size mismatch at index 1. expected 4101, actual 12294
+      1 V1125 03:55:17.684000 8356 torch/_dynamo/guards.py:4514] [1/2] [__recompiles]     triggered by the following guard failure(s):
+      1 V1125 03:55:17.684000 8356 torch/_dynamo/guards.py:4514] [1/2] [__recompiles] Recompiling function forward in /work/idol-sdk/idol/models/layers.py:274
+      1 V1125 03:55:49.288000 9301 torch/_dynamo/guards.py:4514] [0/1] [__recompiles]     - 0/0: tensor 'hidden_states' size mismatch at index 1. expected 8192, actual 4101
+      1 V1125 03:55:49.288000 9301 torch/_dynamo/guards.py:4514] [0/1] [__recompiles]     triggered by the following guard failure(s):
+      1 V1125 03:55:49.288000 9301 torch/_dynamo/guards.py:4514] [0/1] [__recompiles] Recompiling function forward in /work/idol-sdk/idol/models/layers.py:196
+      1 V1125 03:55:49.405000 9301 torch/_dynamo/guards.py:4514] [1/1] [__recompiles]     - 1/0: tensor 'x' size mismatch at index 1. expected 8192, actual 4101
+      1 V1125 03:55:49.405000 9301 torch/_dynamo/guards.py:4514] [1/1] [__recompiles]     triggered by the following guard failure(s):
+      1 V1125 03:55:49.405000 9301 torch/_dynamo/guards.py:4514] [1/1] [__recompiles] Recompiling function forward in /work/idol-sdk/idol/models/layers.py:274
+
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 615/615 [00:00<00:00, 3865.17it/s]
+/usr/local/lib/python3.12/dist-packages/torch/profiler/profiler.py:217: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+  _warn_once(
+total self device time: 31569.9 ms
+   6439.66 ms  20.4%       1  stage:request
+   6202.43 ms  19.6%       1  stage:sampling
+   5446.29 ms  17.3%    1200  ## Call CompiledFxGraph fi7ydsgsndkemnifwlp6zs3zvdu7jbl2wnsp2kapywqzr5o5vwgk ##
+   3969.09 ms  12.6%    1496  aten::_cudnn_attention_forward
+   3967.61 ms  12.6%    1492  cudnn_generated_fort_native_sdpa_sm90_flash_fprop_wgmma_f16_knob_7_64x128x64_4x1x1_cga1x1x1_kernel0_0
+    934.74 ms   3.0%    8438  aten::mm
+    408.31 ms   1.3%    2400  nvjet_sm90_hsh_256x152_64x4_1x2_h_bz_coopA_TNT
+    338.41 ms   1.1%    1200  nvjet_sm90_hsh_256x160_64x4_1x2_h_bz_coopA_TNT
+    320.70 ms   1.0%    2608  aten::addmm
+    316.99 ms   1.0%    1200  ## Call CompiledFxGraph fgjewevpu6s2ml3tz4k7vyb7ku3nhmbzmjrsou2isok5wglnel4l ##
+    312.66 ms   1.0%    1400  triton_per_fused__scaled_dot_product_cudnn_attention__to_copy_add_clamp_min_div_expand_linalg_vector_norm_mul_permute_stack_sub_unbind_view_1
+    312.66 ms   1.0%    1400  triton_per_fused__scaled_dot_product_cudnn_attention__to_copy_add_clamp_min_div_expand_linalg_vector_norm_mul_permute_stack_sub_unbind_view_1
+    264.12 ms   0.8%    1200  nvjet_sm90_hsh_192x176_64x4_1x2_h_bz_coopB_bias_TNT
+    220.61 ms   0.7%     100  ## Call CompiledFxGraph f2jmkd6axuuovbgjd7ppbuu36pkxpxte3jelgrkcg4kwkksl6txm ##
+    178.24 ms   0.6%    1400  triton_poi_fused_addmm_gelu_view_3
+    178.24 ms   0.6%    1400  triton_poi_fused_addmm_gelu_view_3
+    113.95 ms   0.4%       1  stage:octree
+    103.92 ms   0.3%    2750  sm90_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize128x128x32_warpgroupsize1x1x1_execute_segment_k_off_kernel__5x_cublas
+     86.29 ms   0.3%     100  ## Call CompiledFxGraph frkbcyyqu7esg5xk64burfy5wiabnghlgb6yunotcs66wsuxzddw ##
+     78.89 ms   0.2%       1  stage:encoders
+     78.02 ms   0.2%    1200  triton_red_fused__to_copy_add_addmm_mul_native_layer_norm_split_unsqueeze_view_2
+     78.02 ms   0.2%    1200  triton_red_fused__to_copy_add_addmm_mul_native_layer_norm_split_unsqueeze_view_2
+     76.94 ms   0.2%    1400  triton_poi_fused__unsafe_view_add_cat_mul_select_sub_tanh_unsqueeze_view_2
+     76.94 ms   0.2%    1400  triton_poi_fused__unsafe_view_add_cat_mul_select_sub_tanh_unsqueeze_view_2
+     67.85 ms   0.2%       5  stage:preprocess
+     63.70 ms   0.2%    1400  triton_poi_fused_cos_sin_stack_3
+     63.70 ms   0.2%    1400  triton_poi_fused_cos_sin_stack_3
+     51.01 ms   0.2%    1200  triton_red_fused__to_copy_native_layer_norm_0
+     51.01 ms   0.2%    1200  triton_red_fused__to_copy_native_layer_norm_0
+     48.54 ms   0.2%    1200  triton_red_fused__to_copy_add_mul_native_layer_norm_split_unsqueeze_0
+     48.54 ms   0.2%    1200  triton_red_fused__to_copy_add_mul_native_layer_norm_split_unsqueeze_0
+     42.90 ms   0.1%    1300  triton_poi_fused__to_copy_add_addmm_mul_split_unsqueeze_view_4
+     42.90 ms   0.1%    1300  triton_poi_fused__to_copy_add_addmm_mul_split_unsqueeze_view_4
+     41.27 ms   0.1%       1  stage:gs_decoder
+     25.66 ms   0.1%      22  aten::native_group_norm
+     23.43 ms   0.1%     200  nvjet_sm90_hsh_256x128_64x4_1x2_h_bz_coopA_TNT
+     23.18 ms   0.1%      22  void at::native::(anonymous namespace)::RowwiseMomentsCUDAKernel<c10::BFloat16>(long, c10::BFloat16, c10::BFloat16 const*, c10::BFloat16*, c10::BFloat
+     22.98 ms   0.1%     304  nvjet_sm90_hsh_256x128_64x4_1x2_h_bz_coopA_bias_TNT
+     22.85 ms   0.1%    1960  aten::copy_
+     22.33 ms   0.1%     100  ## Call CompiledFxGraph fp4xqtt4fz3zbdd2jyvhn4pgxl72lxotexpesirvrd5s5bsxy2gj ##
+     20.11 ms   0.1%     100  nvjet_sm90_hsh_320x128_64x3_1x2_h_bz_coopB_TNT
+     16.73 ms   0.1%    1400  sm90_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize64x128x32_warpgroupsize1x1x1_execute_segment_k_off_kernel__5x_cublas
+     15.96 ms   0.1%     111  aten::cudnn_convolution
+     14.09 ms   0.0%    1150  aten::add
+     13.83 ms   0.0%    1102  aten::mul
+
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 615/615 [00:00<00:00, 4275.43it/s]
+/usr/local/lib/python3.12/dist-packages/torch/profiler/profiler.py:217: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+  _warn_once(
+total self device time: 37640.2 ms
+   9712.85 ms  25.8%       1  stage:request
+   9472.14 ms  25.2%       1  stage:sampling
+   3671.29 ms   9.8%    2896  aten::_cudnn_attention_forward
+   3668.58 ms   9.7%    2892  cudnn_generated_fort_native_sdpa_sm90_flash_fprop_wgmma_f16_knob_7_64x128x64_4x1x1_cga1x1x1_kernel0_0
+   1197.83 ms   3.2%   12908  aten::addmm
+   1030.21 ms   2.7%   41511  aten::copy_
+   1004.54 ms   2.7%   56652  aten::mul
+    518.64 ms   1.4%    8438  aten::mm
+    486.32 ms   1.3%   14432  void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()
+    452.26 ms   1.2%    5000  sm80_xmma_gemm_f32f32_f32f32_f32_tn_n_tilesize128x32x8_stage3_warpsize2x2x1_ffma_aligna4_alignc4_execute_kernel__5x_cublas
+    427.07 ms   1.1%    4800  nvjet_sm90_hsh_128x256_64x4_2x1_v_bz_coopA_bias_TNN
+    341.18 ms   0.9%    2404  nvjet_sm90_hsh_256x152_64x4_1x2_h_bz_coopA_bias_TNT
+    331.02 ms   0.9%    8899  aten::native_layer_norm
+    328.66 ms   0.9%    8722  void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, float const*, float const*, float*
+    323.83 ms   0.9%   10515  void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<c10::Half, c10::Half, c10::Half, at::native::
+    316.58 ms   0.8%   28501  aten::add
+    315.21 ms   0.8%   22844  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_inter
+    299.67 ms   0.8%   20174  void at::native::vectorized_elementwise_kernel<8, at::native::float16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 
+    275.56 ms   0.7%    2402  nvjet_sm90_hsh_192x192_64x4_1x2_h_bz_coopB_bias_TNN
+    275.51 ms   0.7%    5730  aten::linalg_vector_norm
+    275.51 ms   0.7%    5730  void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::NormTwoOps<float, float, float>, unsigned int, float, 4, 4> >(at::nativ
+    232.71 ms   0.6%    5680  void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::op
+    208.85 ms   0.6%    6258  aten::div
+    207.98 ms   0.6%    5738  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_inter
+    195.25 ms   0.5%    5600  void at::native::vectorized_elementwise_kernel<2, at::native::BinaryFunctor<c10::complex<float>, c10::complex<float>, c10::complex<float>, at::native:
+STAGE1_DONE

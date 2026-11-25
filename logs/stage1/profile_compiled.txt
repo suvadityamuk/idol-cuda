@@ -1,0 +1,65 @@
+
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 615/615 [00:00<00:00, 3865.17it/s]
+/usr/local/lib/python3.12/dist-packages/torch/profiler/profiler.py:217: UserWarning: Warning: Profiler clears events at the end of each cycle.Only events from the current cycle will be reported.To keep events across cycles, set acc_events=True.
+  _warn_once(
+total self device time: 31569.9 ms
+   6439.66 ms  20.4%       1  stage:request
+   6202.43 ms  19.6%       1  stage:sampling
+   5446.29 ms  17.3%    1200  ## Call CompiledFxGraph fi7ydsgsndkemnifwlp6zs3zvdu7jbl2wnsp2kapywqzr5o5vwgk ##
+   3969.09 ms  12.6%    1496  aten::_cudnn_attention_forward
+   3967.61 ms  12.6%    1492  cudnn_generated_fort_native_sdpa_sm90_flash_fprop_wgmma_f16_knob_7_64x128x64_4x1x1_cga1x1x1_kernel0_0
+    934.74 ms   3.0%    8438  aten::mm
+    408.31 ms   1.3%    2400  nvjet_sm90_hsh_256x152_64x4_1x2_h_bz_coopA_TNT
+    338.41 ms   1.1%    1200  nvjet_sm90_hsh_256x160_64x4_1x2_h_bz_coopA_TNT
+    320.70 ms   1.0%    2608  aten::addmm
+    316.99 ms   1.0%    1200  ## Call CompiledFxGraph fgjewevpu6s2ml3tz4k7vyb7ku3nhmbzmjrsou2isok5wglnel4l ##
+    312.66 ms   1.0%    1400  triton_per_fused__scaled_dot_product_cudnn_attention__to_copy_add_clamp_min_div_expand_linalg_vector_norm_mul_permute_stack_sub_unbind_view_1
+    312.66 ms   1.0%    1400  triton_per_fused__scaled_dot_product_cudnn_attention__to_copy_add_clamp_min_div_expand_linalg_vector_norm_mul_permute_stack_sub_unbind_view_1
+    264.12 ms   0.8%    1200  nvjet_sm90_hsh_192x176_64x4_1x2_h_bz_coopB_bias_TNT
+    220.61 ms   0.7%     100  ## Call CompiledFxGraph f2jmkd6axuuovbgjd7ppbuu36pkxpxte3jelgrkcg4kwkksl6txm ##
+    178.24 ms   0.6%    1400  triton_poi_fused_addmm_gelu_view_3
+    178.24 ms   0.6%    1400  triton_poi_fused_addmm_gelu_view_3
+    113.95 ms   0.4%       1  stage:octree
+    103.92 ms   0.3%    2750  sm90_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize128x128x32_warpgroupsize1x1x1_execute_segment_k_off_kernel__5x_cublas
+     86.29 ms   0.3%     100  ## Call CompiledFxGraph frkbcyyqu7esg5xk64burfy5wiabnghlgb6yunotcs66wsuxzddw ##
+     78.89 ms   0.2%       1  stage:encoders
+     78.02 ms   0.2%    1200  triton_red_fused__to_copy_add_addmm_mul_native_layer_norm_split_unsqueeze_view_2
+     78.02 ms   0.2%    1200  triton_red_fused__to_copy_add_addmm_mul_native_layer_norm_split_unsqueeze_view_2
+     76.94 ms   0.2%    1400  triton_poi_fused__unsafe_view_add_cat_mul_select_sub_tanh_unsqueeze_view_2
+     76.94 ms   0.2%    1400  triton_poi_fused__unsafe_view_add_cat_mul_select_sub_tanh_unsqueeze_view_2
+     67.85 ms   0.2%       5  stage:preprocess
+     63.70 ms   0.2%    1400  triton_poi_fused_cos_sin_stack_3
+     63.70 ms   0.2%    1400  triton_poi_fused_cos_sin_stack_3
+     51.01 ms   0.2%    1200  triton_red_fused__to_copy_native_layer_norm_0
+     51.01 ms   0.2%    1200  triton_red_fused__to_copy_native_layer_norm_0
+     48.54 ms   0.2%    1200  triton_red_fused__to_copy_add_mul_native_layer_norm_split_unsqueeze_0
+     48.54 ms   0.2%    1200  triton_red_fused__to_copy_add_mul_native_layer_norm_split_unsqueeze_0
+     42.90 ms   0.1%    1300  triton_poi_fused__to_copy_add_addmm_mul_split_unsqueeze_view_4
+     42.90 ms   0.1%    1300  triton_poi_fused__to_copy_add_addmm_mul_split_unsqueeze_view_4
+     41.27 ms   0.1%       1  stage:gs_decoder
+     25.66 ms   0.1%      22  aten::native_group_norm
+     23.43 ms   0.1%     200  nvjet_sm90_hsh_256x128_64x4_1x2_h_bz_coopA_TNT
+     23.18 ms   0.1%      22  void at::native::(anonymous namespace)::RowwiseMomentsCUDAKernel<c10::BFloat16>(long, c10::BFloat16, c10::BFloat16 const*, c10::BFloat16*, c10::BFloat
+     22.98 ms   0.1%     304  nvjet_sm90_hsh_256x128_64x4_1x2_h_bz_coopA_bias_TNT
+     22.85 ms   0.1%    1960  aten::copy_
+     22.33 ms   0.1%     100  ## Call CompiledFxGraph fp4xqtt4fz3zbdd2jyvhn4pgxl72lxotexpesirvrd5s5bsxy2gj ##
+     20.11 ms   0.1%     100  nvjet_sm90_hsh_320x128_64x3_1x2_h_bz_coopB_TNT
+     16.73 ms   0.1%    1400  sm90_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize64x128x32_warpgroupsize1x1x1_execute_segment_k_off_kernel__5x_cublas
+     15.96 ms   0.1%     111  aten::cudnn_convolution
+     14.09 ms   0.0%    1150  aten::add
+     13.83 ms   0.0%    1102  aten::mul
+     12.15 ms   0.0%     200  nvjet_sm90_hsh_128x256_64x4_2x1_v_bz_coopA_TNN
+     11.64 ms   0.0%    1400  triton_poi_fused__unsafe_view_mul_silu_1
+     11.64 ms   0.0%    1400  triton_poi_fused__unsafe_view_mul_silu_1
+     10.55 ms   0.0%     594  aten::cat
+     10.28 ms   0.0%     100  ## Call CompiledFxGraph f6atyfhxhxwys7qillwwi7zq2d5ock6p5zr22iyvj7eull5zfaav ##
+      9.78 ms   0.0%     100  nvjet_sm90_hsh_256x144_64x4_2x1_v_bz_coopA_TNT
+      9.08 ms   0.0%       1  stage:save_ply
+      8.97 ms   0.0%    8679  Memset (Device)
+      7.80 ms   0.0%     104  nvjet_sm90_hsh_256x152_64x4_1x2_h_bz_coopA_bias_TNT
+      7.30 ms   0.0%     399  aten::native_layer_norm
+      6.42 ms   0.0%     270  void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<c10::Half> >(at::TensorIteratorBase&, at::n
+      6.38 ms   0.0%     294  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_inter
+      5.60 ms   0.0%     180  void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::op
+      5.41 ms   0.0%     300  triton_per_fused__to_copy_native_layer_norm_0
+      5.41 ms   0.0%     300  triton_per_fused__to_copy_native_layer_norm_0

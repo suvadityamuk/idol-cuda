@@ -1,0 +1,7 @@
+............................................                             [100%]
+=============================== warnings summary ===============================
+kernel/tests/test_idol_cuda.py::test_add_ln_mod[plain-1]
+    from ._ops import ops
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+44 passed, 1 warning in 22.84s

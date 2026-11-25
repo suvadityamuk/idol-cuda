@@ -1,0 +1,14 @@
+{
+  "title": "Idol on an H200: seconds per request",
+  "subtitle": "robot example, 50 steps, 262,144 Gaussians; median of 5 interleaved requests after a warm-up; speed-up vs the official compiled default",
+  "footnote": "H200 141 GB, torch 2.10.0+cu130, CUDA 13.0, cuDNN 9.15.1; HF Jobs job 6b0687b0. Excludes loading and the first request (compiled default: 21.5 s). Source: docs/benchmark.md",
+  "unit": "s",
+  "baseline": "official pipeline, compiled",
+  "rows": [
+    {"label": "official pipeline, compiled", "detail": "shipped default (torch.compile)", "value": 6.470, "group": "official"},
+    {"label": "official pipeline, eager", "detail": "--no_optimize", "value": 9.599, "group": "official"},
+    {"label": "parity build, native C++", "detail": "byte-identical to eager", "value": 9.184, "group": "port"},
+    {"label": "fast build, native C++", "detail": "cuDNN attention", "value": 4.747, "group": "port"},
+    {"label": "fast build, Python + kernels", "detail": "idol-cuda kernels + FlashAttention-3", "value": 4.221, "group": "port"}
+  ]
+}

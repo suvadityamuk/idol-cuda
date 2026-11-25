@@ -1,0 +1,102 @@
+== Wed Nov 25 06:04:35 UTC 2026 host j-suvadityamuk-6b067a69d0582cfbbefdc240-012raaeg-357d0-26wjl nproc 192 run /scratch/runs/20261125-060435-dev6
+idol-sdk 8db700349a5570aac390e4780fa32e3eed6b587a
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+spin 0.16 requires click!=8.3.0,<8.4,>=8, but you have click 8.5.1 which is incompatible.
+  DEPRECATION: Setting PIP_CONSTRAINT will not affect build constraints in the future, pip 26.2 will enforce this behaviour change. A possible replacement is to specify build constraints using --build-constraint or PIP_BUILD_CONSTRAINT. To disable this warning without any build constraints set --use-feature=build-constraint or PIP_USE_FEATURE="build-constraint".
+torch 2.10.0+cu130 cuda 13.0 cudnn 91501
+torchvision 0.25.0+cu130 transformers 5.24.1 diffusers 0.43.0
+pillow 13.0.0 numpy 2.5.5 tensordict 0.14.3 flash_attn 2.8.3
+NVIDIA H200, 595.112.07
+............................................                             [100%]
+=============================== warnings summary ===============================
+kernel/tests/test_idol_cuda.py::test_add_ln_mod[plain-1]
+    from ._ops import ops
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+44 passed, 1 warning in 22.84s
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.2.0, pluggy-1.7.0 -- /usr/bin/python
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: /work/idol-cuda/kernel
+plugins: anyio-4.16.0, hypothesis-6.150.2
+collecting ... collected 44 items
+
+tests/test_idol_cuda.py::test_add_ln_mod[plain-1] PASSED                 [  2%]
+tests/test_idol_cuda.py::test_add_ln_mod[plain-37] PASSED                [  4%]
+tests/test_idol_cuda.py::test_add_ln_mod[plain-4101] PASSED              [  6%]
+tests/test_idol_cuda.py::test_add_ln_mod[plain-12294] PASSED             [  9%]
+tests/test_idol_cuda.py::test_add_ln_mod[affine-1] PASSED                [ 11%]
+tests/test_idol_cuda.py::test_add_ln_mod[affine-37] PASSED               [ 13%]
+tests/test_idol_cuda.py::test_add_ln_mod[affine-4101] PASSED             [ 15%]
+tests/test_idol_cuda.py::test_add_ln_mod[affine-12294] PASSED            [ 18%]
+tests/test_idol_cuda.py::test_add_ln_mod[mod-1] PASSED                   [ 20%]
+tests/test_idol_cuda.py::test_add_ln_mod[mod-37] PASSED                  [ 22%]
+tests/test_idol_cuda.py::test_add_ln_mod[mod-4101] PASSED                [ 25%]
+tests/test_idol_cuda.py::test_add_ln_mod[mod-12294] PASSED               [ 27%]
+tests/test_idol_cuda.py::test_add_ln_mod[gate_mod-1] PASSED              [ 29%]
+tests/test_idol_cuda.py::test_add_ln_mod[gate_mod-37] PASSED             [ 31%]
+tests/test_idol_cuda.py::test_add_ln_mod[gate_mod-4101] PASSED           [ 34%]
+tests/test_idol_cuda.py::test_add_ln_mod[gate_mod-12294] PASSED          [ 36%]
+tests/test_idol_cuda.py::test_add_ln_mod[add-1] PASSED                   [ 38%]
+tests/test_idol_cuda.py::test_add_ln_mod[add-37] PASSED                  [ 40%]
+tests/test_idol_cuda.py::test_add_ln_mod[add-4101] PASSED                [ 43%]
+tests/test_idol_cuda.py::test_add_ln_mod[add-12294] PASSED               [ 45%]
+tests/test_idol_cuda.py::test_add_ln_mod_batches_and_offsets PASSED      [ 47%]
+tests/test_idol_cuda.py::test_add_ln_mod_bad_args PASSED                 [ 50%]
+tests/test_idol_cuda.py::test_rope_rms_qk[1] PASSED                      [ 52%]
+tests/test_idol_cuda.py::test_rope_rms_qk[37] PASSED                     [ 54%]
+tests/test_idol_cuda.py::test_rope_rms_qk[8194] PASSED                   [ 56%]
+tests/test_idol_cuda.py::test_rope_rms_qk[12294] PASSED                  [ 59%]
+tests/test_idol_cuda.py::test_rope_rms_qk_strided_rows PASSED            [ 61%]
+tests/test_idol_cuda.py::test_rope_rms_qk_bad_args PASSED                [ 63%]
+tests/test_idol_cuda.py::test_rms_heads[1] PASSED                        [ 65%]
+tests/test_idol_cuda.py::test_rms_heads[333] PASSED                      [ 68%]
+tests/test_idol_cuda.py::test_rms_heads[8192] PASSED                     [ 70%]
+tests/test_idol_cuda.py::test_merge_extra_key[1-1] PASSED                [ 72%]
+tests/test_idol_cuda.py::test_merge_extra_key[100-4101] PASSED           [ 75%]
+tests/test_idol_cuda.py::test_merge_extra_key[8194-4101] PASSED          [ 77%]
+tests/test_idol_cuda.py::test_merge_extra_key_with_flash_lse PASSED      [ 79%]
+tests/test_idol_cuda.py::test_merge_extra_key_bad_args PASSED            [ 81%]
+tests/test_idol_cuda.py::test_gaussians_ply[1] PASSED                    [ 84%]
+tests/test_idol_cuda.py::test_gaussians_ply[1000] PASSED                 [ 86%]
+tests/test_idol_cuda.py::test_linear_gelu[1] PASSED                      [ 88%]
+tests/test_idol_cuda.py::test_linear_gelu[37] PASSED                     [ 90%]
+tests/test_idol_cuda.py::test_linear_gelu[12294] PASSED                  [ 93%]
+tests/test_idol_cuda.py::test_add_ln_mod_second_norm[1] PASSED           [ 95%]
+tests/test_idol_cuda.py::test_add_ln_mod_second_norm[4101] PASSED        [ 97%]
+tests/test_idol_cuda.py::test_add_ln_mod_second_norm[20488] PASSED       [100%]
+
+============================== 44 passed in 2.98s ==============================
+Reconstruction complete: 100%|██████████|  821MB /  821MB,  117MB/s               [Afa3 version 1 ok <module '_flash_attn3_cuda_0f52d9d' from '/root/.cache/huggingface/hub/kernels--kernels-community--flash-attn3/snapshots/7cb368cf8278b583132eb72cbf312d54586df2e2/build/torch-stable-abi29-cu130-x86_64-linux/__init__.py'>
+step  0 fast             v_cond rel 7.329e-04 (max 7.03e-03)  v_uncond rel 5.964e-04  guided rel 1.333e-03  bit-equal c/u False/False
+step  0 fast_fa3         v_cond rel 6.642e-04 (max 5.59e-03)  v_uncond rel 5.845e-04  guided rel 1.220e-03  bit-equal c/u False/False
+step  0 fast_fa3_fp8     v_cond rel 4.578e-02 (max 3.01e-01)  v_uncond rel 5.407e-02  guided rel 5.310e-02  bit-equal c/u False/False
+step  0 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step  1 fast             v_cond rel 7.579e-04 (max 1.44e-02)  v_uncond rel 5.410e-04  guided rel 1.462e-03  bit-equal c/u False/False
+step  1 fast_fa3         v_cond rel 7.360e-04 (max 1.61e-02)  v_uncond rel 5.434e-04  guided rel 1.419e-03  bit-equal c/u False/False
+step  1 fast_fa3_fp8     v_cond rel 4.261e-02 (max 3.58e-01)  v_uncond rel 4.783e-02  guided rel 5.830e-02  bit-equal c/u False/False
+step  1 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 10 fast             v_cond rel 9.792e-04 (max 3.21e-02)  v_uncond rel 7.985e-04  guided rel 3.583e-03  bit-equal c/u False/False
+step 10 fast_fa3         v_cond rel 9.760e-04 (max 2.11e-02)  v_uncond rel 8.192e-04  guided rel 3.570e-03  bit-equal c/u False/False
+step 10 fast_fa3_fp8     v_cond rel 4.169e-02 (max 5.88e-01)  v_uncond rel 4.478e-02  guided rel 1.234e-01  bit-equal c/u False/False
+step 10 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 25 fast             v_cond rel 1.236e-03 (max 6.16e-02)  v_uncond rel 1.083e-03  guided rel 5.062e-03  bit-equal c/u False/False
+step 25 fast_fa3         v_cond rel 1.196e-03 (max 4.28e-02)  v_uncond rel 1.106e-03  guided rel 4.890e-03  bit-equal c/u False/False
+step 25 fast_fa3_fp8     v_cond rel 4.589e-02 (max 1.75e+00)  v_uncond rel 4.777e-02  guided rel 1.458e-01  bit-equal c/u False/False
+step 25 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 49 fast             v_cond rel 2.270e-03 (max 1.95e-02)  v_uncond rel 2.153e-03  guided rel 8.357e-03  bit-equal c/u False/False
+step 49 fast_fa3         v_cond rel 2.291e-03 (max 3.62e-02)  v_uncond rel 2.153e-03  guided rel 8.453e-03  bit-equal c/u False/False
+step 49 fast_fa3_fp8     v_cond rel 9.010e-02 (max 6.77e-01)  v_uncond rel 8.469e-02  guided rel 2.282e-01  bit-equal c/u False/False
+step 49 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+time/step fast             median    88.82 ms  min    85.07  max    92.22
+time/step fast_fa3         median    75.73 ms  min    72.32  max    76.93
+time/step fast_fa3_fp8     median    71.65 ms  min    69.04  max    74.57
+time/step ref_eager        median   183.90 ms  min   182.99  max   185.43
+e2e fast graph=False: latent rel 1.566e-02 max 2.67e+00  sampling 4.397 s  (second None)
+e2e fast graph=True: latent rel 1.566e-02 max 2.67e+00  sampling 4.566 s  (second 4.565725907996239)
+e2e fast_fa3 graph=False: latent rel 6.952e-03 max 6.96e-01  sampling 3.907 s  (second None)
+e2e fast_fa3 graph=True: latent rel 6.952e-03 max 6.96e-01  sampling 4.043 s  (second 4.0525765839993255)
+e2e fast_fa3_fp8 graph=False: latent rel 2.870e-01 max 4.37e+00  sampling 3.555 s  (second None)
+e2e fast_fa3_fp8 graph=True: latent rel 2.870e-01 max 4.37e+00  sampling 3.691 s  (second 3.6924473920007586)
+DEV6_DONE

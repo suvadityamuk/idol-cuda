@@ -1,0 +1,157 @@
+== Wed Nov 25 05:16:49 UTC 2026 host j-suvadityamuk-6b066ebfd0582cfbbefdab88-8msjp93n-40249-sgdzt nproc 192 run /scratch/runs/20261125-051649-dev2
+idol-sdk 8db700349a5570aac390e4780fa32e3eed6b587a
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+spin 0.16 requires click!=8.3.0,<8.4,>=8, but you have click 8.5.1 which is incompatible.
+  DEPRECATION: Setting PIP_CONSTRAINT will not affect build constraints in the future, pip 26.2 will enforce this behaviour change. A possible replacement is to specify build constraints using --build-constraint or PIP_BUILD_CONSTRAINT. To disable this warning without any build constraints set --use-feature=build-constraint or PIP_USE_FEATURE="build-constraint".
+torch 2.10.0+cu130 cuda 13.0 cudnn 91501
+torchvision 0.25.0+cu130 transformers 5.24.1 diffusers 0.43.0
+pillow 13.0.0 numpy 2.5.5 tensordict 0.14.3 flash_attn 2.8.3
+NVIDIA H200, 595.112.07
+W: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+debconf: delaying package configuration, since apt-utils is not installed
+robot_262k: checkpoints identical ( 760 compared); ply identical; camera.json identical
+robot_1m: checkpoints identical ( 970 compared); ply identical; camera.json identical
+avocado_262k: checkpoints identical ( 781 compared); ply identical; camera.json identical
+avocado_1m: checkpoints identical ( 1000 compared); ply identical; camera.json identical
+PARITY PASS
+/work/parity_out1/avocado_1m.log:request 0: 12.335 s  peak_alloc 4.67 GB  peak_reserved 5.97 GB
+/work/parity_out1/avocado_262k.log:request 0: 12.451 s  peak_alloc 4.67 GB  peak_reserved 5.97 GB
+/work/parity_out1/robot_1m.log:request 0: 12.606 s  peak_alloc 4.67 GB  peak_reserved 5.97 GB
+/work/parity_out1/robot_262k.log:request 0: 13.220 s  peak_alloc 4.67 GB  peak_reserved 5.97 GB
+robot_262k: checkpoints identical ( 760 compared); ply identical; camera.json identical
+robot_1m: checkpoints identical ( 970 compared); ply identical; camera.json identical
+avocado_262k: checkpoints identical ( 781 compared); ply identical; camera.json identical
+avocado_1m: checkpoints identical ( 1000 compared); ply identical; camera.json identical
+PARITY PASS
+/work/parity_out2/avocado_1m.log:request 0: 12.354 s  peak_alloc 4.67 GB  peak_reserved 5.97 GB
+/work/parity_out2/avocado_262k.log:request 0: 12.280 s  peak_alloc 4.67 GB  peak_reserved 5.97 GB
+/work/parity_out2/robot_1m.log:request 0: 12.450 s  peak_alloc 4.67 GB  peak_reserved 5.97 GB
+/work/parity_out2/robot_262k.log:request 0: 12.373 s  peak_alloc 4.67 GB  peak_reserved 5.97 GB
+        [ 0.2209, -0.4976, -0.2769,  ...,  0.498...5],
+        [ 2.5781, -1.7188, -0.1257,  ..., -0.3735, -1.8604,  0.7998]],
+       device='cuda:0', dtype=torch.float16)
+ref = tensor([[ 0.1095,  0.4272,  0.6245,  ..., -0.3042, -0.1343,  0.7275],
+        [ 0.2209, -0.4976, -0.2769,  ...,  0.498...5],
+        [ 2.5781, -1.7188, -0.1257,  ..., -0.3735, -1.8604,  0.7998]],
+       device='cuda:0', dtype=torch.float16)
+max_ulp = 1, max_frac = 0.02
+
+    def assert_close_half(out, ref, max_ulp=1, max_frac=0.02):
+        assert out.shape == ref.shape and out.dtype == ref.dtype
+        u = ulp_diff(out.contiguous(), ref.contiguous())
+>       assert int(u.max()) <= max_ulp, f"max ulp {int(u.max())}"
+E       AssertionError: max ulp 32
+E       assert 32 <= 1
+E        +  where 32 = int(tensor(32, device='cuda:0', dtype=torch.int32))
+E        +    where tensor(32, device='cuda:0', dtype=torch.int32) = <built-in method max of Tensor object at 0x7f5782b86ad0>()
+E        +      where <built-in method max of Tensor object at 0x7f5782b86ad0> = tensor([[0, 0, 0,  ..., 0, 0, 0],\n        [0, 0, 0,  ..., 0, 0, 0],\n        [0, 0, 0,  ..., 0, 0, 0],\n        ...,\n   ......, 0, 0, 0],\n        [0, 0, 0,  ..., 0, 0, 0],\n        [0, 0, 0,  ..., 0, 0, 0]], device='cuda:0', dtype=torch.int32).max
+
+kernel/tests/test_idol_cuda.py:26: AssertionError
+=============================== warnings summary ===============================
+kernel/tests/test_idol_cuda.py::test_add_ln_mod[plain-1]
+  /work/idol-cuda/kernel/torch-ext/idol_cuda/__init__.py:9: DeprecationWarning: __package__ != __spec__.parent
+    from ._ops import ops
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED kernel/tests/test_idol_cuda.py::test_add_ln_mod[mod-4101] - AssertionE...
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 10 passed, 1 warning in 21.28s
+FAILED kernel/tests/test_idol_cuda.py::test_merge_extra_key[100-4101] - Runti...
+FAILED kernel/tests/test_idol_cuda.py::test_merge_extra_key[8194-4101] - Runt...
+FAILED kernel/tests/test_idol_cuda.py::test_add_ln_mod_second_norm[4101] - As...
+FAILED kernel/tests/test_idol_cuda.py::test_add_ln_mod_second_norm[20488] - A...
+13 failed, 31 passed, 1 warning in 3.44s
+
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 615/615 [00:00<00:00, 3020.59it/s]
+step  0 fast             v_cond rel 7.329e-04 (max 7.03e-03)  v_uncond rel 5.964e-04  guided rel 1.333e-03  bit-equal c/u False/False
+step  0 fast_nocollapse  v_cond rel 7.329e-04 (max 7.03e-03)  v_uncond rel 5.854e-04  guided rel 1.331e-03  bit-equal c/u False/False
+step  0 fast_flash       v_cond rel 6.945e-04 (max 7.41e-03)  v_uncond rel 5.794e-04  guided rel 1.273e-03  bit-equal c/u False/False
+step  0 fast_fa2         v_cond rel 6.604e-04 (max 8.61e-03)  v_uncond rel 5.939e-04  guided rel 1.219e-03  bit-equal c/u False/False
+step  0 ref_compiled     v_cond rel 8.930e-04 (max 8.86e-03)  v_uncond rel 8.602e-04  guided rel 1.663e-03  bit-equal c/u False/False
+step  0 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step  1 fast             v_cond rel 7.579e-04 (max 1.44e-02)  v_uncond rel 5.410e-04  guided rel 1.462e-03  bit-equal c/u False/False
+step  1 fast_nocollapse  v_cond rel 7.579e-04 (max 1.44e-02)  v_uncond rel 5.422e-04  guided rel 1.460e-03  bit-equal c/u False/False
+step  1 fast_flash       v_cond rel 7.469e-04 (max 1.28e-02)  v_uncond rel 5.448e-04  guided rel 1.440e-03  bit-equal c/u False/False
+step  1 fast_fa2         v_cond rel 7.454e-04 (max 1.26e-02)  v_uncond rel 5.429e-04  guided rel 1.438e-03  bit-equal c/u False/False
+step  1 ref_compiled     v_cond rel 1.043e-03 (max 1.50e-02)  v_uncond rel 8.169e-04  guided rel 1.900e-03  bit-equal c/u False/False
+step  1 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 10 fast             v_cond rel 9.792e-04 (max 3.21e-02)  v_uncond rel 7.985e-04  guided rel 3.583e-03  bit-equal c/u False/False
+step 10 fast_nocollapse  v_cond rel 9.792e-04 (max 3.21e-02)  v_uncond rel 7.979e-04  guided rel 3.569e-03  bit-equal c/u False/False
+step 10 fast_flash       v_cond rel 9.822e-04 (max 2.83e-02)  v_uncond rel 8.143e-04  guided rel 3.575e-03  bit-equal c/u False/False
+step 10 fast_fa2         v_cond rel 9.996e-04 (max 2.54e-02)  v_uncond rel 8.083e-04  guided rel 3.668e-03  bit-equal c/u False/False
+step 10 ref_compiled     v_cond rel 1.376e-03 (max 5.72e-02)  v_uncond rel 1.235e-03  guided rel 4.758e-03  bit-equal c/u False/False
+step 10 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 25 fast             v_cond rel 1.236e-03 (max 6.16e-02)  v_uncond rel 1.083e-03  guided rel 5.062e-03  bit-equal c/u False/False
+step 25 fast_nocollapse  v_cond rel 1.236e-03 (max 6.16e-02)  v_uncond rel 1.114e-03  guided rel 5.080e-03  bit-equal c/u False/False
+step 25 fast_flash       v_cond rel 1.260e-03 (max 6.10e-02)  v_uncond rel 1.101e-03  guided rel 5.090e-03  bit-equal c/u False/False
+step 25 fast_fa2         v_cond rel 1.269e-03 (max 7.83e-02)  v_uncond rel 1.115e-03  guided rel 5.155e-03  bit-equal c/u False/False
+step 25 ref_compiled     v_cond rel 1.750e-03 (max 1.76e-01)  v_uncond rel 1.522e-03  guided rel 6.660e-03  bit-equal c/u False/False
+step 25 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 49 fast             v_cond rel 2.270e-03 (max 1.95e-02)  v_uncond rel 2.153e-03  guided rel 8.357e-03  bit-equal c/u False/False
+step 49 fast_nocollapse  v_cond rel 2.270e-03 (max 1.95e-02)  v_uncond rel 2.136e-03  guided rel 8.325e-03  bit-equal c/u False/False
+step 49 fast_flash       v_cond rel 2.273e-03 (max 2.35e-02)  v_uncond rel 2.146e-03  guided rel 8.353e-03  bit-equal c/u False/False
+step 49 fast_fa2         v_cond rel 2.282e-03 (max 2.12e-02)  v_uncond rel 2.155e-03  guided rel 8.409e-03  bit-equal c/u False/False
+step 49 ref_compiled     v_cond rel 3.181e-03 (max 3.38e-02)  v_uncond rel 3.017e-03  guided rel 1.001e-02  bit-equal c/u False/False
+step 49 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+time/step fast             median    89.74 ms  min    88.04  max    91.36
+time/step fast_nocollapse  median   113.51 ms  min   110.35  max   114.33
+time/step fast_flash       median   106.61 ms  min   106.09  max   107.58
+time/step fast_fa2         median   106.90 ms  min   104.74  max   108.71
+time/step ref_compiled     median   124.12 ms  min   122.40  max   125.41
+time/step ref_eager        median   185.77 ms  min   183.94  max   189.58
+e2e fast graph=False: latent rel 1.566e-02 max 2.67e+00  sampling 4.471 s  (second None)
+e2e fast graph=True: latent rel 1.566e-02 max 2.67e+00  sampling 4.656 s  (second 4.655363622005098)
+e2e fast_nocollapse graph=False: latent rel 1.185e-02 max 1.69e+00  sampling 5.641 s  (second None)
+e2e fast_nocollapse graph=True: latent rel 1.185e-02 max 1.69e+00  sampling 5.905 s  (second 5.887523463999969)
+e2e fast_flash graph=False: latent rel 1.636e-02 max 1.74e+00  sampling 5.359 s  (second None)
+e2e fast_flash graph=True: latent rel 1.636e-02 max 1.74e+00  sampling 5.592 s  (second 5.567737851000857)
+e2e fast_fa2 graph=False: latent rel 1.564e-02 max 2.25e+00  sampling 5.340 s  (second None)
+e2e fast_fa2 graph=True: latent rel 1.564e-02 max 2.25e+00  sampling 5.554 s  (second 5.548696892001317)
+
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 615/615 [00:00<00:00, 3132.72it/s]
+step  0 fast             v_cond rel 6.452e-04 (max 4.56e-03)  v_uncond rel 5.964e-04  guided rel 1.702e-03  bit-equal c/u False/False
+step  0 fast_nocollapse  v_cond rel 6.452e-04 (max 4.56e-03)  v_uncond rel 5.854e-04  guided rel 1.694e-03  bit-equal c/u False/False
+step  0 fast_flash       v_cond rel 6.377e-04 (max 4.82e-03)  v_uncond rel 5.794e-04  guided rel 1.668e-03  bit-equal c/u False/False
+step  0 fast_fa2         v_cond rel 6.391e-04 (max 4.34e-03)  v_uncond rel 5.939e-04  guided rel 1.685e-03  bit-equal c/u False/False
+step  0 ref_compiled     v_cond rel 8.502e-04 (max 5.41e-03)  v_uncond rel 8.602e-04  guided rel 2.152e-03  bit-equal c/u False/False
+step  0 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step  1 fast             v_cond rel 6.425e-04 (max 4.70e-03)  v_uncond rel 5.431e-04  guided rel 1.496e-03  bit-equal c/u False/False
+step  1 fast_nocollapse  v_cond rel 6.425e-04 (max 4.70e-03)  v_uncond rel 5.380e-04  guided rel 1.489e-03  bit-equal c/u False/False
+step  1 fast_flash       v_cond rel 6.748e-04 (max 5.28e-03)  v_uncond rel 5.486e-04  guided rel 1.568e-03  bit-equal c/u False/False
+step  1 fast_fa2         v_cond rel 6.526e-04 (max 4.55e-03)  v_uncond rel 5.454e-04  guided rel 1.511e-03  bit-equal c/u False/False
+step  1 ref_compiled     v_cond rel 8.594e-04 (max 6.48e-03)  v_uncond rel 8.751e-04  guided rel 1.843e-03  bit-equal c/u False/False
+step  1 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 10 fast             v_cond rel 9.047e-04 (max 2.19e-02)  v_uncond rel 8.223e-04  guided rel 3.429e-03  bit-equal c/u False/False
+step 10 fast_nocollapse  v_cond rel 9.047e-04 (max 2.19e-02)  v_uncond rel 8.146e-04  guided rel 3.434e-03  bit-equal c/u False/False
+step 10 fast_flash       v_cond rel 8.981e-04 (max 2.04e-02)  v_uncond rel 8.370e-04  guided rel 3.457e-03  bit-equal c/u False/False
+step 10 fast_fa2         v_cond rel 9.069e-04 (max 2.33e-02)  v_uncond rel 8.205e-04  guided rel 3.439e-03  bit-equal c/u False/False
+step 10 ref_compiled     v_cond rel 1.259e-03 (max 3.37e-02)  v_uncond rel 1.229e-03  guided rel 4.458e-03  bit-equal c/u False/False
+step 10 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 25 fast             v_cond rel 1.071e-03 (max 3.67e-02)  v_uncond rel 9.888e-04  guided rel 4.445e-03  bit-equal c/u False/False
+step 25 fast_nocollapse  v_cond rel 1.071e-03 (max 3.67e-02)  v_uncond rel 9.695e-04  guided rel 4.343e-03  bit-equal c/u False/False
+step 25 fast_flash       v_cond rel 1.052e-03 (max 3.55e-02)  v_uncond rel 1.027e-03  guided rel 4.340e-03  bit-equal c/u False/False
+step 25 fast_fa2         v_cond rel 1.077e-03 (max 3.94e-02)  v_uncond rel 1.002e-03  guided rel 4.498e-03  bit-equal c/u False/False
+step 25 ref_compiled     v_cond rel 1.433e-03 (max 4.68e-02)  v_uncond rel 1.390e-03  guided rel 5.340e-03  bit-equal c/u False/False
+step 25 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+step 49 fast             v_cond rel 2.142e-03 (max 3.98e-02)  v_uncond rel 2.023e-03  guided rel 8.102e-03  bit-equal c/u False/False
+step 49 fast_nocollapse  v_cond rel 2.142e-03 (max 3.98e-02)  v_uncond rel 2.013e-03  guided rel 8.100e-03  bit-equal c/u False/False
+step 49 fast_flash       v_cond rel 2.127e-03 (max 1.76e-02)  v_uncond rel 2.021e-03  guided rel 8.047e-03  bit-equal c/u False/False
+step 49 fast_fa2         v_cond rel 2.139e-03 (max 3.06e-02)  v_uncond rel 2.029e-03  guided rel 8.132e-03  bit-equal c/u False/False
+step 49 ref_compiled     v_cond rel 2.933e-03 (max 3.30e-02)  v_uncond rel 2.775e-03  guided rel 9.611e-03  bit-equal c/u False/False
+step 49 ref_eager        v_cond rel 0.000e+00 (max 0.00e+00)  v_uncond rel 0.000e+00  guided rel 0.000e+00  bit-equal c/u True/True
+time/step fast             median    89.21 ms  min    88.17  max    91.43
+time/step fast_nocollapse  median   112.99 ms  min   112.09  max   114.05
+time/step fast_flash       median   106.84 ms  min   106.22  max   107.21
+time/step fast_fa2         median   106.65 ms  min   104.97  max   109.03
+time/step ref_compiled     median   124.88 ms  min   123.00  max   126.07
+time/step ref_eager        median   186.46 ms  min   183.85  max   188.07
+e2e fast graph=False: latent rel 4.282e-03 max 3.53e-01  sampling 4.477 s  (second None)
+e2e fast graph=True: latent rel 4.282e-03 max 3.53e-01  sampling 4.654 s  (second 4.651556427998003)
+e2e fast_nocollapse graph=False: latent rel 4.789e-03 max 4.87e-01  sampling 5.668 s  (second None)
+e2e fast_nocollapse graph=True: latent rel 4.789e-03 max 4.87e-01  sampling 5.894 s  (second 5.908784598999773)
+e2e fast_flash graph=False: latent rel 7.880e-03 max 1.43e+00  sampling 5.366 s  (second None)
+e2e fast_flash graph=True: latent rel 7.880e-03 max 1.43e+00  sampling 5.583 s  (second 5.572327018002397)
+e2e fast_fa2 graph=False: latent rel 4.819e-03 max 3.93e-01  sampling 5.355 s  (second None)
+e2e fast_fa2 graph=True: latent rel 4.819e-03 max 3.93e-01  sampling 5.563 s  (second 5.561562255999888)
+DEV2_DONE

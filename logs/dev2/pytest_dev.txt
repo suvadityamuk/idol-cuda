@@ -1,0 +1,30 @@
+        [ 0.2209, -0.4976, -0.2769,  ...,  0.498...5],
+        [ 2.5781, -1.7188, -0.1257,  ..., -0.3735, -1.8604,  0.7998]],
+       device='cuda:0', dtype=torch.float16)
+ref = tensor([[ 0.1095,  0.4272,  0.6245,  ..., -0.3042, -0.1343,  0.7275],
+        [ 0.2209, -0.4976, -0.2769,  ...,  0.498...5],
+        [ 2.5781, -1.7188, -0.1257,  ..., -0.3735, -1.8604,  0.7998]],
+       device='cuda:0', dtype=torch.float16)
+max_ulp = 1, max_frac = 0.02
+
+    def assert_close_half(out, ref, max_ulp=1, max_frac=0.02):
+        assert out.shape == ref.shape and out.dtype == ref.dtype
+        u = ulp_diff(out.contiguous(), ref.contiguous())
+>       assert int(u.max()) <= max_ulp, f"max ulp {int(u.max())}"
+E       AssertionError: max ulp 32
+E       assert 32 <= 1
+E        +  where 32 = int(tensor(32, device='cuda:0', dtype=torch.int32))
+E        +    where tensor(32, device='cuda:0', dtype=torch.int32) = <built-in method max of Tensor object at 0x7f5782b86ad0>()
+E        +      where <built-in method max of Tensor object at 0x7f5782b86ad0> = tensor([[0, 0, 0,  ..., 0, 0, 0],\n        [0, 0, 0,  ..., 0, 0, 0],\n        [0, 0, 0,  ..., 0, 0, 0],\n        ...,\n   ......, 0, 0, 0],\n        [0, 0, 0,  ..., 0, 0, 0],\n        [0, 0, 0,  ..., 0, 0, 0]], device='cuda:0', dtype=torch.int32).max
+
+kernel/tests/test_idol_cuda.py:26: AssertionError
+=============================== warnings summary ===============================
+kernel/tests/test_idol_cuda.py::test_add_ln_mod[plain-1]
+  /work/idol-cuda/kernel/torch-ext/idol_cuda/__init__.py:9: DeprecationWarning: __package__ != __spec__.parent
+    from ._ops import ops
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED kernel/tests/test_idol_cuda.py::test_add_ln_mod[mod-4101] - AssertionE...
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 10 passed, 1 warning in 21.28s

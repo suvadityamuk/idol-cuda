@@ -1,0 +1,56 @@
+-- The CXX compiler identification is GNU 13.3.0
+-- The CUDA compiler identification is NVIDIA 13.0.48 with host compiler GNU 13.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Found CUDA: /usr/local/cuda (found version "13.0")
+-- Found CUDAToolkit: /usr/local/cuda/include (found version "13.0.48")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- PyTorch: CUDA detected: 13.0
+-- PyTorch: CUDA nvcc is: /usr/local/cuda/bin/nvcc
+-- PyTorch: CUDA toolkit directory: /usr/local/cuda
+-- PyTorch: Header version is: 13.0
+-- Found Python: /usr/bin/python3.12 (found version "3.12.3") found components: Interpreter
+CMake Warning at /usr/local/lib/python3.12/dist-packages/torch/share/cmake/Caffe2/public/cuda.cmake:149 (message):
+  Failed to compute shorthash for libnvrtc.so
+Call Stack (most recent call first):
+  /usr/local/lib/python3.12/dist-packages/torch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)
+  /usr/local/lib/python3.12/dist-packages/torch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)
+  CMakeLists.txt:27 (find_package)
+
+
+-- USE_CUDNN is set to 0. Compiling without cuDNN support
+-- USE_CUSPARSELT is set to 0. Compiling without cuSPARSELt support
+-- USE_CUDSS is set to 0. Compiling without cuDSS support
+-- USE_CUFILE is set to 0. Compiling without cuFile support
+CMake Warning at /usr/local/lib/python3.12/dist-packages/torch/share/cmake/Caffe2/public/cuda.cmake:332 (message):
+  pytorch is not compatible with `CMAKE_CUDA_ARCHITECTURES` and will ignore
+  its value.  Please configure `TORCH_CUDA_ARCH_LIST` instead.
+Call Stack (most recent call first):
+  /usr/local/lib/python3.12/dist-packages/torch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)
+  /usr/local/lib/python3.12/dist-packages/torch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)
+  CMakeLists.txt:27 (find_package)
+
+
+-- Added CUDA NVCC flags for: -gencode;arch=compute_90a,code=sm_90a
+CMake Warning at /usr/local/lib/python3.12/dist-packages/torch/share/cmake/Torch/TorchConfig.cmake:22 (message):
+  static library kineto_LIBRARY-NOTFOUND not found.
+Call Stack (most recent call first):
+  /usr/local/lib/python3.12/dist-packages/torch/share/cmake/Torch/TorchConfig.cmake:125 (append_torchlib_if_found)
+  CMakeLists.txt:27 (find_package)
+
+
+-- Found Torch: /usr/local/lib/python3.12/dist-packages/torch/lib/libtorch.so
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")
+-- Configuring done (2.7s)
+-- Generating done (0.0s)
+-- Build files have been written to: /work/build

@@ -1,0 +1,96 @@
+== Wed Nov 25 07:35:18 UTC 2026 host j-suvadityamuk-6b068facd0582cfbbefdec4c-jx4xmnr8-47c7d-lm9sq nproc 192 run /scratch/runs/20261125-073518-scripts_check
+idol-sdk 8db700349a5570aac390e4780fa32e3eed6b587a
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+spin 0.16 requires click!=8.3.0,<8.4,>=8, but you have click 8.5.1 which is incompatible.
+  DEPRECATION: Setting PIP_CONSTRAINT will not affect build constraints in the future, pip 26.2 will enforce this behaviour change. A possible replacement is to specify build constraints using --build-constraint or PIP_BUILD_CONSTRAINT. To disable this warning without any build constraints set --use-feature=build-constraint or PIP_USE_FEATURE="build-constraint".
+torch 2.10.0+cu130 cuda 13.0 cudnn 91501
+torchvision 0.25.0+cu130 transformers 5.24.1 diffusers 0.43.0
+pillow 13.0.0 numpy 2.5.5 tensordict 0.14.3 flash_attn 2.8.3
+NVIDIA H200, 595.112.07
+flash-attn3 kernel cached
+W: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+debconf: delaying package configuration, since apt-utils is not installed
+=== run_native.sh (fast), fresh shell, builds the binary and exports TorchScript from scratch
+  assert hidden_states.shape[1] == self.channels
+/usr/local/lib/python3.12/dist-packages/diffusers/models/downsampling.py:143: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+  assert hidden_states.shape[1] == self.channels
+saved vae_enc
+vae bn eps 0.0001 torch.bfloat16
+VERIFY PASS
+idol_native: build=fast device=NVIDIA H200 (sm_90) torch=2.10.0 cudnn=91501
+error: dlopen /root/.cache/huggingface/hub/kernels--kernels-community--flash-attn3/snapshots/7cb368cf8278b583132eb72cbf312d54586df2e2/build/torch-stable-abi29-cu130-x86_64-linux/_flash_attn3_cuda_0f52d9d.abi3.so: undefined symbol: PyModule_Create2
+
+real	2m37.772s
+user	5m6.086s
+sys	0m59.443s
+Traceback (most recent call last):
+  File "/work/idol-cuda/tools/closeness.py", line 93, in <module>
+    r = compare(a.ref, a.cand, a.cand_camera)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/idol-cuda/tools/closeness.py", line 68, in compare
+    Cd = ply_dump(cand) if cand.endswith('.ply') else load_file(cand)
+                                                      ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/safetensors/torch.py", line 359, in load_file
+    with safe_open(filename, framework="pt", device=device, backend=backend) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: No such file or directory: /work/s6/native_fast.safetensors
+=== run_native.sh --parity, fresh shell
+request 0: 11.554 s  peak_alloc 4.67 GB  peak_reserved 5.97 GB
+native_parity: /work/s6/native_parity.ply
+
+real	0m21.360s
+user	0m45.701s
+sys	0m11.013s
+native parity: PLY BYTE-IDENTICAL
+native parity: camera JSON BYTE-IDENTICAL
+=== run_kernels.py --local, fresh shell
+device: NVIDIA H200 | build: fast | kernels: kernel-builder build at /work/kb
+kernels_fast: /work/s6/kernels_fast.ply (5.57 s incl. first-request warm-up)
+
+real	0m22.195s
+user	1m0.227s
+sys	0m14.561s
+{"camera_abs_err": [0.00031680316166959877, 0.0004239685809429832, 0.0024990676475167284, 0.045418008685032873], "chamfer_xyz": 0.0016883767614768175, "n_gaussians": [262144, 262144]}
+=== run_kernels.py --local --parity, fresh shell
+kernels_parity: /work/s6/kernels_parity.ply (10.63 s incl. first-request warm-up)
+check vs /scratch/ref/robot_262k_eager_sdpa_a.ply: PLY BYTE-IDENTICAL
+
+real	0m27.388s
+user	1m3.038s
+sys	0m22.432s
+exit code of the parity check: 0
+kernels parity: camera JSON BYTE-IDENTICAL
+SCRIPTS_DONE
+robot_262k py_fast {"camera_abs_err": [0.00031680316166959877, 0.0004239685809429832, 0.0024990676475167284, 0.045418008685032873], "chamfer_xyz": 0.0016883767614768175, "n_gaussians": [262144, 262144]}
+robot_262k native_fast {"camera_abs_err": [0.0010656474747983147, 0.0018783905821380294, 0.00024878113744142283, 0.010840488768295131], "chamfer_xyz": 0.0016781132461084342, "n_gaussians": [262144, 262144]}
+robot_262k ref_compiled {"camera_abs_err": [0.0007995260494269019, 0.0011912318576282437, 0.003677745181913661, 0.08598938404274037], "chamfer_xyz": 0.0016762057008089387, "n_gaussians": [262144, 262144]}
+avocado_262k py_fast {"camera_abs_err": [0.0009878218969687769, 0.0002130602911930568, 0.017608812175254673, 0.17852410920077233], "chamfer_xyz": 0.0018861909255783182, "n_gaussians": [262144, 262144]}
+avocado_262k native_fast {"camera_abs_err": [0.0005188356810510442, 0.0005273599401446893, 0.015097324747380458, 0.1567368430634346], "chamfer_xyz": 0.0018849590809699585, "n_gaussians": [262144, 262144]}
+avocado_262k ref_compiled {"camera_abs_err": [0.00018943370581014918, 0.0015953769042373889, 0.012490847059269505, 0.1146165205859333], "chamfer_xyz": 0.0018903813255819052, "n_gaussians": [262144, 262144]}
+robot_1m py_fast {"camera_abs_err": [0.00031680316166959877, 0.0004239685809429832, 0.0024990676475167284, 0.045418008685032873], "chamfer_xyz": 0.001009536021561076, "n_gaussians": [1048576, 1048576]}
+robot_1m native_fast {"camera_abs_err": [0.0010656474747983147, 0.0018783905821380294, 0.00024878113744142283, 0.010840488768295131], "chamfer_xyz": 0.0010022748246327276, "n_gaussians": [1048576, 1048576]}
+robot_1m ref_compiled {"camera_abs_err": [0.0007995260494269019, 0.0011912318576282437, 0.003677745181913661, 0.08598938404274037], "chamfer_xyz": 0.001006185053492481, "n_gaussians": [1048576, 1048576]}
+avocado_1m py_fast {"camera_abs_err": [0.0009878218969687769, 0.0002130602911930568, 0.017608812175254673, 0.17852410920077233], "chamfer_xyz": 0.0011843238358367593, "n_gaussians": [1048576, 1048576]}
+avocado_1m native_fast {"camera_abs_err": [0.0005188356810510442, 0.0005273599401446893, 0.015097324747380458, 0.1567368430634346], "chamfer_xyz": 0.0011816083278145227, "n_gaussians": [1048576, 1048576]}
+avocado_1m ref_compiled {"camera_abs_err": [0.00018943370581014918, 0.0015953769042373889, 0.012490847059269505, 0.1146165205859333], "chamfer_xyz": 0.0011885160300919902, "n_gaussians": [1048576, 1048576]}
+{"/scratch/bench_out/ref_eager/robot_262k_ref_eager_r1.ply": {"psnr": 120.0, "ssim": 1.0}}
+{"/scratch/bench_out/ref_compiled/robot_262k_ref_compiled_r0.ply": {"psnr": 42.75564193725586, "ssim": 0.9962866902351379}}
+{"/scratch/bench_out/py_fast/robot_262k_py_fast_r0.ply": {"psnr": 42.579071044921875, "ssim": 0.996113657951355}}
+{"/scratch/bench_out/native_fast/robot_262k_native_fast_r0.ply": {"psnr": 42.919944763183594, "ssim": 0.9961789846420288}}
+{"/scratch/ref/robot_262k_eager_flash_a.ply": {"psnr": 42.97914123535156, "ssim": 0.996203601360321}}
+{"/scratch/bench_out/ref_eager/avocado_262k_ref_eager_r1.ply": {"psnr": 120.0, "ssim": 1.0}}
+{"/scratch/bench_out/ref_compiled/avocado_262k_ref_compiled_r0.ply": {"psnr": 42.823204040527344, "ssim": 0.9812568426132202}}
+{"/scratch/bench_out/py_fast/avocado_262k_py_fast_r0.ply": {"psnr": 42.77313995361328, "ssim": 0.981216549873352}}
+{"/scratch/bench_out/native_fast/avocado_262k_native_fast_r0.ply": {"psnr": 42.81268310546875, "ssim": 0.9812718629837036}}
+{"/scratch/ref/avocado_262k_eager_flash_a.ply": {"psnr": 42.734710693359375, "ssim": 0.9811787605285645}}
+{"/scratch/bench_out/ref_eager/robot_1m_ref_eager_r1.ply": {"psnr": 120.0, "ssim": 1.0}}
+{"/scratch/bench_out/ref_compiled/robot_1m_ref_compiled_r0.ply": {"psnr": 46.986907958984375, "ssim": 0.9981764554977417}}
+{"/scratch/bench_out/py_fast/robot_1m_py_fast_r0.ply": {"psnr": 47.23278045654297, "ssim": 0.9982865452766418}}
+{"/scratch/bench_out/native_fast/robot_1m_native_fast_r0.ply": {"psnr": 47.04779815673828, "ssim": 0.998239278793335}}
+{"/scratch/ref/robot_1m_eager_flash_a.ply": {"psnr": 47.18525314331055, "ssim": 0.9982642531394958}}
+{"/scratch/bench_out/ref_eager/avocado_1m_ref_eager_r1.ply": {"psnr": 120.0, "ssim": 1.0}}
+{"/scratch/bench_out/ref_compiled/avocado_1m_ref_compiled_r0.ply": {"psnr": 43.861732482910156, "ssim": 0.986223578453064}}
+{"/scratch/bench_out/py_fast/avocado_1m_py_fast_r0.ply": {"psnr": 43.86367416381836, "ssim": 0.9863507747650146}}
+{"/scratch/bench_out/native_fast/avocado_1m_native_fast_r0.ply": {"psnr": 44.01130294799805, "ssim": 0.9866311550140381}}
+{"/scratch/ref/avocado_1m_eager_flash_a.ply": {"psnr": 44.02018737792969, "ssim": 0.9866670370101929}}
+ALL_DONE

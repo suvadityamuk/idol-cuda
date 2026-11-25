@@ -1,0 +1,165 @@
+== Wed Nov 25 04:04:02 UTC 2026 host j-suvadityamuk-6b065e281460ffe1d5e9b5d5-jhg4uoy2-47deb-cdb6l nproc 192 run /scratch/runs/20261125-040402-dev1
+idol-sdk 8db700349a5570aac390e4780fa32e3eed6b587a
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+spin 0.16 requires click!=8.3.0,<8.4,>=8, but you have click 8.5.1 which is incompatible.
+  DEPRECATION: Setting PIP_CONSTRAINT will not affect build constraints in the future, pip 26.2 will enforce this behaviour change. A possible replacement is to specify build constraints using --build-constraint or PIP_BUILD_CONSTRAINT. To disable this warning without any build constraints set --use-feature=build-constraint or PIP_USE_FEATURE="build-constraint".
+torch 2.10.0+cu130 cuda 13.0 cudnn 91501
+torchvision 0.25.0+cu130 transformers 5.24.1 diffusers 0.43.0
+pillow 13.0.0 numpy 2.5.5 tensordict 0.14.3 flash_attn 2.8.3
+NVIDIA H200, 595.112.07
+robot_262k: checkpoints identical ( 760 compared); ply identical; camera.json identical
+robot_1m: checkpoints identical ( 970 compared); ply identical; camera.json identical
+avocado_262k: checkpoints identical ( 781 compared); ply identical; camera.json identical
+avocado_1m: checkpoints identical ( 1000 compared); ply identical; camera.json identical
+PARITY PASS
+ERROR kernel/tests/test_idol_cuda.py::test_add_ln_mod[gate_mod-12294] - Runti...
+ERROR kernel/tests/test_idol_cuda.py::test_add_ln_mod[add-1] - RuntimeError: ...
+ERROR kernel/tests/test_idol_cuda.py::test_add_ln_mod[add-37] - RuntimeError:...
+ERROR kernel/tests/test_idol_cuda.py::test_add_ln_mod[add-4101] - RuntimeErro...
+ERROR kernel/tests/test_idol_cuda.py::test_add_ln_mod[add-12294] - RuntimeErr...
+ERROR kernel/tests/test_idol_cuda.py::test_add_ln_mod_batches_and_offsets - R...
+ERROR kernel/tests/test_idol_cuda.py::test_add_ln_mod_bad_args - RuntimeError...
+ERROR kernel/tests/test_idol_cuda.py::test_rope_rms_qk[1] - RuntimeError: Err...
+ERROR kernel/tests/test_idol_cuda.py::test_rope_rms_qk[37] - RuntimeError: Er...
+ERROR kernel/tests/test_idol_cuda.py::test_rope_rms_qk[8194] - RuntimeError: ...
+ERROR kernel/tests/test_idol_cuda.py::test_rope_rms_qk[12294] - RuntimeError:...
+ERROR kernel/tests/test_idol_cuda.py::test_rope_rms_qk_strided_rows - Runtime...
+ERROR kernel/tests/test_idol_cuda.py::test_rope_rms_qk_bad_args - RuntimeErro...
+ERROR kernel/tests/test_idol_cuda.py::test_rms_heads[1] - RuntimeError: Error...
+ERROR kernel/tests/test_idol_cuda.py::test_rms_heads[333] - RuntimeError: Err...
+ERROR kernel/tests/test_idol_cuda.py::test_rms_heads[8192] - RuntimeError: Er...
+ERROR kernel/tests/test_idol_cuda.py::test_merge_extra_key[1-1] - RuntimeErro...
+ERROR kernel/tests/test_idol_cuda.py::test_merge_extra_key[100-4101] - Runtim...
+ERROR kernel/tests/test_idol_cuda.py::test_merge_extra_key[8194-4101] - Runti...
+ERROR kernel/tests/test_idol_cuda.py::test_merge_extra_key_with_flash_lse - R...
+ERROR kernel/tests/test_idol_cuda.py::test_merge_extra_key_bad_args - Runtime...
+ERROR kernel/tests/test_idol_cuda.py::test_gaussians_ply[1] - RuntimeError: E...
+ERROR kernel/tests/test_idol_cuda.py::test_gaussians_ply[1000] - RuntimeError...
+ERROR kernel/tests/test_idol_cuda.py::test_linear_gelu[1] - RuntimeError: Err...
+ERROR kernel/tests/test_idol_cuda.py::test_linear_gelu[37] - RuntimeError: Er...
+ERROR kernel/tests/test_idol_cuda.py::test_linear_gelu[12294] - RuntimeError:...
+ERROR kernel/tests/test_idol_cuda.py::test_add_ln_mod_second_norm[1] - Runtim...
+ERROR kernel/tests/test_idol_cuda.py::test_add_ln_mod_second_norm[4101] - Run...
+ERROR kernel/tests/test_idol_cuda.py::test_add_ln_mod_second_norm[20488] - Ru...
+44 errors in 10.09s
+      |                                  ^~~~~
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:52:34: note: suggested alternatives:
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+   65 | constexpr DeviceType kCUDA = DeviceType::CUDA;
+      |                      ^~~~~
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:53:32: error: ‘kCUDA’ is not a member of ‘torch’
+   53 |   ops.impl("rms_heads", torch::kCUDA, &rms_heads_op);
+      |                                ^~~~~
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:53:32: note: suggested alternatives:
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+   65 | constexpr DeviceType kCUDA = DeviceType::CUDA;
+      |                      ^~~~~
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:54:38: error: ‘kCUDA’ is not a member of ‘torch’
+   54 |   ops.impl("merge_extra_key", torch::kCUDA, &merge_extra_key_op);
+      |                                      ^~~~~
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:54:38: note: suggested alternatives:
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+   65 | constexpr DeviceType kCUDA = DeviceType::CUDA;
+      |                      ^~~~~
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:55:36: error: ‘kCUDA’ is not a member of ‘torch’
+   55 |   ops.impl("gaussians_ply", torch::kCUDA, &gaussians_ply_op);
+      |                                    ^~~~~
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:55:36: note: suggested alternatives:
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+   65 | constexpr DeviceType kCUDA = DeviceType::CUDA;
+      |                      ^~~~~
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:56:34: error: ‘kCUDA’ is not a member of ‘torch’
+   56 |   ops.impl("linear_gelu", torch::kCUDA, &linear_gelu_op);
+      |                                  ^~~~~
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:56:34: note: suggested alternatives:
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+   65 | constexpr DeviceType kCUDA = DeviceType::CUDA;
+      |                      ^~~~~
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+[2/3] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output idol_kernels.cuda.o.d -DTORCH_EXTENSION_NAME=idol_cuda_dev -DTORCH_API_INCLUDE_EXTENSION_H -I/work/idol-cuda/kernel/dev -I/work/idol-cuda/kernel/idol_cuda -isystem /usr/local/lib/python3.12/dist-packages/torch/include -isystem /usr/local/lib/python3.12/dist-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /usr/include/python3.12 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -DCUDA_KERNEL -DTORCH_EXTENSION_NAME=idol_cuda_dev -gencode=arch=compute_90a,code=sm_90a -std=c++17 -c /work/idol-cuda/kernel/idol_cuda/idol_kernels.cu -o idol_kernels.cuda.o 
+FAILED: [code=2] idol_kernels.cuda.o 
+/usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output idol_kernels.cuda.o.d -DTORCH_EXTENSION_NAME=idol_cuda_dev -DTORCH_API_INCLUDE_EXTENSION_H -I/work/idol-cuda/kernel/dev -I/work/idol-cuda/kernel/idol_cuda -isystem /usr/local/lib/python3.12/dist-packages/torch/include -isystem /usr/local/lib/python3.12/dist-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /usr/include/python3.12 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -DCUDA_KERNEL -DTORCH_EXTENSION_NAME=idol_cuda_dev -gencode=arch=compute_90a,code=sm_90a -std=c++17 -c /work/idol-cuda/kernel/idol_cuda/idol_kernels.cu -o idol_kernels.cuda.o 
+/work/idol-cuda/kernel/idol_cuda/idol_kernels.cu(417): error: cannot deduce type of range in range-based "for" loop
+    for (const at::Tensor* t : {&delta, &freqs, &gamma_q, &gamma_k, &q_out, &k_out})
+                               ^
+
+/work/idol-cuda/kernel/idol_cuda/idol_kernels.cu(451): error: cannot deduce type of range in range-based "for" loop
+    for (auto p : {std::make_pair(&out, "out"), std::make_pair(&o, "o"), std::make_pair(&q, "q"),
+                  ^
+
+/work/idol-cuda/kernel/idol_cuda/idol_kernels.cu(461): error: cannot deduce type of range in range-based "for" loop
+    for (auto p : {std::make_pair(&out, "out"), std::make_pair(&o, "o"), std::make_pair(&q, "q")}) {
+                  ^
+
+/work/idol-cuda/kernel/idol_cuda/idol_kernels.cu(491): error: cannot deduce type of range in range-based "for" loop
+    for (auto p : {std::make_pair(&out, "out"), std::make_pair(&points, "points"), std::make_pair(&perturb, "perturb")})
+                  ^
+
+4 errors detected in the compilation of "/work/idol-cuda/kernel/idol_cuda/idol_kernels.cu".
+ninja: build stopped: subcommand failed.
+
+      |                                  ^~~~~
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:52:34: note: suggested alternatives:
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+   65 | constexpr DeviceType kCUDA = DeviceType::CUDA;
+      |                      ^~~~~
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:53:32: error: ‘kCUDA’ is not a member of ‘torch’
+   53 |   ops.impl("rms_heads", torch::kCUDA, &rms_heads_op);
+      |                                ^~~~~
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:53:32: note: suggested alternatives:
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+   65 | constexpr DeviceType kCUDA = DeviceType::CUDA;
+      |                      ^~~~~
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:54:38: error: ‘kCUDA’ is not a member of ‘torch’
+   54 |   ops.impl("merge_extra_key", torch::kCUDA, &merge_extra_key_op);
+      |                                      ^~~~~
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:54:38: note: suggested alternatives:
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+   65 | constexpr DeviceType kCUDA = DeviceType::CUDA;
+      |                      ^~~~~
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:55:36: error: ‘kCUDA’ is not a member of ‘torch’
+   55 |   ops.impl("gaussians_ply", torch::kCUDA, &gaussians_ply_op);
+      |                                    ^~~~~
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:55:36: note: suggested alternatives:
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+   65 | constexpr DeviceType kCUDA = DeviceType::CUDA;
+      |                      ^~~~~
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:56:34: error: ‘kCUDA’ is not a member of ‘torch’
+   56 |   ops.impl("linear_gelu", torch::kCUDA, &linear_gelu_op);
+      |                                  ^~~~~
+/work/idol-cuda/kernel/torch-ext/torch_binding.cpp:56:34: note: suggested alternatives:
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+   65 | constexpr DeviceType kCUDA = DeviceType::CUDA;
+      |                      ^~~~~
+/usr/local/lib/python3.12/dist-packages/torch/include/torch/headeronly/core/DeviceType.h:65:22: note:   ‘c10::kCUDA’
+[2/3] /usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output idol_kernels.cuda.o.d -DTORCH_EXTENSION_NAME=idol_cuda_dev -DTORCH_API_INCLUDE_EXTENSION_H -I/work/idol-cuda/kernel/dev -I/work/idol-cuda/kernel/idol_cuda -isystem /usr/local/lib/python3.12/dist-packages/torch/include -isystem /usr/local/lib/python3.12/dist-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /usr/include/python3.12 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -DCUDA_KERNEL -DTORCH_EXTENSION_NAME=idol_cuda_dev -gencode=arch=compute_90a,code=sm_90a -std=c++17 -c /work/idol-cuda/kernel/idol_cuda/idol_kernels.cu -o idol_kernels.cuda.o 
+FAILED: [code=2] idol_kernels.cuda.o 
+/usr/local/cuda/bin/nvcc --generate-dependencies-with-compile --dependency-output idol_kernels.cuda.o.d -DTORCH_EXTENSION_NAME=idol_cuda_dev -DTORCH_API_INCLUDE_EXTENSION_H -I/work/idol-cuda/kernel/dev -I/work/idol-cuda/kernel/idol_cuda -isystem /usr/local/lib/python3.12/dist-packages/torch/include -isystem /usr/local/lib/python3.12/dist-packages/torch/include/torch/csrc/api/include -isystem /usr/local/cuda/include -isystem /usr/include/python3.12 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options '-fPIC' -O3 -DCUDA_KERNEL -DTORCH_EXTENSION_NAME=idol_cuda_dev -gencode=arch=compute_90a,code=sm_90a -std=c++17 -c /work/idol-cuda/kernel/idol_cuda/idol_kernels.cu -o idol_kernels.cuda.o 
+/work/idol-cuda/kernel/idol_cuda/idol_kernels.cu(417): error: cannot deduce type of range in range-based "for" loop
+    for (const at::Tensor* t : {&delta, &freqs, &gamma_q, &gamma_k, &q_out, &k_out})
+                               ^
+
+/work/idol-cuda/kernel/idol_cuda/idol_kernels.cu(451): error: cannot deduce type of range in range-based "for" loop
+    for (auto p : {std::make_pair(&out, "out"), std::make_pair(&o, "o"), std::make_pair(&q, "q"),
+                  ^
+
+/work/idol-cuda/kernel/idol_cuda/idol_kernels.cu(461): error: cannot deduce type of range in range-based "for" loop
+    for (auto p : {std::make_pair(&out, "out"), std::make_pair(&o, "o"), std::make_pair(&q, "q")}) {
+                  ^
+
+/work/idol-cuda/kernel/idol_cuda/idol_kernels.cu(491): error: cannot deduce type of range in range-based "for" loop
+    for (auto p : {std::make_pair(&out, "out"), std::make_pair(&points, "points"), std::make_pair(&perturb, "perturb")})
+                  ^
+
+4 errors detected in the compilation of "/work/idol-cuda/kernel/idol_cuda/idol_kernels.cu".
+ninja: build stopped: subcommand failed.
+
+DEV1_DONE

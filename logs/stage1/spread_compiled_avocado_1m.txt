@@ -1,0 +1,321 @@
+MISMATCH-META  denoiser#0.in.0.camera {"a": "(1, 1, 5) torch.float32", "b": "(2, 1, 5) torch.float32"}
+MISMATCH-META  denoiser#0.in.0.latent {"a": "(1, 8192, 16) torch.float32", "b": "(2, 8192, 16) torch.float32"}
+MISMATCH-META  denoiser#0.in.1 {"a": "(1,) torch.float32", "b": "(2,) torch.float32"}
+MISMATCH-META  denoiser#0.in.2.feature1 {"a": "(1, 4101, 1280) torch.float32", "b": "(2, 4101, 1280) torch.float32"}
+MISMATCH-META  denoiser#0.in.2.feature2 {"a": "(1, 4101, 128) torch.float32", "b": "(2, 4101, 128) torch.float32"}
+MISMATCH-META  denoiser#0.out.camera {"a": "(1, 1, 5) torch.float32", "b": "(2, 1, 5) torch.float32"}
+MISMATCH-META  denoiser#0.out.latent {"a": "(1, 8192, 16) torch.float32", "b": "(2, 8192, 16) torch.float32"}
+MISMATCH-META  denoiser#1.in.0.camera {"a": "(1, 1, 5) torch.float32", "b": "(2, 1, 5) torch.float32"}
+MISMATCH-META  denoiser#1.in.0.latent {"a": "(1, 8192, 16) torch.float32", "b": "(2, 8192, 16) torch.float32"}
+MISMATCH-META  denoiser#1.in.1 {"a": "(1,) torch.float32", "b": "(2,) torch.float32"}
+MISMATCH-META  denoiser#1.in.2.feature1 {"a": "(1, 4101, 1280) torch.float32", "b": "(2, 4101, 1280) torch.float32"}
+MISMATCH-META  denoiser#1.in.2.feature2 {"a": "(1, 4101, 128) torch.float32", "b": "(2, 4101, 128) torch.float32"}
+MISMATCH-META  denoiser#1.out.camera {"a": "(1, 1, 5) torch.float32", "b": "(2, 1, 5) torch.float32"}
+MISMATCH-META  denoiser#1.out.latent {"a": "(1, 8192, 16) torch.float32", "b": "(2, 8192, 16) torch.float32"}
+DIFF           final.camera {"n_diff": 4, "numel": 4, "first": 0, "first_a": 1.6223223634447677, "first_b": 1.6225117971505778, "max_abs": 0.1146165205859333, "mean_abs": 0.032223044563812586, "ref_rms": 19.65058049313681, "max_rel": 0.004386867935125522, "max_ulp": null}
+DIFF           final.features_dc {"n_diff": 3145725, "numel": 3145728, "first": 0, "first_a": -1.7938275337219238, "first_b": -1.8132432699203491, "max_abs": 5.8002824783325195, "mean_abs": 0.3486121742871266, "ref_rms": 1.103854893693281, "max_rel": 1090690.1205874046, "max_ulp": 2155034580}
+DIFF           final.opacity {"n_diff": 1043885, "numel": 1048576, "first": 0, "first_a": 0.9945517182350159, "first_b": 0.999203622341156, "max_abs": 0.9999998739799096, "mean_abs": 0.0814940249732335, "ref_rms": 0.6372515783280833, "max_rel": 999999.8739799097, "max_ulp": 229535303}
+DIFF           final.rotation {"n_diff": 4194299, "numel": 4194304, "first": 0, "first_a": 0.7241957783699036, "first_b": 0.7253279089927673, "max_abs": 1.937343955039978, "mean_abs": 0.08056544103604665, "ref_rms": 0.49999999997744526, "max_rel": 755065.4161084859, "max_ulp": 2129655238}
+DIFF           final.scaling {"n_diff": 2849937, "numel": 3145728, "first": 2, "first_a": 0.003236704971641302, "first_b": 0.002921904204413295, "max_abs": 0.18818396341521293, "mean_abs": 0.0007576054852748334, "ref_rms": 0.0033978899991141316, "max_rel": 204.18182733629533, "max_ulp": 64336188}
+DIFF           final.xyz {"n_diff": 3145704, "numel": 3145728, "first": 0, "first_a": -0.23691150546073914, "first_b": -0.24723881483078003, "max_abs": 0.8517225384712219, "mean_abs": 0.00687916520112708, "ref_rms": 0.218231282293041, "max_rel": 109976.41176470589, "max_ulp": 2108953850}
+DIFF           gsdec#0.in.0 {"n_diff": 98304, "numel": 98304, "first": 0, "first_a": 0.24843528866767883, "first_b": 0.24020850658416748, "max_abs": 0.858117837458849, "mean_abs": 0.006482479843383566, "ref_rms": 0.532872684501622, "max_rel": 224.96864588220262, "max_ulp": 85985985}
+DIFF           gsdec#0.in.1 {"n_diff": 131067, "numel": 131072, "first": 0, "first_a": -1.2649621963500977, "first_b": -1.2643550634384155, "max_abs": 0.27815356105566025, "mean_abs": 0.0026055458643182705, "ref_rms": 1.194965321690298, "max_rel": 403.2455857713623, "max_ulp": 2081728172}
+DIFF           gsdec#0.out {"n_diff": 15728632, "numel": 15728640, "first": 0, "first_a": 1.1352351903915405, "first_b": 1.1334600448608398, "max_abs": 34.65052795410156, "mean_abs": 0.465583055581501, "ref_rms": 3.5054820429267326, "max_rel": 2382751.2524093622, "max_ulp": 2199204936}
+DIFF           octree#0.in.2 {"n_diff": 131067, "numel": 131072, "first": 0, "first_a": -1.2649621963500977, "first_b": -1.2643550634384155, "max_abs": 0.27815356105566025, "mean_abs": 0.0026055458643182705, "ref_rms": 1.194965321690298, "max_rel": 403.2455857713623, "max_ulp": 2081728172}
+DIFF           octree#0.out {"n_diff": 8, "numel": 8, "first": 0, "first_a": 0.05897928774356842, "first_b": 0.059101350605487823, "max_abs": 0.0006691217422485352, "mean_abs": 0.0002726500388234854, "ref_rms": 0.15619200015278362, "max_rel": 0.13540790732630473, "max_ulp": 1794496}
+DIFF           octree#1.in.2 {"n_diff": 131067, "numel": 131072, "first": 0, "first_a": -1.2649621963500977, "first_b": -1.2643550634384155, "max_abs": 0.27815356105566025, "mean_abs": 0.0026055458643182705, "ref_rms": 1.194965321690298, "max_rel": 403.2455857713623, "max_ulp": 2081728172}
+DIFF           octree#1.out {"n_diff": 64, "numel": 64, "first": 0, "first_a": -7.883641719818115, "first_b": -7.881380558013916, "max_abs": 0.0068302154541015625, "mean_abs": 0.002312971279025078, "ref_rms": 6.627735688466177, "max_rel": 0.004820827596514717, "max_ulp": 45672}
+MISMATCH-META  octree#2.in.0 {"a": "(1, 30, 3) torch.float32", "b": "(1, 31, 3) torch.float32"}
+DIFF           octree#2.in.2 {"n_diff": 131067, "numel": 131072, "first": 0, "first_a": -1.2649621963500977, "first_b": -1.2643550634384155, "max_abs": 0.27815356105566025, "mean_abs": 0.0026055458643182705, "ref_rms": 1.194965321690298, "max_rel": 403.2455857713623, "max_ulp": 2081728172}
+MISMATCH-META  octree#2.out {"a": "(1, 30, 8) torch.float32", "b": "(1, 31, 8) torch.float32"}
+MISMATCH-META  octree#3.in.0 {"a": "(1, 136, 3) torch.float32", "b": "(1, 140, 3) torch.float32"}
+DIFF           octree#3.in.2 {"n_diff": 131067, "numel": 131072, "first": 0, "first_a": -1.2649621963500977, "first_b": -1.2643550634384155, "max_abs": 0.27815356105566025, "mean_abs": 0.0026055458643182705, "ref_rms": 1.194965321690298, "max_rel": 403.2455857713623, "max_ulp": 2081728172}
+MISMATCH-META  octree#3.out {"a": "(1, 136, 8) torch.float32", "b": "(1, 140, 8) torch.float32"}
+MISMATCH-META  octree#4.in.0 {"a": "(1, 580, 3) torch.float32", "b": "(1, 589, 3) torch.float32"}
+DIFF           octree#4.in.2 {"n_diff": 131067, "numel": 131072, "first": 0, "first_a": -1.2649621963500977, "first_b": -1.2643550634384155, "max_abs": 0.27815356105566025, "mean_abs": 0.0026055458643182705, "ref_rms": 1.194965321690298, "max_rel": 403.2455857713623, "max_ulp": 2081728172}
+MISMATCH-META  octree#4.out {"a": "(1, 580, 8) torch.float32", "b": "(1, 589, 8) torch.float32"}
+MISMATCH-META  octree#5.in.0 {"a": "(1, 2382, 3) torch.float32", "b": "(1, 2400, 3) torch.float32"}
+DIFF           octree#5.in.2 {"n_diff": 131067, "numel": 131072, "first": 0, "first_a": -1.2649621963500977, "first_b": -1.2643550634384155, "max_abs": 0.27815356105566025, "mean_abs": 0.0026055458643182705, "ref_rms": 1.194965321690298, "max_rel": 403.2455857713623, "max_ulp": 2081728172}
+MISMATCH-META  octree#5.out {"a": "(1, 2382, 8) torch.float32", "b": "(1, 2400, 8) torch.float32"}
+MISMATCH-META  octree#6.in.0 {"a": "(1, 8236, 3) torch.float32", "b": "(1, 8237, 3) torch.float32"}
+DIFF           octree#6.in.2 {"n_diff": 131067, "numel": 131072, "first": 0, "first_a": -1.2649621963500977, "first_b": -1.2643550634384155, "max_abs": 0.27815356105566025, "mean_abs": 0.0026055458643182705, "ref_rms": 1.194965321690298, "max_rel": 403.2455857713623, "max_ulp": 2081728172}
+MISMATCH-META  octree#6.out {"a": "(1, 8236, 8) torch.float32", "b": "(1, 8237, 8) torch.float32"}
+MISMATCH-META  octree#7.in.0 {"a": "(1, 18700, 3) torch.float32", "b": "(1, 18685, 3) torch.float32"}
+DIFF           octree#7.in.2 {"n_diff": 131067, "numel": 131072, "first": 0, "first_a": -1.2649621963500977, "first_b": -1.2643550634384155, "max_abs": 0.27815356105566025, "mean_abs": 0.0026055458643182705, "ref_rms": 1.194965321690298, "max_rel": 403.2455857713623, "max_ulp": 2081728172}
+MISMATCH-META  octree#7.out {"a": "(1, 18700, 8) torch.float32", "b": "(1, 18685, 8) torch.float32"}
+MISMATCH-META  rng.042.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.043.rand {"a": "(2, 1) torch.float32", "b": "(7, 1) torch.float32"}
+MISMATCH-META  rng.044.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.045.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.047.rand {"a": "(4, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.048.rand {"a": "(2, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.049.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.050.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.051.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.052.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.054.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.057.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.060.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.063.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.064.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.067.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.073.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.078.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.080.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.082.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.083.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.087.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.091.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.115.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.119.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.126.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.128.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.130.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.133.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.147.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.151.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.154.rand {"a": "(39, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.155.rand {"a": "(21, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.156.rand {"a": "(13, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.157.rand {"a": "(15, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.158.rand {"a": "(9, 1) torch.float32", "b": "(49, 1) torch.float32"}
+MISMATCH-META  rng.159.rand {"a": "(10, 1) torch.float32", "b": "(19, 1) torch.float32"}
+MISMATCH-META  rng.160.rand {"a": "(7, 1) torch.float32", "b": "(15, 1) torch.float32"}
+MISMATCH-META  rng.161.rand {"a": "(11, 1) torch.float32", "b": "(14, 1) torch.float32"}
+MISMATCH-META  rng.162.rand {"a": "(5, 1) torch.float32", "b": "(9, 1) torch.float32"}
+MISMATCH-META  rng.163.rand {"a": "(12, 1) torch.float32", "b": "(9, 1) torch.float32"}
+MISMATCH-META  rng.164.rand {"a": "(9, 1) torch.float32", "b": "(10, 1) torch.float32"}
+MISMATCH-META  rng.165.rand {"a": "(2, 1) torch.float32", "b": "(10, 1) torch.float32"}
+MISMATCH-META  rng.166.rand {"a": "(7, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.167.rand {"a": "(9, 1) torch.float32", "b": "(13, 1) torch.float32"}
+MISMATCH-META  rng.168.rand {"a": "(9, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.169.rand {"a": "(14, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.170.rand {"a": "(9, 1) torch.float32", "b": "(7, 1) torch.float32"}
+MISMATCH-META  rng.171.rand {"a": "(11, 1) torch.float32", "b": "(10, 1) torch.float32"}
+MISMATCH-META  rng.172.rand {"a": "(7, 1) torch.float32", "b": "(11, 1) torch.float32"}
+MISMATCH-META  rng.173.rand {"a": "(7, 1) torch.float32", "b": "(9, 1) torch.float32"}
+MISMATCH-META  rng.174.rand {"a": "(6, 1) torch.float32", "b": "(9, 1) torch.float32"}
+MISMATCH-META  rng.175.rand {"a": "(9, 1) torch.float32", "b": "(12, 1) torch.float32"}
+MISMATCH-META  rng.176.rand {"a": "(8, 1) torch.float32", "b": "(7, 1) torch.float32"}
+MISMATCH-META  rng.177.rand {"a": "(5, 1) torch.float32", "b": "(7, 1) torch.float32"}
+MISMATCH-META  rng.178.rand {"a": "(3, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.179.rand {"a": "(2, 1) torch.float32", "b": "(10, 1) torch.float32"}
+MISMATCH-META  rng.180.rand {"a": "(3, 1) torch.float32", "b": "(8, 1) torch.float32"}
+MISMATCH-META  rng.181.rand {"a": "(10, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.182.rand {"a": "(4, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.183.rand {"a": "(7, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.184.rand {"a": "(5, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.185.rand {"a": "(2, 1) torch.float32", "b": "(7, 1) torch.float32"}
+MISMATCH-META  rng.187.rand {"a": "(1, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.188.rand {"a": "(1, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.189.rand {"a": "(5, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.190.rand {"a": "(1, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.191.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.192.rand {"a": "(9, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.193.rand {"a": "(4, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.194.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.195.rand {"a": "(1, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.196.rand {"a": "(1, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.197.rand {"a": "(3, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.198.rand {"a": "(2, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.199.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.200.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.201.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.202.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.204.rand {"a": "(6, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.206.rand {"a": "(6, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.208.rand {"a": "(3, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.209.rand {"a": "(1, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.210.rand {"a": "(2, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.211.rand {"a": "(1, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.212.rand {"a": "(5, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.213.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.214.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.215.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.216.rand {"a": "(2, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.217.rand {"a": "(4, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.218.rand {"a": "(5, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.219.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.220.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.221.rand {"a": "(3, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.222.rand {"a": "(3, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.223.rand {"a": "(3, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.224.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.225.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.227.rand {"a": "(6, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.229.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.230.rand {"a": "(4, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.231.rand {"a": "(6, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.232.rand {"a": "(6, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.233.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.234.rand {"a": "(2, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.235.rand {"a": "(4, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.236.rand {"a": "(1, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.237.rand {"a": "(5, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.238.rand {"a": "(3, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.239.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.241.rand {"a": "(6, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.242.rand {"a": "(3, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.243.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.244.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.245.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.246.rand {"a": "(1, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.247.rand {"a": "(5, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.248.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.249.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.250.rand {"a": "(2, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.252.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.253.rand {"a": "(3, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.254.rand {"a": "(1, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.255.rand {"a": "(3, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.256.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.258.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.259.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.261.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.262.rand {"a": "(4, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.263.rand {"a": "(4, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.264.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.267.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.268.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.270.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.272.rand {"a": "(2, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.274.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.275.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.278.rand {"a": "(3, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.279.rand {"a": "(3, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.280.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.281.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.282.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.283.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.285.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.286.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.288.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.290.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.291.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.294.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.296.rand {"a": "(2, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.298.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.299.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.300.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.301.rand {"a": "(3, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.304.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.306.rand {"a": "(1, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.310.rand {"a": "(2, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.315.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.317.rand {"a": "(298, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.318.rand {"a": "(176, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.319.rand {"a": "(155, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.320.rand {"a": "(143, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.321.rand {"a": "(147, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.322.rand {"a": "(126, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.323.rand {"a": "(83, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.324.rand {"a": "(73, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.325.rand {"a": "(60, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.326.rand {"a": "(54, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.327.rand {"a": "(47, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.328.rand {"a": "(42, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.329.rand {"a": "(53, 1) torch.float32", "b": "(312, 1) torch.float32"}
+MISMATCH-META  rng.330.rand {"a": "(51, 1) torch.float32", "b": "(187, 1) torch.float32"}
+MISMATCH-META  rng.331.rand {"a": "(62, 1) torch.float32", "b": "(148, 1) torch.float32"}
+MISMATCH-META  rng.332.rand {"a": "(34, 1) torch.float32", "b": "(149, 1) torch.float32"}
+MISMATCH-META  rng.333.rand {"a": "(51, 1) torch.float32", "b": "(151, 1) torch.float32"}
+MISMATCH-META  rng.334.rand {"a": "(32, 1) torch.float32", "b": "(112, 1) torch.float32"}
+MISMATCH-META  rng.335.rand {"a": "(46, 1) torch.float32", "b": "(94, 1) torch.float32"}
+MISMATCH-META  rng.336.rand {"a": "(44, 1) torch.float32", "b": "(67, 1) torch.float32"}
+MISMATCH-META  rng.337.rand {"a": "(29, 1) torch.float32", "b": "(57, 1) torch.float32"}
+MISMATCH-META  rng.338.rand {"a": "(33, 1) torch.float32", "b": "(59, 1) torch.float32"}
+MISMATCH-META  rng.339.rand {"a": "(35, 1) torch.float32", "b": "(37, 1) torch.float32"}
+MISMATCH-META  rng.340.rand {"a": "(30, 1) torch.float32", "b": "(50, 1) torch.float32"}
+MISMATCH-META  rng.341.rand {"a": "(35, 1) torch.float32", "b": "(54, 1) torch.float32"}
+MISMATCH-META  rng.342.rand {"a": "(35, 1) torch.float32", "b": "(51, 1) torch.float32"}
+MISMATCH-META  rng.343.rand {"a": "(29, 1) torch.float32", "b": "(58, 1) torch.float32"}
+MISMATCH-META  rng.344.rand {"a": "(28, 1) torch.float32", "b": "(40, 1) torch.float32"}
+MISMATCH-META  rng.345.rand {"a": "(34, 1) torch.float32", "b": "(45, 1) torch.float32"}
+MISMATCH-META  rng.346.rand {"a": "(22, 1) torch.float32", "b": "(33, 1) torch.float32"}
+MISMATCH-META  rng.347.rand {"a": "(24, 1) torch.float32", "b": "(44, 1) torch.float32"}
+MISMATCH-META  rng.348.rand {"a": "(18, 1) torch.float32", "b": "(41, 1) torch.float32"}
+MISMATCH-META  rng.349.rand {"a": "(17, 1) torch.float32", "b": "(30, 1) torch.float32"}
+MISMATCH-META  rng.350.rand {"a": "(19, 1) torch.float32", "b": "(35, 1) torch.float32"}
+MISMATCH-META  rng.351.rand {"a": "(16, 1) torch.float32", "b": "(36, 1) torch.float32"}
+MISMATCH-META  rng.352.rand {"a": "(15, 1) torch.float32", "b": "(33, 1) torch.float32"}
+MISMATCH-META  rng.353.rand {"a": "(17, 1) torch.float32", "b": "(33, 1) torch.float32"}
+MISMATCH-META  rng.354.rand {"a": "(15, 1) torch.float32", "b": "(31, 1) torch.float32"}
+MISMATCH-META  rng.355.rand {"a": "(7, 1) torch.float32", "b": "(37, 1) torch.float32"}
+MISMATCH-META  rng.356.rand {"a": "(11, 1) torch.float32", "b": "(30, 1) torch.float32"}
+MISMATCH-META  rng.357.rand {"a": "(10, 1) torch.float32", "b": "(36, 1) torch.float32"}
+MISMATCH-META  rng.358.rand {"a": "(10, 1) torch.float32", "b": "(17, 1) torch.float32"}
+MISMATCH-META  rng.359.rand {"a": "(7, 1) torch.float32", "b": "(23, 1) torch.float32"}
+MISMATCH-META  rng.360.rand {"a": "(10, 1) torch.float32", "b": "(15, 1) torch.float32"}
+MISMATCH-META  rng.361.rand {"a": "(12, 1) torch.float32", "b": "(20, 1) torch.float32"}
+MISMATCH-META  rng.362.rand {"a": "(8, 1) torch.float32", "b": "(15, 1) torch.float32"}
+MISMATCH-META  rng.363.rand {"a": "(10, 1) torch.float32", "b": "(19, 1) torch.float32"}
+MISMATCH-META  rng.364.rand {"a": "(11, 1) torch.float32", "b": "(19, 1) torch.float32"}
+MISMATCH-META  rng.365.rand {"a": "(3, 1) torch.float32", "b": "(13, 1) torch.float32"}
+MISMATCH-META  rng.366.rand {"a": "(5, 1) torch.float32", "b": "(14, 1) torch.float32"}
+MISMATCH-META  rng.367.rand {"a": "(5, 1) torch.float32", "b": "(10, 1) torch.float32"}
+MISMATCH-META  rng.368.rand {"a": "(4, 1) torch.float32", "b": "(11, 1) torch.float32"}
+MISMATCH-META  rng.369.rand {"a": "(4, 1) torch.float32", "b": "(9, 1) torch.float32"}
+MISMATCH-META  rng.370.rand {"a": "(4, 1) torch.float32", "b": "(11, 1) torch.float32"}
+MISMATCH-META  rng.371.rand {"a": "(3, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.372.rand {"a": "(3, 1) torch.float32", "b": "(9, 1) torch.float32"}
+MISMATCH-META  rng.373.rand {"a": "(3, 1) torch.float32", "b": "(10, 1) torch.float32"}
+MISMATCH-META  rng.374.rand {"a": "(2, 1) torch.float32", "b": "(9, 1) torch.float32"}
+MISMATCH-META  rng.375.rand {"a": "(3, 1) torch.float32", "b": "(10, 1) torch.float32"}
+MISMATCH-META  rng.376.rand {"a": "(3, 1) torch.float32", "b": "(9, 1) torch.float32"}
+MISMATCH-META  rng.377.rand {"a": "(3, 1) torch.float32", "b": "(6, 1) torch.float32"}
+MISMATCH-META  rng.378.rand {"a": "(1, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.379.rand {"a": "(1, 1) torch.float32", "b": "(7, 1) torch.float32"}
+MISMATCH-META  rng.381.rand {"a": "(1, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.383.rand {"a": "(2, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.384.rand {"a": "(1, 1) torch.float32", "b": "(7, 1) torch.float32"}
+MISMATCH-META  rng.385.rand {"a": "(1, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.387.rand {"a": "(2683, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.388.rand {"a": "(1338, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.389.rand {"a": "(906, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.390.rand {"a": "(739, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.391.rand {"a": "(550, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.392.rand {"a": "(414, 1) torch.float32", "b": "(4, 1) torch.float32"}
+MISMATCH-META  rng.393.rand {"a": "(376, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.394.rand {"a": "(275, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.395.rand {"a": "(224, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.396.rand {"a": "(180, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.397.rand {"a": "(128, 1) torch.float32", "b": "(2669, 1) torch.float32"}
+MISMATCH-META  rng.398.rand {"a": "(89, 1) torch.float32", "b": "(1365, 1) torch.float32"}
+MISMATCH-META  rng.399.rand {"a": "(81, 1) torch.float32", "b": "(915, 1) torch.float32"}
+MISMATCH-META  rng.400.rand {"a": "(67, 1) torch.float32", "b": "(738, 1) torch.float32"}
+MISMATCH-META  rng.401.rand {"a": "(45, 1) torch.float32", "b": "(519, 1) torch.float32"}
+MISMATCH-META  rng.402.rand {"a": "(33, 1) torch.float32", "b": "(420, 1) torch.float32"}
+MISMATCH-META  rng.403.rand {"a": "(23, 1) torch.float32", "b": "(364, 1) torch.float32"}
+MISMATCH-META  rng.404.rand {"a": "(17, 1) torch.float32", "b": "(295, 1) torch.float32"}
+MISMATCH-META  rng.405.rand {"a": "(18, 1) torch.float32", "b": "(231, 1) torch.float32"}
+MISMATCH-META  rng.406.rand {"a": "(12, 1) torch.float32", "b": "(171, 1) torch.float32"}
+MISMATCH-META  rng.407.rand {"a": "(10, 1) torch.float32", "b": "(124, 1) torch.float32"}
+MISMATCH-META  rng.408.rand {"a": "(10, 1) torch.float32", "b": "(90, 1) torch.float32"}
+MISMATCH-META  rng.409.rand {"a": "(4, 1) torch.float32", "b": "(83, 1) torch.float32"}
+MISMATCH-META  rng.410.rand {"a": "(2, 1) torch.float32", "b": "(62, 1) torch.float32"}
+MISMATCH-META  rng.411.rand {"a": "(2, 1) torch.float32", "b": "(46, 1) torch.float32"}
+MISMATCH-META  rng.412.rand {"a": "(3, 1) torch.float32", "b": "(35, 1) torch.float32"}
+MISMATCH-META  rng.413.rand {"a": "(2, 1) torch.float32", "b": "(27, 1) torch.float32"}
+MISMATCH-META  rng.414.rand {"a": "(1, 1) torch.float32", "b": "(14, 1) torch.float32"}
+MISMATCH-META  rng.415.rand {"a": "(2, 1) torch.float32", "b": "(19, 1) torch.float32"}
+MISMATCH-META  rng.416.rand {"a": "(1, 1) torch.float32", "b": "(11, 1) torch.float32"}
+MISMATCH-META  rng.417.rand {"a": "(1, 1) torch.float32", "b": "(12, 1) torch.float32"}
+MISMATCH-META  rng.418.rand {"a": "(11889, 1) torch.float32", "b": "(7, 1) torch.float32"}
+MISMATCH-META  rng.419.rand {"a": "(3541, 1) torch.float32", "b": "(5, 1) torch.float32"}
+MISMATCH-META  rng.420.rand {"a": "(1570, 1) torch.float32", "b": "(3, 1) torch.float32"}
+MISMATCH-META  rng.421.rand {"a": "(759, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.422.rand {"a": "(390, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.423.rand {"a": "(234, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.424.rand {"a": "(129, 1) torch.float32", "b": "(2, 1) torch.float32"}
+MISMATCH-META  rng.425.rand {"a": "(75, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.426.rand {"a": "(48, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.427.rand {"a": "(24, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.428.rand {"a": "(15, 1) torch.float32", "b": "(1, 1) torch.float32"}
+MISMATCH-META  rng.429.rand {"a": "(9, 1) torch.float32", "b": "(11887, 1) torch.float32"}
+MISMATCH-META  rng.430.rand {"a": "(5, 1) torch.float32", "b": "(3524, 1) torch.float32"}
+MISMATCH-META  rng.431.rand {"a": "(6, 1) torch.float32", "b": "(1558, 1) torch.float32"}
+MISMATCH-META  rng.432.rand {"a": "(1, 1) torch.float32", "b": "(783, 1) torch.float32"}
+MISMATCH-META  rng.433.rand {"a": "(1, 1) torch.float32", "b": "(383, 1) torch.float32"}
+MISMATCH-META  rng.434.rand {"a": "(3, 1) torch.float32", "b": "(231, 1) torch.float32"}
+MISMATCH-META  rng.435.rand {"a": "(1, 1) torch.float32", "b": "(128, 1) torch.float32"}
+# 500 compared, 180 identical, 320 differ; only in A: 538, only in B: 11

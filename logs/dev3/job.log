@@ -1,0 +1,116 @@
+== Wed Nov 25 05:38:51 UTC 2026 host j-suvadityamuk-6b0674611460ffe1d5e9df26-vqfn2rll-6c592-l8kzz nproc 192 run /scratch/runs/20261125-053851-dev3
+idol-sdk 8db700349a5570aac390e4780fa32e3eed6b587a
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+spin 0.16 requires click!=8.3.0,<8.4,>=8, but you have click 8.5.1 which is incompatible.
+  DEPRECATION: Setting PIP_CONSTRAINT will not affect build constraints in the future, pip 26.2 will enforce this behaviour change. A possible replacement is to specify build constraints using --build-constraint or PIP_BUILD_CONSTRAINT. To disable this warning without any build constraints set --use-feature=build-constraint or PIP_USE_FEATURE="build-constraint".
+torch 2.10.0+cu130 cuda 13.0 cudnn 91501
+torchvision 0.25.0+cu130 transformers 5.24.1 diffusers 0.43.0
+pillow 13.0.0 numpy 2.5.5 tensordict 0.14.3 flash_attn 2.8.3
+NVIDIA H200, 595.112.07
+kernel/torch-ext/idol_cuda/__init__.py:61: in merge_extra_key
+    ops.merge_extra_key(out, o, lse, q, k_extra, v_extra, float(scale), float(log_mult))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <OpOverloadPacket(op='idol_cuda_dev.merge_extra_key')>
+args = (tensor([[[[ 6.7787e-03,  8.9844e-01,  3.5644e-05,  ...,  7.3340e-01,
+            2.1881e-02,  8.2275e-01],
+          ...     [ 0.4553,  0.1292, -0.5112,  ...,  1.3213,  0.8540, -0.1323]]],
+       device='cuda:0', dtype=torch.float16), ...)
+kwargs = {}
+
+    def __call__(self, /, *args: _P.args, **kwargs: _P.kwargs) -> _T:
+        # overloading __call__ to ensure torch.ops.foo.bar()
+        # is still callable from JIT
+        # We save the function ptr as the `op` attribute on
+        # OpOverloadPacket to access it here.
+    
+        # Directly calling OverloadPacket goes into C++, which will check
+        # the schema and cause an error for torchbind op when inputs consist of FakeScriptObject so we
+        # intercept it here and call TorchBindOpverload instead.
+        if self._has_torchbind_op_overload and _must_dispatch_in_python(args, kwargs):
+            # pyrefly: ignore [bad-argument-type]
+            return _call_overload_packet_from_python(self, *args, **kwargs)
+>       return self._op(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       RuntimeError: out must have [B, L, H, 64] layout with a row stride (token) and packed heads
+
+/usr/local/lib/python3.12/dist-packages/torch/_ops.py:1209: RuntimeError
+=============================== warnings summary ===============================
+kernel/tests/test_idol_cuda.py::test_add_ln_mod[plain-1]
+    from ._ops import ops
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED kernel/tests/test_idol_cuda.py::test_add_ln_mod[mod-12294] - Assertion...
+FAILED kernel/tests/test_idol_cuda.py::test_add_ln_mod[gate_mod-12294] - Asse...
+FAILED kernel/tests/test_idol_cuda.py::test_rope_rms_qk[8194] - AssertionErro...
+FAILED kernel/tests/test_idol_cuda.py::test_rope_rms_qk[12294] - AssertionErr...
+FAILED kernel/tests/test_idol_cuda.py::test_merge_extra_key[1-1] - RuntimeErr...
+5 failed, 39 passed, 1 warning in 24.28s
+
+Loading weights:   0%|          | 0/615 [00:00<?, ?it/s][ALoading weights: 100%|██████████| 615/615 [00:00<00:00, 4245.98it/s]
+  _warn_once(
+fast step: 85.15 ms GPU per step
+  55.560 ms/step  65.3% x  50  cudnn_generated_fort_native_sdpa_sm90_flash_fprop_wgmma_f16_knob_7_64x128x64_4x1x1_cga1x1x1_kernel0_0
+   7.325 ms/step   8.6% x  54  nvjet_sm90_hsh_256x128_64x4_1x2_h_bz_coopA_bias_TNT
+   6.469 ms/step   7.6% x  24  nvjet_sm90_hsh_256x152_64x4_1x2_h_bz_coopA_gelubias_TNT
+   4.451 ms/step   5.2% x  24  nvjet_sm90_hsh_192x208_64x4_2x1_v_bz_coopB_bias_TNT
+   4.063 ms/step   4.8% x  54  idol_cuda::(anonymous namespace)::add_ln_mod_kernel(idol_cuda::(anonymous namespace)::AddLnArgs)
+   3.042 ms/step   3.6% x  26  idol_cuda::(anonymous namespace)::rope_rms_qk_kernel(__half const*, long, float const*, long, float const*, float const*
+   1.134 ms/step   1.3% x  24  sm90_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize64x256x32_warpgroupsize1x1x1_execute_segment_k_off_kernel__5x_cublas
+   1.012 ms/step   1.2% x  24  idol_cuda::(anonymous namespace)::merge_key_kernel(__half const*, long, float const*, __half const*, long, __half const*
+   0.484 ms/step   0.6% x  55  Memcpy DtoD (Device -> Device)
+   0.297 ms/step   0.3% x  29  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, f
+   0.242 ms/step   0.3% x  25  void cutlass::Kernel2<cutlass_80_tensorop_s1688gemm_128x64_16x6_tn_align4>(cutlass_80_tensorop_s1688gemm_128x64_16x6_tn_
+   0.233 ms/step   0.3% x  26  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::(anonymous namespace)::silu_k
+   0.224 ms/step   0.3% x   2  nvjet_sm90_hsh_256x128_64x4_1x2_h_bz_coopA_gelubias_TNT
+   0.189 ms/step   0.2% x 176  Memset (Device)
+   0.059 ms/step   0.1% x   2  void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<float, float, false>(int, float, float const*, floa
+   0.058 ms/step   0.1% x   3  void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::
+   0.055 ms/step   0.1% x   2  void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}:
+   0.045 ms/step   0.1% x  29  void at::native::vectorized_elementwise_kernel<8, at::native::float16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda
+   0.043 ms/step   0.1% x   3  void at::native::(anonymous namespace)::CatArrayBatchedCopy_vectorized<at::native::(anonymous namespace)::OpaqueType<2u>
+   0.038 ms/step   0.0% x   2  sm90_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize128x128x32_warpgroupsize1x1x1_execute_segment_k_off_kernel__5x_cublas
+   0.036 ms/step   0.0% x  27  void at::native::vectorized_elementwise_kernel<8, at::native::CUDAFunctor_add<c10::Half>, std::array<char*, 3ul> >(int, 
+   0.024 ms/step   0.0% x   1  sm90_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize64x64x32_warpgroupsize1x1x1_execute_segment_k_on_kernel__5x_cublas
+   0.013 ms/step   0.0% x   1  sm80_xmma_gemm_f32f32_tf32f32_f32_tn_n_tilesize32x32x64_stage3_warpsize2x2x1_tensor16x8x8_aligna4_alignc4_execute_kernel
+   0.012 ms/step   0.0% x   3  std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, float, float, float, float, false, true, true, fa
+   0.010 ms/step   0.0% x   2  void cutlass::Kernel2<cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align4>(cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_al
+   0.010 ms/step   0.0% x   1  void gemv2T_kernel_val<int, int, float, float, float, float, 128, 16, 4, 4, false, false, cublasGemvParamsEx<int, cublas
+   0.003 ms/step   0.0% x   3  void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, float, at::native::binary_inte
+   0.003 ms/step   0.0% x   1  std::enable_if<true, void>::type internal::gemvx::kernel<int, int, float, float, float, float, true, true, true, false, 
+   0.003 ms/step   0.0% x   2  void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&
+   0.002 ms/step   0.0% x   2  void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctorOnSelf_add<float>, std::array<char*, 2ul> >(int
+fa3 unavailable: ValueError A kernel version or revision must be specified. Use `version=<major>` for a stable kernel API version or `revision=<branch/tag/commit>` for an explicit Hub revision. See: https://huggingface.co/docs/k
+attention L=12294 S=12294: cudnn 1.482 ms (418 TFLOP/s)  flash_aten 2.009 ms (308 TFLOP/s)
+fa3 unavailable: ValueError A kernel version or revision must be specified. Use `version=<major>` for a stable kernel API version or `revision=<branch/tag/commit>` for an explicit Hub revision. See: https://huggingface.co/docs/k
+attention L=8194 S=8193: cudnn 0.671 ms (410 TFLOP/s)  flash_aten 0.902 ms (305 TFLOP/s)
+{"load_s": 14.891101768997032, "parity": false}
+{"request_s": 6.598961174022406, "stages": {"preprocess": 0.6763011330040172, "encoders": 0.5325604890240356, "sampling": 4.621520150976721, "octree": 0.6537757530459203, "gs_decoder": 0.11402657395228744, "to_gaussians": 0.0007770740194246173}, "save_s": 0.10950583399971947, "peak_alloc_gb": 5.048973560333252, "peak_reserved_gb": 6.787109375, "kind": "first"}
+{"request_s": 4.726678472012281, "stages": {"preprocess": 0.1356281240005046, "encoders": 0.07841323502361774, "sampling": 4.435830543981865, "octree": 0.0350027889944613, "gs_decoder": 0.04148043500026688, "to_gaussians": 0.0003233450115658343}, "save_s": 0.09293084102682769, "peak_alloc_gb": 5.074854373931885, "peak_reserved_gb": 6.787109375, "kind": "timed"}
+{"request_s": 4.738132397993468, "stages": {"preprocess": 0.13445392198627815, "encoders": 0.07817612896906212, "sampling": 4.447831574012525, "octree": 0.036066887027118355, "gs_decoder": 0.041219965962227434, "to_gaussians": 0.0003839200362563133}, "save_s": 0.09846254496369511, "peak_alloc_gb": 5.091934680938721, "peak_reserved_gb": 6.787109375, "kind": "timed"}
+{"latent_rel_l2": 0.015657482718411147, "latent_max_abs": 2.6716638803482056, "latent_mean_abs": 0.0036407368941202556, "camera_abs_err": [0.0010656474747983147, 0.0018783905821380294, 0.00024878113744142283, 0.010840488768295131], "chamfer_xyz": 0.0016781132461084342, "n_gaussians": [262144, 262144]}
+{"latent_rel_l2": 0.014328525388315952, "latent_max_abs": 1.6656519770622253, "latent_mean_abs": 0.004355769748367377, "camera_abs_err": [0.0007995260494269019, 0.0011912318576282437, 0.003677745181913661, 0.08598938404274037], "chamfer_xyz": 0.0016762057008089387, "n_gaussians": [262144, 262144]}
+{"load_s": 14.730060694972053, "parity": false}
+{"request_s": 6.071414564969018, "stages": {"preprocess": 0.6692768780048937, "encoders": 0.22328037599800155, "sampling": 4.638066824001726, "octree": 0.431308094994165, "gs_decoder": 0.10853615897940472, "to_gaussians": 0.0009462329908274114}, "save_s": 0.08246868097921833, "peak_alloc_gb": 5.048973560333252, "peak_reserved_gb": 6.787109375, "kind": "first"}
+{"request_s": 4.755118915985804, "stages": {"preprocess": 0.1544432929949835, "encoders": 0.07869450602447614, "sampling": 4.444666331983171, "octree": 0.03552250802749768, "gs_decoder": 0.04146463895449415, "to_gaussians": 0.00032763800118118525}, "save_s": 0.06643801304744557, "peak_alloc_gb": 5.074854373931885, "peak_reserved_gb": 6.787109375, "kind": "timed"}
+{"request_s": 4.7632314679794945, "stages": {"preprocess": 0.15086010098457336, "encoders": 0.07818808301817626, "sampling": 4.455726723012049, "octree": 0.036477682006079704, "gs_decoder": 0.04144998994888738, "to_gaussians": 0.0005288890097290277}, "save_s": 0.07458129501901567, "peak_alloc_gb": 5.091934680938721, "peak_reserved_gb": 6.787109375, "kind": "timed"}
+{"latent_rel_l2": 0.0042823803234972166, "latent_max_abs": 0.3527066707611084, "latent_mean_abs": 0.002392793238628066, "camera_abs_err": [0.0005188356810510442, 0.0005273599401446893, 0.015097324747380458, 0.1567368430634346], "chamfer_xyz": 0.0018849590809699585, "n_gaussians": [262144, 262144]}
+{"latent_rel_l2": 0.004617891867534051, "latent_max_abs": 0.27815356105566025, "latent_mean_abs": 0.0026055458643182705, "camera_abs_err": [0.00018943370581014918, 0.0015953769042373889, 0.012490847059269505, 0.1146165205859333], "chamfer_xyz": 0.0018903813255819052, "n_gaussians": [262144, 262144]}
+{"load_s": 14.251709921984002, "parity": false}
+{"request_s": 6.259751270990819, "stages": {"preprocess": 0.6311655130120926, "encoders": 0.2241529289749451, "sampling": 4.6335239540203474, "octree": 0.44586251402506605, "gs_decoder": 0.3241857420071028, "to_gaussians": 0.0008606189512647688}, "save_s": 0.20448462897911668, "peak_alloc_gb": 5.0495381355285645, "peak_reserved_gb": 6.787109375, "kind": "first"}
+{"request_s": 4.982024465047289, "stages": {"preprocess": 0.14294132601935416, "encoders": 0.07828869001241401, "sampling": 4.445470203994773, "octree": 0.04529749299399555, "gs_decoder": 0.26954418898094445, "to_gaussians": 0.0004825630458071828}, "save_s": 0.8066279409686103, "peak_alloc_gb": 5.124256610870361, "peak_reserved_gb": 6.787109375, "kind": "timed"}
+{"request_s": 4.998612752009649, "stages": {"preprocess": 0.14794256200548261, "encoders": 0.07823068799916655, "sampling": 4.454226669971831, "octree": 0.04669534298591316, "gs_decoder": 0.27075806504581124, "to_gaussians": 0.0007594240014441311}, "save_s": 0.21528964099707082, "peak_alloc_gb": 5.191151142120361, "peak_reserved_gb": 6.7890625, "kind": "timed"}
+{"latent_rel_l2": 0.015657482718411147, "latent_max_abs": 2.6716638803482056, "latent_mean_abs": 0.0036407368941202556, "camera_abs_err": [0.0010656474747983147, 0.0018783905821380294, 0.00024878113744142283, 0.010840488768295131], "chamfer_xyz": 0.0010022748246327276, "n_gaussians": [1048576, 1048576]}
+{"latent_rel_l2": 0.014328525388315952, "latent_max_abs": 1.6656519770622253, "latent_mean_abs": 0.004355769748367377, "camera_abs_err": [0.0007995260494269019, 0.0011912318576282437, 0.003677745181913661, 0.08598938404274037], "chamfer_xyz": 0.001006185053492481, "n_gaussians": [1048576, 1048576]}
+{"load_s": 14.53976223396603, "parity": false}
+{"request_s": 6.370807834027801, "stages": {"preprocess": 0.7011746390489861, "encoders": 0.24941277195466682, "sampling": 4.649821460014209, "octree": 0.4437879589968361, "gs_decoder": 0.3254615780315362, "to_gaussians": 0.00114942598156631}, "save_s": 0.17814868298592046, "peak_alloc_gb": 5.048973560333252, "peak_reserved_gb": 6.787109375, "kind": "first"}
+{"request_s": 5.018325510027353, "stages": {"preprocess": 0.16218753601424396, "encoders": 0.07980780798243359, "sampling": 4.461921948008239, "octree": 0.04455525800585747, "gs_decoder": 0.26930918596917763, "to_gaussians": 0.0005437740474008024}, "save_s": 0.1923743539955467, "peak_alloc_gb": 5.123692035675049, "peak_reserved_gb": 6.787109375, "kind": "timed"}
+{"request_s": 5.01848455297295, "stages": {"preprocess": 0.16793032601708546, "encoders": 0.07821216399315745, "sampling": 4.456021547957789, "octree": 0.04521254502469674, "gs_decoder": 0.2705005329917185, "to_gaussians": 0.0006074369885027409}, "save_s": 0.17538405198138207, "peak_alloc_gb": 5.190586566925049, "peak_reserved_gb": 6.787109375, "kind": "timed"}
+{"latent_rel_l2": 0.0042823803234972166, "latent_max_abs": 0.3527066707611084, "latent_mean_abs": 0.002392793238628066, "camera_abs_err": [0.0005188356810510442, 0.0005273599401446893, 0.015097324747380458, 0.1567368430634346], "chamfer_xyz": 0.0011816083278145227, "n_gaussians": [1048576, 1048576]}
+{"latent_rel_l2": 0.004617891867534051, "latent_max_abs": 0.27815356105566025, "latent_mean_abs": 0.0026055458643182705, "camera_abs_err": [0.00018943370581014918, 0.0015953769042373889, 0.012490847059269505, 0.1146165205859333], "chamfer_xyz": 0.0011885160300919902, "n_gaussians": [1048576, 1048576]}
+{"load_s": 13.980898337031249, "parity": true}
+{"request_s": 10.528796139988117, "stages": {"preprocess": 0.6420686590136029, "encoders": 0.24294730299152434, "sampling": 9.038739973970223, "octree": 0.4691589130088687, "gs_decoder": 0.1041818120284006, "to_gaussians": 0.031699478975497186}, "save_s": 0.1672320049838163, "peak_alloc_gb": 5.00655
+PY PARITY PLY IDENTICAL
+PY PARITY CAMERA IDENTICAL
+DEV3_DONE
