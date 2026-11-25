@@ -44,6 +44,10 @@ because of compilation). Full tables, the 1M-Gaussian and avocado configs, and m
 Try it without installing anything in the [Space](https://huggingface.co/spaces/suvadityamuk/idol-cuda-demo): it runs
 the same image through the official pipeline and the fast build and shows both times and both splats.
 
+<p align="center">
+  <a href="https://huggingface.co/spaces/suvadityamuk/idol-cuda-demo"><img alt="The Space after one comparison on its ZeroGPU slice: idol-cuda 12.4 s, official pipeline (eager) 23.8 s, 1.92x faster" src="https://raw.githubusercontent.com/suvadityamuk/idol-cuda/main/assets/space.png" width="820"></a>
+</p>
+
 ## Install
 
 You need Linux x86_64, an NVIDIA GPU (compute capability 8.0 or newer; tested on an H200), Python 3.12, and a Hugging

@@ -25,12 +25,16 @@ def text(h):
 
 
 def drain(gen):
-    n, last, t0, seen = 0, None, time.perf_counter(), []
+    # Each .ply is sent once and skipped (gr.skip()) afterwards: keep the last file path seen in each viewer slot.
+    n, last, t0, seen, plys = 0, None, time.perf_counter(), [], [None, None]
     for last in gen:
         n += 1
+        for i in (0, 1):
+            if isinstance(last[i], str) or last[i] is None:
+                plys[i] = last[i]
         if n % 8 == 1:
             seen.append(f'{time.perf_counter() - t0:6.1f}s  fast: {text(last[2])[:90]} | official: {text(last[3])[:60]}')
-    return last, n, seen
+    return last, plys, n, seen
 
 
 def main():
@@ -69,15 +73,16 @@ def main():
     img = Image.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'examples', 'fig-robot-cute.webp'))
     for compare in (False, True):
         t = time.perf_counter()
-        last, n, seen = drain(app.generate(img, 'Synthetic (render / generated)', 42, 50, '262,144', False, compare))
+        last, (fast_ply, off_ply), n, seen = drain(app.generate(img, 'Synthetic (render / generated)', 42, 50, '262,144', False, compare))
         wall = time.perf_counter() - t
-        fast_ply, off_ply, card_f, card_o, summ, file_f, file_o, seed = last
+        _, _, card_f, card_o, summ, info, seed = last
         print(f'--- button {"Compare with official" if compare else "Generate (fast build)"}: {n} UI updates, '
               f'{wall:.1f} s wall')
         print('\n'.join(seen))
         print('fast card:    ', text(card_f))
         print('official card:', text(card_o))
-        print('summary:      ', text(summ)[:400])
+        print('headline:     ', text(summ)[:400])
+        print('details:      ', text(info)[:400])
         for label, f in (('fast', fast_ply), ('official', off_ply)):
             if f:
                 print(f'{label} file: {f} ({os.path.getsize(f)} bytes)')

@@ -44,6 +44,29 @@ validated (device, dtype, shape, strides, alignment). Results differ from the Py
 reduction order (LayerNorm and L2-norm statistics), which moves a small fraction of fp16 outputs by one ulp; the
 tests in the source repository state the tolerances.
 
+## Benchmarks
+
+End to end, seconds per request (image path in, Gaussians out, CUDA-synced; load, warm-up and the PLY write
+excluded), speed-up against the official pipeline's compiled default:
+
+| build | robot 262k | avocado 262k | robot 1M | avocado 1M |
+|---|---|---|---|---|
+| official, compiled (default) | 6.470 s, 1.00x | 6.512 s, 1.00x | 6.750 s, 1.00x | 6.794 s, 1.00x |
+| official, eager (`--no_optimize`) | 9.599 s, 0.67x | 9.639 s, 0.68x | 9.894 s, 0.68x | 9.930 s, 0.68x |
+| parity (bit-exact), Python | 9.147 s, 0.71x | 9.162 s, 0.71x | 9.425 s, 0.72x | 9.458 s, 0.72x |
+| **fast: these kernels + FlashAttention-3** | **4.221 s, 1.53x** | **4.234 s, 1.54x** | **4.467 s, 1.51x** | **4.489 s, 1.51x** |
+| fast, native C++ (cuDNN attention) | 4.747 s, 1.36x | 4.767 s, 1.37x | 4.988 s, 1.35x | 5.026 s, 1.35x |
+
+One HF Jobs session on an NVIDIA H200 (141 GB, driver 595.112.07, torch 2.10.0+cu130, CUDA 13.0, cuDNN 9.15.1),
+idol-sdk 8db7003, seed 42, 50 steps, cfg 3.0. All builds loaded once as long-lived workers, one warm-up request per
+build and config, then 5 rounds in an order that rotates and reverses each round. Peak memory is about the same as
+the official pipeline's (5.08 vs 5.02 GB allocated at 262k). The kernels loaded from this repository reproduced the
+fast row in a separate H200 session (4.15 s, robot 262k).
+
+On the demo Space's ZeroGPU slice (half an NVIDIA RTX PRO 6000 Blackwell, torch 2.10.0+cu128, where FlashAttention-3
+does not load and the official pipeline runs eager), single requests: fast 12.3-12.5 s against 23.7 s official,
+1.89-1.92x.
+
 From the source repository:
 - `scripts/infer.py photo.jpg -o photo.ply`: one command from an image to a `.ply` with these kernels (fast build),
   or `--build parity` / `--build reference`.
