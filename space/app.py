@@ -274,9 +274,20 @@ def generate(image, mode, seed, steps, gaussians, randomize, compare):
     state = {'fast': None, 'official': {'status': 'skipped'} if not compare else None}
     files = {'fast': None, 'official': None}
 
+    sent = {}
+
     def emit():
+        # Send a .ply only when it changes: re-sending the finished fast splat with every progress tick of the
+        # official run made each tick cost seconds (the file is re-served and re-loaded by the viewer every time).
         f, o, s = _views(state)
-        return (files['fast'], files['official'], f, o, s, files['fast'], files['official'], int(seed))
+
+        def once(slot, build):
+            if slot in sent and sent[slot] == files[build]:
+                return gr.skip()
+            sent[slot] = files[build]
+            return files[build]
+        return (once('vf', 'fast'), once('vo', 'official'), f, o, s, once('ff', 'fast'), once('fo', 'official'),
+                int(seed))
 
     for build in (['fast', 'official'] if compare else ['fast']):
         state[build] = {'status': 'warmup', 'steps': int(steps)}
